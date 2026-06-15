@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>doTERRA Oil Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b2d3a; --ink-soft:#5f6b7a; --ink-faint:#9aa0ad;
+    --teal:#9a78b5; --teal-dark:#7a5a9c; --teal-tint:#f2ecf8; --teal-line:#e3d7ef;
+    --purple:#a585c4; --purple-dark:#8a6aad;
+    --gold:#b08d57; --gold-tint:#f3ecdf; --sand:#f5f2f8;
+    --white:#fff; --line:#e9e6ee; --shadow-sm:0 1px 2px rgba(43,45,58,.05); --shadow:0 12px 34px rgba(122,90,156,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{font-family:'Poppins',"Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;color:var(--ink);background:#e8e4ef;display:flex;align-items:center;justify-content:center;min-height:100%;-webkit-font-smoothing:antialiased}
+  .phone{position:relative;width:100%;max-width:412px;height:100vh;max-height:900px;background:var(--white);overflow:hidden;display:flex;flex-direction:column}
+  @media(min-width:480px){body{padding:26px}.phone{border-radius:44px;border:11px solid #15201f;height:860px;box-shadow:0 30px 70px rgba(20,32,31,.4)}}
+
+  header{flex:0 0 auto;padding:calc(env(safe-area-inset-top) + 16px) 22px 14px;background:var(--white);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;position:relative;z-index:10}
+  .back-btn{border:none;background:none;cursor:pointer;width:30px;height:30px;display:none;align-items:center;justify-content:center;margin-left:-6px;color:var(--ink)}
+  .back-btn svg{width:22px;height:22px}
+  header.sub .back-btn{display:flex}
+  header.sub .brand-block{opacity:0;pointer-events:none}
+  .brand-block{flex:1 1 auto;text-align:center;line-height:1}
+  .wordmark{font-size:21px;font-weight:300;letter-spacing:5px;text-transform:uppercase}
+  .wordmark b{font-weight:600}
+  .tagline{font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-top:5px;font-weight:500}
+  .sub-title{display:none;position:absolute;left:48px;right:48px;text-align:center;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  header.sub .sub-title{display:block}
+  .accent-rule{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5;flex:0 0 auto}
+
+  .scroll{flex:1 1 auto;overflow-y:scroll;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--purple) transparent}
+  .scroll::-webkit-scrollbar{width:9px}
+  .scroll::-webkit-scrollbar-track{background:var(--sand)}
+  .scroll::-webkit-scrollbar-thumb{background:var(--purple);border-radius:9px;border:2px solid var(--sand)}
+  .scroll::-webkit-scrollbar-thumb:hover{background:var(--purple-dark)}
+  .view{display:none}.view.active{display:block}
+  .anim{animation:slide .3s cubic-bezier(.22,.7,.3,1)}
+  @keyframes slide{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+
+  /* HOME — search first, compact */
+  .home-hero{padding:26px 26px 16px}
+  .home-hero .eyebrow{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px}
+  .home-hero h1{font-size:23px;font-weight:300;line-height:1.3}
+  .home-hero h1 b{font-weight:600}
+  .searchbar{position:sticky;top:0;z-index:6;background:var(--white);padding:8px 26px 14px;border-bottom:1px solid var(--line)}
+  .search-wrap{position:relative}
+  .search-box{width:100%;padding:14px 18px 14px 46px;font-size:15px;border:1.5px solid var(--line);border-radius:50px;background:var(--white);outline:none;transition:border-color .2s,box-shadow .2s}
+  .search-box::placeholder{color:var(--ink-faint)}
+  .search-box:focus{border-color:var(--purple);box-shadow:0 0 0 4px rgba(165,133,196,.15)}
+  .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--ink-faint)}
+  .count{padding:14px 26px 8px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+  .clist{padding:0 16px 28px}
+  .crow{display:flex;align-items:center;gap:14px;padding:14px 10px;border-bottom:1px solid var(--line);cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;width:100%;text-align:left}
+  .crow:active{background:var(--teal-tint)}
+  .crow .ic{width:34px;height:34px;border-radius:50%;background:var(--teal-tint);display:grid;place-items:center;flex:0 0 auto}
+  .crow .ic svg{width:18px;height:18px;color:var(--teal)}
+  .crow .ctext{flex:1 1 auto;min-width:0}
+  .crow .clabel{display:block;font-size:15px;font-weight:500;color:var(--ink)}
+  .crow .coil{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .crow .chev{color:var(--ink-faint);flex:0 0 auto}
+  .crow .chev svg{width:16px;height:16px}
+  .no-match{display:none;text-align:center;color:var(--ink-soft);padding:40px 26px;font-size:14.5px}
+
+  /* CONDITION detail */
+  .detail-wrap{padding:26px 26px 36px}
+  .detail-top{text-align:center;padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+  .detail-top .ic{width:60px;height:60px;border-radius:50%;margin:0 auto 14px;background:var(--teal-tint);display:grid;place-items:center;border:1px solid var(--teal-line)}
+  .detail-top .ic svg{width:30px;height:30px;color:var(--teal)}
+  .detail-top h2{font-size:22px;font-weight:300}.detail-top h2 b{font-weight:600}
+  .detail-top .desc{font-size:12.5px;color:var(--ink-soft);margin-top:7px}
+  .pill{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:5px 12px;border-radius:2px;margin-bottom:14px}
+  .pill.best{background:var(--gold-tint);color:#80622f;border:1px solid #e4d3b3}
+  .oilcard{border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px;background:var(--white);display:flex;gap:14px;align-items:flex-start}
+  .oilcard.primary{border-color:var(--gold);box-shadow:var(--shadow)}
+  .oilcard .thumb{width:58px;flex:0 0 auto}
+  .oilcard .thumb svg,.oilcard .thumb img{width:100%;height:auto;display:block}
+  .oilcard .thumb img{aspect-ratio:1/1.5;object-fit:contain}
+  .oilcard .oc-body{flex:1 1 auto;min-width:0}
+  .oilcard .oc-name{font-size:16.5px;font-weight:600;color:var(--teal-dark)}
+  .oilcard .oc-tag{font-size:13px;color:var(--ink-soft);line-height:1.5;margin:5px 0 10px}
+  .usages{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .usage{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--teal-dark);border:1px solid var(--teal-line);background:var(--teal-tint);padding:5px 11px;border-radius:50px}
+  .usage svg{width:12px;height:12px;color:var(--teal)}
+  .moreinfo{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.5px;color:#fff;background:var(--purple);border:none;padding:10px 18px;border-radius:50px;cursor:pointer}
+  .moreinfo:active{background:var(--purple-dark)}
+  .moreinfo svg{width:14px;height:14px}
+  .also-divider{display:flex;align-items:center;gap:14px;margin:24px 0 14px}
+  .also-divider span{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+  .also-divider::after{content:"";height:1px;background:var(--line);flex:1}
+
+  /* OIL info page */
+  .oil-hero{background:var(--white);text-align:center;padding:30px 26px 24px;border-bottom:1px solid var(--line)}
+  .oil-hero .bottle{width:150px;margin:0 auto 16px}
+  .oil-hero .bottle svg,.oil-hero .bottle img{width:100%;height:auto;display:block}
+  .oil-hero .bottle img{aspect-ratio:1/1.2;object-fit:contain}
+  .oil-hero h2{font-size:25px;font-weight:600;color:var(--teal-dark);letter-spacing:.2px}
+  .oil-hero .latin{font-size:12.5px;font-style:italic;color:var(--ink-faint);margin-top:4px}
+  .buybtn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--purple);color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:15px 34px;border-radius:50px;text-decoration:none;box-shadow:0 8px 20px rgba(138,106,173,.3)}
+  .buybtn:active{background:var(--purple-dark)}
+  .buybtn svg{width:16px;height:16px}
+  .oil-body{padding:24px 26px 40px}
+  .oblock{margin-bottom:24px}
+  .oblock h3{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .oblock p{font-size:14px;line-height:1.7;color:var(--ink-soft)}
+  .uses-list{list-style:none}
+  .uses-list li{font-size:14px;line-height:1.6;color:var(--ink-soft);padding-left:18px;position:relative;margin-bottom:7px}
+  .uses-list li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .methods{display:flex;flex-direction:column;gap:10px}
+  .method{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:4px}
+  .method .mic{width:30px;height:30px;border-radius:50%;background:var(--teal-tint);display:grid;place-items:center;flex:0 0 auto}
+  .method .mic svg{width:16px;height:16px;color:var(--teal)}
+  .method b{font-size:13px;display:block;margin-bottom:2px}
+  .method span{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+  .safety{background:var(--gold-tint);border:1px solid #e4d3b3;border-radius:4px;padding:14px 16px;font-size:12.5px;line-height:1.6;color:#6e5526}
+  .safety b{color:#5a4420}
+  .pairs{display:flex;flex-wrap:wrap;gap:7px}
+  .pair{font-size:12px;color:var(--teal-dark);border:1px solid var(--teal-line);background:var(--teal-tint);padding:6px 11px;border-radius:2px;cursor:pointer}
+
+  .disclaimer{margin:26px 26px;padding:16px 18px;background:var(--sand);border-radius:4px;border:1px solid var(--line);font-size:11px;line-height:1.7;color:var(--ink-soft);text-align:center}
+  .disclaimer b{color:var(--ink);font-weight:600}
+  .detail-wrap .disclaimer,.oil-body .disclaimer{margin:24px 0 0}
+  .footer-brand{text-align:center;padding:6px 0 30px;color:var(--ink-faint);font-size:9px;letter-spacing:3px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#c98a3a"/><stop offset=".5" stop-color="#9c5e22"/><stop offset="1" stop-color="#763f15"/>
+  </linearGradient>
+  <symbol id="ic-headache" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 2 1 3 1 4v2h10v-2c0-1 1-2 1-4a6 6 0 0 0-6-6Z"/><path d="M9 21h6"/></symbol>
+  <symbol id="ic-stress" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9c2-2 4-2 6 0s4 2 6 0 4-2 4-2"/><path d="M4 15c2-2 4-2 6 0s4 2 6 0 4-2 4-2"/></symbol>
+  <symbol id="ic-sleep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5Z"/></symbol>
+  <symbol id="ic-lungs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9"/><path d="M12 12c-1 4-2 6-5 6-2 0-2-3-2-6 0-2 1-4 3-4"/><path d="M12 12c1 4 2 6 5 6 2 0 2-3 2-6 0-2-1-4-3-4"/></symbol>
+  <symbol id="ic-muscle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9c2-1 4-1 6 1 1 1 2 1 3 0 2-2 4-1 5 1"/><path d="M5 9c-1 2-1 5 1 7 3 3 8 2 10-1"/></symbol>
+  <symbol id="ic-digest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5a4 4 0 0 0 4 4h1a3 3 0 0 1 0 6h-2"/><path d="M9 4H6"/></symbol>
+  <symbol id="ic-energy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 5 13h6l-1 8 8-10h-6l1-8Z"/></symbol>
+  <symbol id="ic-skin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5 5.5 5 10a5 5 0 0 1-10 0c0-4.5 5-10 5-10Z"/><path d="M10 13a2 2 0 0 0 2 2"/></symbol>
+  <symbol id="ic-focus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="ic-mood" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.5 4.5 6 6M18 18l1.5 1.5M2 12h2M20 12h2M4.5 19.5 6 18M18 6l1.5-1.5"/></symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4 3 7 7 9 4-2 7-5 7-9V6l-7-3Z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9-9c-1.3-3 .5-6 3.5-6 2 0 3.5 1.5 5.5 3.5C19 6.5 20.5 5 22.5 5"/></symbol>
+  <symbol id="ic-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11Z"/></symbol>
+  <symbol id="ic-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 6-13 14-14 0 8-5 14-14 14Z"/><path d="M5 19c3-5 6-7 9-8"/></symbol>
+  <symbol id="ic-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="ic-fwd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+  <symbol id="ic-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="ic-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h16l-2 9H7L5 6Z"/><path d="M5 6 4 3H2"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></symbol>
+  <symbol id="ic-aromatic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21c-2-3-1-6 1-8M12 21c-1-4 1-7 3-9M16 21c0-3 1-5 3-6"/></symbol>
+  <symbol id="ic-topical" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4s5 6 5 10a5 5 0 0 1-10 0c0-4 5-10 5-10Z"/></symbol>
+  <symbol id="ic-internal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11Z"/><path d="M9 13a3 3 0 0 0 3 3"/></symbol>
+</defs></svg>
+
+<div class="phone">
+  <header id="header">
+    <button class="back-btn" id="backBtn" aria-label="Back"><svg><use href="#ic-back"/></svg></button>
+    <div class="brand-block"><div class="wordmark">dō<b>TERRA</b></div><div class="tagline">Oil Finder</div></div>
+    <div class="sub-title" id="subTitle"></div>
+  </header>
+  <div class="accent-rule"></div>
+
+  <div class="scroll" id="scroll">
+    <!-- HOME -->
+    <section class="view active" id="homeView">
+      <div class="home-hero">
+        <div class="eyebrow">Personalised Wellness</div>
+        <h1>Find the right <b>oil</b> for how you feel</h1>
+      </div>
+      <div class="searchbar">
+        <div class="search-wrap">
+          <svg class="search-icon"><use href="#ic-search"/></svg>
+          <input type="text" id="search" class="search-box" autocomplete="off" placeholder="Search a symptom, condition or concern" aria-label="Search" />
+        </div>
+      </div>
+      <div class="count" id="count"></div>
+      <div class="clist" id="clist"></div>
+      <p class="no-match" id="noMatch">No match found — try another word.</p>
+      <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Essential oils are not a substitute for professional medical care. Consult a healthcare provider for any health condition.</div>
+      <div class="footer-brand">dōTERRA · Pure Essential Oils</div>
+    </section>
+
+    <!-- CONDITION -->
+    <section class="view" id="condView"></section>
+    <!-- OIL -->
+    <section class="view" id="oilView"></section>
+  </div>
+</div>
+
+<script>
+/* ============================ OILS ============================
+   Edit/extend here. Each oil documented once and reused by every condition.
+   Info is summarised from common essential-oil references incl. Modern Essentials (16th ed.). */
+const OILS = {
+  lavender:{name:"Lavender",latin:"Lavandula angustifolia",cap:"#8a7fb5",tag:"Calming and soothing — the most versatile oil for relaxation and skin.",
+    desc:"Lavender is widely loved for its calming, balancing aroma and its gentle, soothing effect on skin. It is one of the most versatile of all essential oils.",
+    uses:["Promotes calm and restful sleep when diffused","Soothes occasional skin irritations and minor blemishes","Eases feelings of tension and stress","Comforts skin after sun exposure"],
+    a:1,t:1,i:1,appNote:"Diffuse, apply to temples/wrists/feet, or add a drop to water or tea.",
+    safety:"Generally very gentle. Possible skin sensitivity — dilute for young or sensitive skin.",pairs:["bergamot","cedarwood","romanchamomile","frankincense"]},
+  peppermint:{name:"Peppermint",latin:"Mentha piperita",cap:"#3f9d6b",tag:"Cooling and invigorating — head tension, energy and digestion.",
+    desc:"Peppermint's high menthol content gives a cooling sensation and an invigorating aroma. A go-to for head tension, alertness and digestive comfort.",
+    uses:["Eases head and neck tension when applied topically","Promotes alertness and an energy lift","Soothes occasional stomach upset","Cools and refreshes the skin"],
+    a:1,t:1,i:1,appNote:"Apply diluted to temples or stomach, diffuse, or take one drop internally.",
+    safety:"Potent and cooling — dilute well. Keep away from eyes and the face of young children.",pairs:["lavender","lemon","frankincense","rosemary"]},
+  frankincense:{name:"Frankincense",latin:"Boswellia carterii",cap:"#caa15a",tag:"Grounding and renewing — skin, mood and overall wellness.",
+    desc:"Known as the 'king of oils', Frankincense has a grounding, balsamic aroma and is prized for rejuvenating skin and promoting feelings of peace.",
+    uses:["Reduces the appearance of skin imperfections","Promotes feelings of relaxation and balance","Supports healthy cellular function","Adds depth to a calming diffuser blend"],
+    a:1,t:1,i:1,appNote:"Apply to skin (diluted), diffuse, or take internally in a capsule.",
+    safety:"Generally well tolerated. Dilute for sensitive skin.",pairs:["lavender","sandalwood","myrrh","wildorange"]},
+  lemon:{name:"Lemon",latin:"Citrus limon",cap:"#e2c044",tag:"Cleansing and uplifting — mood, cleaning and immune support.",
+    desc:"Cold-pressed from the rind, Lemon offers a bright, fresh aroma that uplifts the mood and provides natural cleansing benefits throughout the home.",
+    uses:["Uplifts mood and supports a positive outlook","Natural cleanser for surfaces","Supports healthy respiratory function","Adds flavour and antioxidants to water"],
+    a:1,t:1,i:1,appNote:"Diffuse, add to water, or use to cleanse surfaces.",
+    safety:"Photosensitive — avoid direct sunlight on applied skin for 12 hours.",pairs:["lavender","peppermint","wildorange","frankincense"]},
+  teatree:{name:"Tea Tree (Melaleuca)",latin:"Melaleuca alternifolia",cap:"#5aa17a",tag:"Cleansing and renewing — blemishes, nails and scalp.",
+    desc:"Tea Tree is renowned for its cleansing and renewing properties, making it a favourite for skin, nails and a healthy scalp.",
+    uses:["Cleanses and clarifies blemish-prone skin","Supports healthy-looking nails and feet","Promotes a clean, refreshed scalp","Cleansing addition to household sprays"],
+    a:1,t:1,i:0,appNote:"Apply to skin (diluted) or add to cleansing blends. Not for internal use.",
+    safety:"For topical and aromatic use. Dilute for sensitive skin.",pairs:["lavender","lemon","oregano","eucalyptus"]},
+  oregano:{name:"Oregano",latin:"Origanum vulgare",cap:"#7a8f3a",tag:"Powerful and warming — immune and seasonal support.",
+    desc:"One of the most potent essential oils, Oregano is rich in carvacrol and traditionally used for strong immune and seasonal support.",
+    uses:["Provides powerful immune support","Surface-cleansing properties","Supports healthy respiratory function","Warming addition to savoury cooking"],
+    a:1,t:1,i:1,appNote:"Always dilute heavily for skin; take internally in a capsule, brief courses.",
+    safety:"Very potent 'hot' oil — always dilute. Avoid prolonged use; consult a professional.",pairs:["onguard","frankincense","lemon","thyme"]},
+  eucalyptus:{name:"Eucalyptus",latin:"Eucalyptus radiata",cap:"#4f97a0",tag:"Clearing and refreshing — airways and easy breathing.",
+    desc:"Eucalyptus has a fresh, clearing aroma traditionally used to support clear airways and easy, comfortable breathing.",
+    uses:["Promotes feelings of clear airways","Refreshing, invigorating aroma","Supports a steamy-shower experience","Cooling for tired muscles"],
+    a:1,t:1,i:0,appNote:"Diffuse, inhale from steam, or apply diluted to chest. Not for internal use.",
+    safety:"Topical and aromatic use. Keep away from the face of young children.",pairs:["breathe","peppermint","lemon","rosemary"]},
+  wildorange:{name:"Wild Orange",latin:"Citrus sinensis",cap:"#e08a3c",tag:"Energising and uplifting — mood and a fresh atmosphere.",
+    desc:"Wild Orange's sweet, energising citrus aroma is one of the most uplifting of all oils, brightening mood and freshening any space.",
+    uses:["Uplifts and energises the mood","Freshens the air when diffused","Natural surface cleanser","Adds a burst of flavour to water"],
+    a:1,t:1,i:1,appNote:"Diffuse, add to water, or apply diluted.",
+    safety:"Photosensitive — avoid direct sun on applied skin for 12 hours.",pairs:["lemon","frankincense","cheer","peppermint"]},
+  bergamot:{name:"Bergamot",latin:"Citrus bergamia",cap:"#9bb04a",tag:"Uplifting yet calming — mood balance and relaxation.",
+    desc:"Bergamot is unique among citrus oils for being both uplifting and calming, often used to relax the mind and balance emotions.",
+    uses:["Calms and uplifts simultaneously","Relaxing self-massage when diluted","Promotes confidence and positivity","Soothing addition to skincare"],
+    a:1,t:1,i:1,appNote:"Diffuse, apply diluted, or add a drop to tea.",
+    safety:"Photosensitive — avoid direct sun on applied skin for 12 hours.",pairs:["lavender","wildorange","frankincense","clarysage"]},
+  ginger:{name:"Ginger",latin:"Zingiber officinale",cap:"#cf8a45",tag:"Warming and settling — digestion and occasional nausea.",
+    desc:"Warm, spicy and energising, Ginger is long valued for settling the stomach and supporting healthy digestion.",
+    uses:["Eases occasional nausea and queasiness","Supports healthy digestion","Warming for tired muscles","Spicy flavour for cooking"],
+    a:1,t:1,i:1,appNote:"Take internally in water/capsule, apply diluted to the abdomen, or diffuse.",
+    safety:"Possible skin sensitivity — dilute. Photosensitivity is mild.",pairs:["peppermint","digestzen","lemon","fennel"]},
+  copaiba:{name:"Copaiba",latin:"Copaifera officinalis",cap:"#9c7b4a",tag:"Soothing and calming — muscles, joints and a calm mind.",
+    desc:"Rich in beta-caryophyllene, Copaiba is soothing for muscles and joints and calming for the nervous and emotional systems.",
+    uses:["Soothes tired muscles and joints","Calming, grounding effect on emotions","Supports healthy cellular function","Promotes clear, healthy-looking skin"],
+    a:1,t:1,i:1,appNote:"Apply diluted, diffuse, or take internally in a capsule.",
+    safety:"Generally very gentle and well tolerated.",pairs:["deepblue","frankincense","lavender","copaiba"]},
+  cedarwood:{name:"Cedarwood",latin:"Juniperus virginiana",cap:"#8a6a45",tag:"Grounding and woodsy — relaxation, sleep and scalp.",
+    desc:"Cedarwood's warm, woodsy aroma promotes relaxation and a sense of calm, and supports a healthy-looking scalp.",
+    uses:["Promotes relaxation and restful sleep","Grounding, calming aroma","Supports a healthy scalp and hair","Comforting massage when diluted"],
+    a:1,t:1,i:0,appNote:"Diffuse or apply diluted to skin and scalp. Not for internal use.",
+    safety:"Topical and aromatic use. Dilute for sensitive skin.",pairs:["lavender","vetiver","serenity","frankincense"]},
+  rosemary:{name:"Rosemary",latin:"Rosmarinus officinalis",cap:"#6f9b6a",tag:"Clarifying and energising — focus, memory and hair.",
+    desc:"Rosemary has a fresh, herbaceous aroma traditionally associated with mental clarity, focus and healthy hair.",
+    uses:["Supports mental clarity and focus","Reduces nervous tension and fatigue","Promotes healthy-looking hair","Flavourful in cooking"],
+    a:1,t:1,i:1,appNote:"Diffuse, apply diluted to scalp, or use in cooking.",
+    safety:"Avoid in pregnancy and with high blood pressure unless guided by a professional.",pairs:["peppermint","cedarwood","lemon","basil"]},
+  clarysage:{name:"Clary Sage",latin:"Salvia sclarea",cap:"#a48bb0",tag:"Balancing and soothing — women's monthly comfort.",
+    desc:"Clary Sage is especially valued by women for its balancing, soothing aroma during the monthly cycle and times of tension.",
+    uses:["Soothing during the monthly cycle","Calming, balancing aroma","Promotes restful relaxation","Supports healthy-looking hair"],
+    a:1,t:1,i:0,appNote:"Apply diluted to the abdomen or diffuse. Not for internal use.",
+    safety:"Avoid during pregnancy. For topical and aromatic use.",pairs:["lavender","marjoram","geranium","bergamot"]},
+  romanchamomile:{name:"Roman Chamomile",latin:"Anthemis nobilis",cap:"#d9c97a",tag:"Gentle and calming — soothing for body, mind and skin.",
+    desc:"Roman Chamomile has a sweet, apple-like aroma and an exceptionally gentle, calming effect on body, mind and skin.",
+    uses:["Soothes and calms the mind and body","Gentle enough for sensitive skin","Promotes restful sleep","Comforting in a relaxing massage"],
+    a:1,t:1,i:1,appNote:"Diffuse, apply diluted, or take internally in a capsule.",
+    safety:"Very gentle. Dilute for sensitive skin.",pairs:["lavender","ylang","serenity","frankincense"]},
+  cypress:{name:"Cypress",latin:"Cupressus sempervirens",cap:"#6a8f7a",tag:"Toning and energising — circulation and oily skin.",
+    desc:"Cypress has a fresh, evergreen aroma and is often used to support circulation, toned-looking skin and an energising atmosphere.",
+    uses:["Promotes a feeling of healthy circulation","Energising, fresh aroma","Beneficial for oily skin","Comforting for tired legs when diluted"],
+    a:1,t:1,i:0,appNote:"Apply diluted or diffuse. Not for internal use.",
+    safety:"Topical and aromatic use. Avoid in pregnancy.",pairs:["helichrysum","lemongrass","peppermint","geranium"]},
+  marjoram:{name:"Marjoram",latin:"Origanum majorana",cap:"#9a9a55",tag:"Warming and relaxing — muscles and a calm nervous system.",
+    desc:"Marjoram has a warm, herbaceous aroma valued for relaxing tired muscles and calming the nervous system.",
+    uses:["Soothes tired, hard-working muscles","Calming, warming aroma","Supports a relaxed nervous system","Savoury flavour in cooking"],
+    a:1,t:1,i:1,appNote:"Apply diluted, diffuse, or use sparingly in cooking.",
+    safety:"Dilute for skin. Avoid large amounts during pregnancy.",pairs:["lavender","cypress","deepblue","clarysage"]},
+  basil:{name:"Basil",latin:"Ocimum basilicum",cap:"#5f8f4a",tag:"Refreshing and energising — focus and tired muscles.",
+    desc:"Basil's warm, herbaceous aroma is refreshing and energising, often used to ease tension and support alertness.",
+    uses:["Reduces feelings of tension when diffused","Supports focus and alertness","Soothes tired muscles when diluted","Flavourful in cooking"],
+    a:1,t:1,i:1,appNote:"Diffuse, apply diluted, or use in cooking.",
+    safety:"Avoid during pregnancy. Dilute for skin.",pairs:["peppermint","rosemary","marjoram","wintergreen"]},
+  thyme:{name:"Thyme",latin:"Thymus vulgaris",cap:"#7f8f3f",tag:"Potent and cleansing — immune and seasonal support.",
+    desc:"Thyme is a potent, warming oil with strong cleansing properties, traditionally used for immune and seasonal support.",
+    uses:["Strong immune and seasonal support","Surface-cleansing properties","Supports healthy respiratory function","Savoury culinary flavour"],
+    a:1,t:1,i:1,appNote:"Always dilute heavily for skin; use small amounts internally.",
+    safety:"Very potent 'hot' oil — dilute well. Avoid in pregnancy.",pairs:["oregano","onguard","lemon","frankincense"]},
+  clove:{name:"Clove",latin:"Eugenia caryophyllata",cap:"#8a4f33",tag:"Warming and numbing — oral comfort and immune support.",
+    desc:"Clove is rich in eugenol, giving it a warming, numbing quality long used for oral comfort and powerful antioxidant support.",
+    uses:["Soothing for occasional tooth and gum discomfort","Powerful antioxidant support","Supports immune function","Warming flavour in cooking"],
+    a:1,t:1,i:1,appNote:"Dilute heavily for skin/gums; use one drop internally.",
+    safety:"Very potent 'hot' oil — always dilute. Avoid in pregnancy.",pairs:["onguard","myrrh","frankincense","cinnamon"]},
+  geranium:{name:"Geranium",latin:"Pelargonium graveolens",cap:"#c87f93",tag:"Balancing and beautifying — radiant skin and calm mood.",
+    desc:"Geranium has a sweet, floral aroma valued for promoting radiant-looking skin and a balanced, calm mood.",
+    uses:["Promotes clear, healthy-looking skin","Balancing for oily or dry skin","Calming, uplifting floral aroma","Soothing in a relaxing massage"],
+    a:1,t:1,i:1,appNote:"Apply diluted, diffuse, or take internally in a capsule.",
+    safety:"Generally gentle. Dilute for sensitive skin.",pairs:["lavender","clarysage","frankincense","helichrysum"]},
+  helichrysum:{name:"Helichrysum",latin:"Helichrysum italicum",cap:"#c9a24b",tag:"Restorative and prized — skin, bruises and complexion.",
+    desc:"Often called 'everlasting', Helichrysum is one of the most prized oils for restoring the appearance of skin and soothing after bumps.",
+    uses:["Soothes skin after minor bumps and bruises","Reduces the appearance of imperfections","Supports a youthful complexion","Calming in a focused skin blend"],
+    a:1,t:1,i:1,appNote:"Apply (often neat or lightly diluted), diffuse, or take internally.",
+    safety:"Generally gentle and well tolerated.",pairs:["lavender","frankincense","cypress","geranium"]},
+  sandalwood:{name:"Sandalwood",latin:"Santalum album",cap:"#b08a5a",tag:"Grounding and luxurious — skin and meditative calm.",
+    desc:"Sandalwood's rich, woody aroma is grounding and meditative, and it is treasured for promoting smooth, youthful-looking skin.",
+    uses:["Promotes smooth, youthful-looking skin","Grounding, calming aroma for meditation","Reduces the appearance of imperfections","Enhances a relaxing massage"],
+    a:1,t:1,i:1,appNote:"Apply diluted, diffuse, or take internally in a capsule.",
+    safety:"Generally gentle and well tolerated.",pairs:["frankincense","lavender","myrrh","vetiver"]},
+  vetiver:{name:"Vetiver",latin:"Vetiveria zizanioides",cap:"#7a6a45",tag:"Deeply grounding — calm, focus and restful sleep.",
+    desc:"Vetiver has a deep, earthy aroma that is profoundly grounding and calming, often used to steady focus and encourage restful sleep.",
+    uses:["Deeply calming and grounding","Supports focus and a steady mind","Promotes restful sleep","Rich base note in calming blends"],
+    a:1,t:1,i:1,appNote:"Apply diluted to feet, diffuse, or take internally in a capsule.",
+    safety:"Generally gentle. A little goes a long way.",pairs:["cedarwood","lavender","serenity","intune"]},
+  lemongrass:{name:"Lemongrass",latin:"Cymbopogon flexuosus",cap:"#a8b04a",tag:"Fresh and toning — connective tissue and clean spaces.",
+    desc:"Lemongrass has a bright, fresh aroma and is often used for soothing massage, toned-looking skin and natural cleansing.",
+    uses:["Soothing in a post-activity massage","Promotes healthy-looking connective tissue","Natural cleanser and air freshener","Flavourful in Asian-style cooking"],
+    a:1,t:1,i:1,appNote:"Dilute well for skin, diffuse, or use sparingly internally.",
+    safety:"Can irritate skin — dilute well.",pairs:["cypress","peppermint","deepblue","basil"]},
+  fennel:{name:"Fennel",latin:"Foeniculum vulgare",cap:"#9aab5a",tag:"Soothing and sweet — digestion and monthly comfort.",
+    desc:"Fennel has a sweet, liquorice-like aroma traditionally used to soothe digestion and support women's comfort during the cycle.",
+    uses:["Eases occasional digestive discomfort","Supports a healthy metabolism","Soothing during the monthly cycle","Sweet flavour in cooking"],
+    a:1,t:1,i:1,appNote:"Take internally in water/capsule, apply diluted, or diffuse.",
+    safety:"Avoid during pregnancy and with epilepsy. Dilute for skin.",pairs:["digestzen","ginger","peppermint","clarysage"]},
+  melissa:{name:"Melissa",latin:"Melissa officinalis",cap:"#c8d07a",tag:"Bright and calming — mood, skin and seasonal comfort.",
+    desc:"Melissa (lemon balm) is a rare, prized oil with a bright, calming aroma used to uplift mood and soothe the skin.",
+    uses:["Calms and uplifts the mood","Soothing for occasional skin irritations","Promotes restful relaxation","Supports a balanced emotional state"],
+    a:1,t:1,i:1,appNote:"Apply diluted, diffuse, or take internally in a capsule.",
+    safety:"Generally gentle. Dilute for sensitive skin.",pairs:["lavender","frankincense","wildorange","romanchamomile"]},
+  myrrh:{name:"Myrrh",latin:"Commiphora myrrha",cap:"#8a6240",tag:"Soothing and ancient — skin, mouth and grounding calm.",
+    desc:"Myrrh's warm, resinous aroma has been treasured for millennia, valued for soothing skin and supporting a healthy mouth.",
+    uses:["Soothes and smooths the skin","Supports a healthy mouth and gums","Grounding, balancing aroma","Reduces the appearance of fine lines"],
+    a:1,t:1,i:1,appNote:"Apply diluted, diffuse, or take internally in a capsule.",
+    safety:"Avoid during pregnancy. Generally gentle topically.",pairs:["frankincense","sandalwood","clove","lavender"]},
+  /* ---- Proprietary blends ---- */
+  deepblue:{name:"Deep Blue",latin:"Soothing Blend",cap:"#2f5f8a",tag:"Soothing blend — tired, hard-working muscles and joints.",
+    desc:"Deep Blue combines Wintergreen, Camphor, Peppermint, Blue Tansy, Blue Chamomile, Helichrysum and Osmanthus for a comforting cool-then-warm sensation on muscles and joints.",
+    uses:["Soothes tired, hard-working muscles","Comforting before and after exercise","Cooling then warming sensation","Great in a post-workout massage"],
+    a:0,t:1,i:0,appNote:"Apply topically to the area of focus. Dilute for sensitive skin.",
+    safety:"Topical use only. Keep away from eyes and sensitive areas.",pairs:["copaiba","marjoram","peppermint","lemongrass"]},
+  onguard:{name:"OnGuard",latin:"Protective Blend",cap:"#9c5f2a",tag:"Protective blend — immune support and surface cleansing.",
+    desc:"OnGuard blends Wild Orange, Clove, Cinnamon, Eucalyptus and Rosemary into doTERRA's signature protective formula for immune and environmental support.",
+    uses:["Supports healthy immune function","Powerful surface and air cleanser","Soothing for the throat in warm water","Energising, spicy aroma"],
+    a:1,t:1,i:1,appNote:"Diffuse, gargle in water, apply diluted to feet, or take in a capsule.",
+    safety:"Dilute for skin (contains 'hot' oils). Avoid in pregnancy without guidance.",pairs:["oregano","lemon","frankincense","clove"]},
+  breathe:{name:"Breathe",latin:"Respiratory Blend",cap:"#3f8a9c",tag:"Respiratory blend — clear airways and easy breathing.",
+    desc:"Breathe combines Laurel Leaf, Eucalyptus, Peppermint, Tea Tree, Lemon, Cardamom, Ravintsara and Ravensara to support clear airways and easy breathing.",
+    uses:["Promotes feelings of clear airways","Comforting during seasonal changes","Supports restful sleep when breathing easy","Refreshing, cooling aroma"],
+    a:1,t:1,i:0,appNote:"Diffuse or apply diluted to the chest and back. Not for internal use.",
+    safety:"Topical and aromatic. Keep away from the face of young children.",pairs:["eucalyptus","peppermint","frankincense","lemon"]},
+  digestzen:{name:"DigestZen",latin:"Digestive Blend",cap:"#5f8a4a",tag:"Digestive blend — soothing for the stomach and digestion.",
+    desc:"DigestZen (ZenGest) blends Ginger, Peppermint, Caraway, Coriander, Anise, Tarragon and Fennel to soothe occasional stomach upset and aid digestion.",
+    uses:["Eases occasional stomach upset","Supports healthy digestion","Soothes occasional bloating and gas","Comforting during travel"],
+    a:1,t:1,i:1,appNote:"Take in water/capsule, apply diluted to the abdomen, or diffuse.",
+    safety:"Generally gentle. Dilute for sensitive skin.",pairs:["ginger","peppermint","fennel","copaiba"]},
+  serenity:{name:"Serenity",latin:"Restful Blend",cap:"#5f6fa0",tag:"Restful blend — calm the mind and ease into sleep.",
+    desc:"Serenity combines Lavender, Cedarwood, Ho Wood, Ylang Ylang, Marjoram, Roman Chamomile, Vetiver, Vanilla and more to quiet the mind before sleep.",
+    uses:["Promotes a restful night's sleep","Calms the mind and body","Eases feelings of tension","Creates a tranquil bedtime atmosphere"],
+    a:1,t:1,i:0,appNote:"Diffuse at bedtime or apply diluted to the feet. Not for internal use.",
+    safety:"Topical and aromatic use.",pairs:["lavender","cedarwood","vetiver","romanchamomile"]},
+  adaptiv:{name:"Adaptiv",latin:"Calming Blend",cap:"#6a8aa0",tag:"Calming blend — manage everyday stress and tension.",
+    desc:"Adaptiv blends Wild Orange, Lavender, Copaiba, Spearmint, Magnolia, Rosemary, Neroli and Sweetgum to help the mind and body adapt to stress.",
+    uses:["Helps manage everyday stress","Promotes a sense of calm and confidence","Eases feelings of tension","Uplifting yet grounding aroma"],
+    a:1,t:1,i:1,appNote:"Diffuse, apply to wrists/neck, or take internally in a capsule.",
+    safety:"Generally gentle. Dilute for sensitive skin.",pairs:["lavender","bergamot","copaiba","balance"]},
+  cheer:{name:"Cheer",latin:"Uplifting Blend",cap:"#e09a3c",tag:"Uplifting blend — optimism and a sunny outlook.",
+    desc:"Cheer combines Wild Orange, Clove, Star Anise, Lemon Myrtle, Nutmeg, Vanilla, Ginger, Cinnamon and Zdravetz for a warm, optimistic lift.",
+    uses:["Promotes optimism and a positive mood","Counteracts feelings of low spirits","Warm, spicy-citrus aroma","Brightens any room"],
+    a:1,t:1,i:0,appNote:"Diffuse or apply diluted to wrists. Not for internal use.",
+    safety:"Photosensitive — avoid sun on applied skin for 12 hours.",pairs:["wildorange","bergamot","frankincense","balance"]},
+  intune:{name:"InTune",latin:"Focus Blend",cap:"#4f7f8a",tag:"Focus blend — sustained attention and concentration.",
+    desc:"InTune blends Amyris, Patchouli, Frankincense, Lime, Ylang Ylang, Sandalwood and Roman Chamomile to enhance and sustain a sense of focus.",
+    uses:["Enhances and sustains focus","Calming, grounding for a busy mind","Great during study or work","Supportive in a daily routine"],
+    a:1,t:1,i:0,appNote:"Apply diluted to the back of the neck or diffuse. Not for internal use.",
+    safety:"Topical and aromatic use. Dilute for sensitive skin.",pairs:["frankincense","vetiver","peppermint","rosemary"]},
+  pasttense:{name:"PastTense",latin:"Tension Blend",cap:"#5f8a8a",tag:"Tension blend — head and neck tension on the go.",
+    desc:"PastTense combines Wintergreen, Lavender, Peppermint, Frankincense, Cilantro, Marjoram, Roman Chamomile, Basil and Rosemary in a convenient roll-on for tension.",
+    uses:["Eases tension in the head and neck","Cooling, soothing roll-on application","Grounding, calming aroma","Convenient for travel and work"],
+    a:1,t:1,i:0,appNote:"Roll onto temples, forehead and back of neck. Not for internal use.",
+    safety:"Topical and aromatic. Keep away from the eyes.",pairs:["peppermint","frankincense","lavender","marjoram"]},
+  balance:{name:"Balance",latin:"Grounding Blend",cap:"#3f6f5f",tag:"Grounding blend — steady, calm and centred emotions.",
+    desc:"Balance blends Spruce, Ho Wood, Frankincense, Blue Tansy, Blue Chamomile and Osmanthus to promote a sense of calm, grounding and tranquillity.",
+    uses:["Promotes a grounded, calm feeling","Eases anxious feelings","Harmonising, woodsy aroma","A steady start to the day on the feet"],
+    a:1,t:1,i:0,appNote:"Apply diluted to the soles of the feet or diffuse. Not for internal use.",
+    safety:"Generally gentle. Dilute for sensitive skin.",pairs:["frankincense","adaptiv","lavender","vetiver"]}
+};
+
+/* ======================= CONDITIONS =======================
+   Format:  key:[ "Label", primaryOilId, [altOilId, altOilId], "icon", "extra,search,keywords" ]
+   Add as many as you like — the search-first list scales to hundreds. */
+const COND = {
+  acne:["Acne","teatree",["lavender","geranium"],"ic-skin","pimples,breakouts,zits,blemishes,spots"],
+  allergies:["Seasonal Allergies","lemon",["lavender","peppermint"],"ic-leaf","hay fever,pollen,sneezing,sniffles"],
+  anxiety:["Anxiety","adaptiv",["lavender","bergamot"],"ic-stress","anxious,worry,nervous,panic,overwhelmed"],
+  arthritis:["Arthritis","copaiba",["deepblue","frankincense"],"ic-muscle","joint stiffness,achy joints"],
+  asthma:["Asthma (breathing support)","breathe",["frankincense","eucalyptus"],"ic-lungs","wheezing,breathing,airways"],
+  athletesfoot:["Athlete's Foot","teatree",["oregano","lavender"],"ic-skin","fungus,itchy feet,foot fungus"],
+  backpain:["Back Pain","deepblue",["copaiba","marjoram"],"ic-muscle","backache,lower back,sore back"],
+  bloating:["Bloating","digestzen",["peppermint","ginger"],"ic-digest","bloated,water retention,puffy belly"],
+  blisters:["Blisters","lavender",["teatree","helichrysum"],"ic-skin","blister,friction sore"],
+  boils:["Boils","teatree",["oregano","frankincense"],"ic-skin","abscess,skin infection"],
+  bronchitis:["Bronchitis","breathe",["eucalyptus","frankincense"],"ic-lungs","chest cough,chest congestion"],
+  bruises:["Bruises","helichrysum",["cypress","lavender"],"ic-skin","bruising,contusion,black and blue"],
+  burns:["Minor Burns","lavender",["helichrysum","frankincense"],"ic-skin","burn,scald,kitchen burn"],
+  cankersores:["Canker Sores","myrrh",["frankincense","clove"],"ic-drop","mouth ulcer,mouth sore"],
+  coldsores:["Cold Sores","melissa",["teatree","lavender"],"ic-drop","fever blister,lip sore,herpes simplex"],
+  colds:["Common Cold","onguard",["breathe","lemon"],"ic-shield","cold,chills,runny nose"],
+  colic:["Colic","romanchamomile",["lavender","digestzen"],"ic-digest","baby colic,fussy infant"],
+  congestion:["Congestion","breathe",["eucalyptus","peppermint"],"ic-lungs","stuffy nose,blocked nose,sinus"],
+  constipation:["Constipation","digestzen",["peppermint","ginger"],"ic-digest","irregular,blocked,can't go"],
+  cough:["Cough","breathe",["lemon","frankincense"],"ic-lungs","coughing,dry cough,tickly throat"],
+  cuts:["Cuts & Scrapes","lavender",["teatree","helichrysum"],"ic-skin","wound,graze,scrape,nick"],
+  dandruff:["Dandruff","teatree",["rosemary","cedarwood"],"ic-skin","flaky scalp,itchy scalp"],
+  depression:["Low Mood / Depression","wildorange",["cheer","bergamot"],"ic-mood","sad,down,blue,gloomy,unhappy"],
+  dermatitis:["Dermatitis","lavender",["romanchamomile","helichrysum"],"ic-skin","skin inflammation,irritated skin"],
+  diarrhea:["Diarrhoea","digestzen",["peppermint","ginger"],"ic-digest","loose stools,upset bowels"],
+  dryskin:["Dry Skin","geranium",["sandalwood","lavender"],"ic-skin","flaky skin,rough skin,dehydrated skin"],
+  earache:["Earache","basil",["lavender","teatree"],"ic-drop","ear pain,ear ache,sore ear"],
+  eczema:["Eczema","lavender",["helichrysum","romanchamomile"],"ic-skin","itchy skin,dry patches,atopic"],
+  energy:["Low Energy","peppermint",["wildorange","basil"],"ic-energy","tired,sluggish,fatigue,slump"],
+  fatigue:["Fatigue","peppermint",["basil","wildorange"],"ic-energy","exhausted,worn out,burnout"],
+  fever:["Fever","peppermint",["lavender","lemon"],"ic-drop","high temperature,feverish"],
+  flu:["Flu","onguard",["breathe","oregano"],"ic-shield","influenza,aches,chills"],
+  focus:["Focus & Concentration","intune",["peppermint","rosemary"],"ic-focus","concentration,attention,brain fog,study"],
+  gas:["Gas & Flatulence","digestzen",["peppermint","fennel"],"ic-digest","flatulence,wind,trapped gas"],
+  grief:["Grief & Sadness","balance",["frankincense","bergamot"],"ic-mood","loss,heartache,mourning"],
+  gumdisease:["Gum & Mouth Health","onguard",["myrrh","clove"],"ic-drop","gums,gingivitis,oral health"],
+  hairloss:["Thinning Hair","rosemary",["cedarwood","lavender"],"ic-skin","hair loss,balding,hair growth"],
+  hayfever:["Hay Fever","lemon",["lavender","peppermint"],"ic-leaf","pollen,allergy,sneezing"],
+  headache:["Headache","peppermint",["pasttense","frankincense"],"ic-headache","head pain,pounding head,tension headache"],
+  heartburn:["Heartburn","digestzen",["ginger","peppermint"],"ic-digest","acid reflux,indigestion,burning chest"],
+  hemorrhoids:["Haemorrhoids","cypress",["helichrysum","geranium"],"ic-drop","piles,swollen veins"],
+  hotflashes:["Hot Flushes","clarysage",["peppermint","geranium"],"ic-drop","menopause,hot flashes,night sweats"],
+  immune:["Immune Support","onguard",["oregano","lemon"],"ic-shield","immunity,run down,defence,wellness"],
+  indigestion:["Indigestion","digestzen",["ginger","peppermint"],"ic-digest","upset stomach,dyspepsia"],
+  inflammation:["Inflammation","copaiba",["frankincense","deepblue"],"ic-muscle","swelling,inflamed,sore"],
+  insectbites:["Insect Bites","lavender",["teatree","peppermint"],"ic-skin","bug bites,mosquito,itchy bite"],
+  insomnia:["Insomnia","serenity",["lavender","cedarwood"],"ic-sleep","can't sleep,sleepless,awake at night"],
+  irritability:["Irritability","balance",["lavender","bergamot"],"ic-mood","cranky,short tempered,moody"],
+  itching:["Itching","lavender",["peppermint","romanchamomile"],"ic-skin","itchy,pruritus,scratchy skin"],
+  jetlag:["Jet Lag","peppermint",["balance","wildorange"],"ic-energy","travel fatigue,time zones"],
+  jointpain:["Joint Pain","deepblue",["copaiba","frankincense"],"ic-muscle","achy joints,stiff joints"],
+  laryngitis:["Hoarse / Sore Throat","onguard",["lemon","frankincense"],"ic-drop","laryngitis,lost voice,sore throat"],
+  legcramps:["Leg Cramps","marjoram",["deepblue","cypress"],"ic-muscle","muscle cramp,charley horse"],
+  memory:["Memory & Recall","rosemary",["peppermint","frankincense"],"ic-focus","forgetful,recall,mental clarity"],
+  menstrual:["Menstrual Cramps","clarysage",["marjoram","lavender"],"ic-drop","period pain,cramps,monthly"],
+  migraine:["Migraine","peppermint",["pasttense","lavender"],"ic-headache","severe headache,aura,throbbing"],
+  moodswings:["Mood Swings","balance",["bergamot","clarysage"],"ic-mood","emotional,ups and downs"],
+  morningsickness:["Morning Sickness","ginger",["peppermint","digestzen"],"ic-digest","pregnancy nausea,queasy"],
+  motionsickness:["Motion Sickness","ginger",["peppermint","digestzen"],"ic-digest","car sick,sea sick,travel sickness"],
+  musclepain:["Muscle Pain","deepblue",["copaiba","marjoram"],"ic-muscle","sore muscles,aching,stiff"],
+  nailfungus:["Nail Fungus","teatree",["oregano","lemongrass"],"ic-skin","toenail fungus,fungal nail"],
+  nausea:["Nausea","ginger",["peppermint","digestzen"],"ic-digest","queasy,sick to stomach,upset"],
+  nervoustension:["Nervous Tension","lavender",["adaptiv","copaiba"],"ic-stress","tense,wound up,on edge"],
+  oilyskin:["Oily Skin","geranium",["cypress","teatree"],"ic-skin","greasy skin,shine,large pores"],
+  pain:["General Pain","deepblue",["copaiba","frankincense"],"ic-muscle","aches,soreness,discomfort"],
+  pms:["PMS","clarysage",["geranium","bergamot"],"ic-mood","premenstrual,monthly mood"],
+  poisonivy:["Poison Ivy / Rash","lavender",["romanchamomile","peppermint"],"ic-skin","contact rash,plant rash"],
+  rash:["Skin Rash","lavender",["romanchamomile","helichrysum"],"ic-skin","red skin,irritation,hives"],
+  restlessness:["Restlessness","vetiver",["lavender","serenity"],"ic-stress","fidgety,can't settle,unsettled"],
+  ringworm:["Ringworm","teatree",["oregano","lavender"],"ic-skin","fungal rash,tinea"],
+  sciatica:["Sciatica","deepblue",["copaiba","marjoram"],"ic-muscle","nerve pain,leg pain,lower back nerve"],
+  sinusitis:["Sinusitis","breathe",["eucalyptus","peppermint"],"ic-lungs","sinus pressure,blocked sinuses"],
+  agingskin:["Ageing Skin","frankincense",["sandalwood","myrrh"],"ic-skin","wrinkles,fine lines,mature skin"],
+  sleep:["Trouble Sleeping","serenity",["lavender","cedarwood"],"ic-sleep","insomnia,restless,wind down"],
+  sorethroat:["Sore Throat","onguard",["lemon","frankincense"],"ic-drop","scratchy throat,strep"],
+  sprains:["Sprains & Strains","deepblue",["helichrysum","copaiba"],"ic-muscle","twisted ankle,pulled muscle"],
+  stress:["Stress","adaptiv",["lavender","balance"],"ic-stress","stressed,overwhelmed,pressure"],
+  sunburn:["Sunburn","lavender",["peppermint","frankincense"],"ic-skin","sun burn,sun damage,red skin"],
+  tendonitis:["Tendonitis","deepblue",["lemongrass","copaiba"],"ic-muscle","tendon pain,inflamed tendon"],
+  teething:["Teething","lavender",["romanchamomile","copaiba"],"ic-drop","baby teeth,sore gums infant"],
+  toothache:["Toothache","clove",["peppermint","myrrh"],"ic-drop","tooth pain,dental pain"],
+  varicoseveins:["Varicose Veins","cypress",["helichrysum","lemongrass"],"ic-drop","spider veins,leg veins"],
+  warts:["Warts","teatree",["oregano","frankincense"],"ic-skin","verruca,skin wart"],
+  wounds:["Wound Care","helichrysum",["lavender","frankincense"],"ic-skin","healing,scar,skin repair"],
+  wrinkles:["Wrinkles","frankincense",["sandalwood","helichrysum"],"ic-skin","fine lines,crow's feet,ageing"]
+};
+
+/* Real product photos + shop product-page handles, pulled from shop.home-essential-oils.com.
+   To add a photo for a new oil: paste its image URL here keyed by oil id. */
+/* Photos are stored locally in /images so they ALWAYS load (offline-safe).
+   Re-download them anytime with the included download step. */
+const PHOTO_IDS=["lavender","peppermint","frankincense","lemon","wildorange","oregano","eucalyptus","teatree","bergamot","ginger","cedarwood","rosemary","clarysage","romanchamomile","cypress","marjoram","basil","thyme","clove","geranium","helichrysum","vetiver","lemongrass","melissa","myrrh","sandalwood","fennel","deepblue","onguard","breathe","digestzen","serenity","cheer","intune","pasttense","balance"];
+const PHOTOS={};
+PHOTO_IDS.forEach(id=>PHOTOS[id]="images/"+id+(id==="thyme"?".png":".jpg"));
+const SLUGS={
+  lavender:"doterra-lavender-essential-oil",peppermint:"doterra-peppermint-essential-oil",frankincense:"doterra-frankincense-essential-oil",lemon:"doterra-lemon-essential-oil",wildorange:"doterra-wild-orange-essential-oil",oregano:"doterra-oregano-essential-oil",eucalyptus:"doterra-eucalyptus-essential-oil",teatree:"doterra-melaleuca-tea-tree-essential-oil",bergamot:"doterra-bergamot-essential-oil",ginger:"doterra-ginger-essential-oil",cedarwood:"doterra-cedarwood-essential-oil",rosemary:"doterra-rosemary-essential-oil",clarysage:"doterra-clary-sage-essential-oil",romanchamomile:"doterra-roman-chamomile-essential-oil",cypress:"doterra-cypress-essential-oil",marjoram:"doterra-marjoram-essential-oil",basil:"doterra-basil-essential-oil",thyme:"doterra-thyme-essential-oil",clove:"doterra-clove-essential-oil",geranium:"doterra-geranium-essential-oil",helichrysum:"doterra-helichrysum-essential-oil",vetiver:"doterra-vetiver-essential-oil",lemongrass:"doterra-lemongrass-essential-oil",melissa:"doterra-melissa-essential-oil",myrrh:"doterra-myrrh-essential-oil",sandalwood:"doterra-sandalwood-essential-oil",fennel:"doterra-fennel-sweet-essential-oil",deepblue:"doterra-deep-blue-soothing-blend",onguard:"doterra-on-guard-protective-blend",breathe:"doterra-breathe-respiratory-blend",digestzen:"doterra-digestzen-digestive-blend",serenity:"doterra-serenity-restful-blend",cheer:"doterra-cheer-uplifting-blend",intune:"doterra-intune-focus-blend-roll-on",pasttense:"doterra-pasttense-tension-blend",balance:"doterra-balance-grounding-blend"
+};
+const buyUrl = id => SLUGS[id]
+  ? "https://shop.home-essential-oils.com/products/"+SLUGS[id]
+  : "https://shop.home-essential-oils.com/search?q="+encodeURIComponent(OILS[id].name.replace(/\s*\(.*\)/,"").trim());
+
+/* returns a real product photo (with SVG-bottle fallback) or the SVG bottle */
+function oilImage(id){
+  if(PHOTOS[id]) return `<img class="pimg" src="${PHOTOS[id]}" loading="lazy" alt="${OILS[id].name}" onerror="this.onerror=null;this.replaceWith(makeBottle('${id}'))">`;
+  return bottle(id);
+}
+function makeBottle(id){const d=document.createElement('div');d.innerHTML=bottle(id);return d.firstElementChild;}
+window.makeBottle=makeBottle;
+
+/* product-style bottle illustration */
+function bottle(id){
+  const o = OILS[id];
+  const nm = o.name.length>11 ? o.name.replace(/ /g,"\n") : o.name;
+  const fs = o.name.length>10 ? 8 : 9.5;
+  return `<svg viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg">
+    <rect x="44" y="4" width="32" height="14" rx="3" fill="${o.cap}"/>
+    <rect x="48" y="16" width="24" height="10" fill="${o.cap}" opacity=".85"/>
+    <path d="M40 28h40c2 8 8 10 8 24v126a14 14 0 0 1-14 14H46a14 14 0 0 1-14-14V52c0-14 6-16 8-24Z" fill="url(#amber)"/>
+    <path d="M40 28h40c2 8 8 10 8 24v126a14 14 0 0 1-14 14H46a14 14 0 0 1-14-14V52c0-14 6-16 8-24Z" fill="#fff" opacity=".08"/>
+    <rect x="40" y="78" width="40" height="92" rx="4" fill="#fbf7ef"/>
+    <text x="60" y="104" text-anchor="middle" font-family="Helvetica,Arial" font-size="6.5" letter-spacing="1.5" fill="#1f6f6a">dōTERRA</text>
+    <line x1="48" y1="110" x2="72" y2="110" stroke="#d6cdbb" stroke-width="1"/>
+    <text x="60" y="${o.name.length>10?128:130}" text-anchor="middle" font-family="Helvetica,Arial" font-weight="bold" font-size="${fs}" fill="#243032"><tspan x="60" dy="0">${o.name.split(/[\s(]/)[0]}</tspan>${o.name.split(" ").length>1 && o.name.indexOf("(")<0 ? `<tspan x="60" dy="10">${o.name.split(" ").slice(1).join(" ")}</tspan>`:""}</text>
+    <text x="60" y="160" text-anchor="middle" font-family="Helvetica,Arial" font-size="4.6" letter-spacing="1" fill="#8a8270">PURE ESSENTIAL OIL</text>
+    <ellipse cx="50" cy="60" rx="6" ry="20" fill="#fff" opacity=".12"/>
+  </svg>`;
+}
+
+const usageIcon={Aromatic:"ic-aromatic",Topical:"ic-topical",Internal:"ic-internal"};
+function methodsOf(o){const m=[];if(o.a)m.push("Aromatic");if(o.t)m.push("Topical");if(o.i)m.push("Internal");return m;}
+function usageTags(o){return `<div class="usages">${methodsOf(o).map(u=>`<span class="usage"><svg><use href="#${usageIcon[u]}"/></svg>${u}</span>`).join("")}</div>`;}
+
+const $=id=>document.getElementById(id);
+const homeView=$("homeView"),condView=$("condView"),oilView=$("oilView"),header=$("header"),subTitle=$("subTitle"),scroll=$("scroll"),search=$("search"),clist=$("clist"),count=$("count"),noMatch=$("noMatch");
+
+let navStack=[]; // {type:'home'|'cond'|'oil', key}
+
+function renderList(keys){
+  clist.innerHTML="";
+  keys.forEach(k=>{
+    const c=COND[k], oil=OILS[c[1]];
+    const row=document.createElement("button");
+    row.className="crow";
+    row.innerHTML=`<span class="ic"><svg><use href="#${c[3]}"/></svg></span>
+      <span class="ctext"><span class="clabel">${c[0]}</span><span class="coil">Best match · ${oil.name}</span></span>
+      <span class="chev"><svg><use href="#ic-fwd"/></svg></span>`;
+    row.onclick=()=>go({type:'cond',key:k});
+    clist.appendChild(row);
+  });
+  count.textContent = keys.length + (keys.length===1?" concern":" concerns");
+}
+
+function renderCond(k){
+  const c=COND[k], pid=c[1], primary=OILS[pid], alts=c[2];
+  const card=(id,isPrimary)=>{const o=OILS[id];return `
+    <div class="oilcard ${isPrimary?'primary':''}">
+      <div class="thumb">${oilImage(id)}</div>
+      <div class="oc-body">
+        ${isPrimary?'<span class="pill best">Best Match</span>':''}
+        <div class="oc-name">${o.name}</div>
+        <div class="oc-tag">${o.tag}</div>
+        ${usageTags(o)}
+        <button class="moreinfo" data-oil="${id}"><svg><use href="#ic-info"/></svg> More information</button>
+      </div>
+    </div>`;};
+  condView.innerHTML=`
+    <div class="detail-wrap">
+      <div class="detail-top">
+        <div class="ic"><svg><use href="#${c[3]}"/></svg></div>
+        <h2>${c[0]}</h2>
+        <div class="desc">Your best match, with recommended alternatives</div>
+      </div>
+      ${card(pid,true)}
+      <div class="also-divider"><span>Also Great</span></div>
+      ${alts.map(id=>card(id,false)).join("")}
+      <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Essential oils are not a substitute for professional medical care. Consult a healthcare provider for any health condition. Not affiliated with or endorsed by doTERRA.</div>
+    </div>`;
+  condView.querySelectorAll(".moreinfo").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil}));
+}
+
+function renderOil(id){
+  const o=OILS[id];
+  const methodNote={Aromatic:"Diffuse or inhale to enjoy the aroma and its mood benefits.",Topical:"Apply to the skin; dilute with a carrier oil as needed.",Internal:"Use in water, a capsule or recipes where appropriate."};
+  const methodHtml=methodsOf(o).map(m=>`
+    <div class="method"><span class="mic"><svg><use href="#${usageIcon[m]}"/></svg></span>
+    <span><b>${m}</b><span>${m==="Topical"||m==="Internal"||m==="Aromatic"?(o.appNote && m===methodsOf(o)[0]?o.appNote:methodNote[m]):""}</span></span></div>`).join("");
+  oilView.innerHTML=`
+    <div class="oil-hero">
+      <div class="bottle">${oilImage(id)}</div>
+      <h2>${o.name}</h2>
+      <div class="latin">${o.latin}</div>
+      <a class="buybtn" href="${buyUrl(id)}" target="_blank" rel="noopener"><svg><use href="#ic-cart"/></svg> Buy this oil</a>
+    </div>
+    <div class="oil-body">
+      <div class="oblock"><h3>About</h3><p>${o.desc}</p></div>
+      <div class="oblock"><h3>Primary Uses</h3><ul class="uses-list">${o.uses.map(u=>`<li>${u}</li>`).join("")}</ul></div>
+      <div class="oblock"><h3>How to Use</h3><div class="methods">${methodHtml}</div></div>
+      <div class="oblock"><h3>Safety</h3><div class="safety"><b>Caution:</b> ${o.safety}</div></div>
+      <div class="oblock"><h3>Pairs Well With</h3><div class="pairs">${o.pairs.filter(p=>OILS[p]).map(p=>`<span class="pair" data-oil="${p}">${OILS[p].name}</span>`).join("")}</div></div>
+      <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Always read product labels and consult a healthcare provider. Not affiliated with or endorsed by doTERRA.</div>
+    </div>`;
+  oilView.querySelectorAll(".pair").forEach(p=>p.onclick=()=>go({type:'oil',key:p.dataset.oil}));
+}
+
+function showView(type){
+  [homeView,condView,oilView].forEach(v=>v.classList.remove("active"));
+  ({home:homeView,cond:condView,oil:oilView})[type].classList.add("active");
+}
+function setHeader(state){
+  if(state.type==='home'){header.classList.remove("sub");}
+  else{header.classList.add("sub");subTitle.textContent = state.type==='cond'?COND[state.key][0]:OILS[state.key].name;}
+}
+function render(state){
+  if(state.type==='cond')renderCond(state.key);
+  if(state.type==='oil')renderOil(state.key);
+  showView(state.type); setHeader(state); scroll.scrollTop=0;
+  const v=state.type==='home'?homeView:(state.type==='cond'?condView:oilView);
+  v.classList.remove("anim"); void v.offsetWidth; if(state.type!=='home')v.classList.add("anim");
+}
+function go(state){ navStack.push(state); render(state); }
+function back(){ navStack.pop(); render(navStack[navStack.length-1]||{type:'home'}); }
+
+$("backBtn").onclick=back;
+
+// search
+function matchKeys(q){
+  q=q.toLowerCase().trim(); if(!q)return Object.keys(COND);
+  return Object.keys(COND).filter(k=>{
+    const c=COND[k];
+    return c[0].toLowerCase().includes(q) || (c[4]||"").toLowerCase().includes(q) || OILS[c[1]].name.toLowerCase().includes(q);
+  });
+}
+search.addEventListener("input",()=>{
+  const keys=matchKeys(search.value);
+  if(!keys.length){clist.innerHTML="";count.textContent="";noMatch.style.display="block";return;}
+  noMatch.style.display="none"; renderList(keys);
+});
+search.addEventListener("keydown",e=>{if(e.key==="Enter"){const k=matchKeys(search.value);if(k.length)go({type:'cond',key:k[0]});}});
+
+// init
+navStack=[{type:'home'}];
+renderList(Object.keys(COND));
+</script>
+</body>
+</html>
