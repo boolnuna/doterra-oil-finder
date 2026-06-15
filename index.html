@@ -120,6 +120,10 @@
   .buybtn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--purple);color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:15px 34px;border-radius:50px;text-decoration:none;box-shadow:0 8px 20px rgba(138,106,173,.3)}
   .buybtn:active{background:var(--purple-dark)}
   .buybtn svg{width:16px;height:16px}
+  .hero-actions{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:18px}
+  .hero-actions .addcart,.hero-actions .buybtn{margin-top:0}
+  .hero-actions .buybtn{background:none;color:var(--purple-dark);box-shadow:none;padding:6px 10px;font-size:12px;text-transform:none;letter-spacing:.3px}
+  .hero-actions .buybtn:active{background:none;opacity:.6}
   .oil-body{padding:24px 26px 40px}
   .oblock{margin-bottom:24px}
   .oblock h3{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
@@ -166,6 +170,52 @@
   .dir-list li b{color:var(--ink);font-weight:600}
   .dir-tip{font-size:12.5px;line-height:1.6;color:var(--ink-soft);margin-top:12px;padding-top:12px;border-top:1px dashed var(--teal-line)}
   .dir-tip b{color:var(--teal-dark)}
+  .dir-block .rec{background:var(--white);border:1.5px solid var(--purple);border-radius:12px;padding:14px;margin-bottom:14px}
+  .rec-head{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .rec-head b{font-size:15px;color:var(--purple-dark)}
+  .rec-badge{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--purple);padding:4px 9px;border-radius:50px}
+  .dir-block .rec p{font-size:13.5px;line-height:1.6;color:var(--ink-soft)}
+  .dir-block .rec .rec-why{margin-top:7px;font-size:12px;color:var(--ink-faint);font-style:italic}
+  .dir-other-h{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin:4px 0 8px}
+
+  /* header cart button + badge */
+  .cart-btn{position:relative;border:none;background:none;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);flex:0 0 auto}
+  .cart-btn svg{width:22px;height:22px}
+  header.sub .cart-btn{display:none}
+  .cart-badge{position:absolute;top:-5px;right:-6px;min-width:17px;height:17px;padding:0 4px;border-radius:50px;background:var(--purple);color:#fff;font-size:10px;font-weight:700;display:none;place-items:center;line-height:1}
+
+  /* add-to-cart on oil page + condition cards */
+  .addcart{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;background:var(--white);color:var(--purple-dark);border:1.5px solid var(--purple);font-size:13px;font-weight:600;letter-spacing:.5px;padding:13px 26px;border-radius:50px;cursor:pointer}
+  .addcart.in{background:var(--purple);color:#fff}
+  .addcart svg{width:16px;height:16px}
+  .oc-add{display:inline-flex;align-items:center;gap:6px;margin-left:8px;font-size:12px;font-weight:600;color:var(--purple-dark);background:var(--teal-tint);border:1px solid var(--teal-line);padding:9px 14px;border-radius:50px;cursor:pointer}
+  .oc-add.in{background:var(--purple);border-color:var(--purple);color:#fff}
+  .oc-add svg{width:14px;height:14px}
+  .oc-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+
+  /* CART view */
+  .cart-wrap{padding:22px 22px 40px}
+  .cart-intro{font-size:13px;line-height:1.6;color:var(--ink-soft);background:var(--teal-tint);border:1px solid var(--teal-line);border-radius:12px;padding:14px 16px;margin-bottom:20px}
+  .cart-intro b{color:var(--teal-dark)}
+  .cart-empty{text-align:center;color:var(--ink-faint);font-size:14px;padding:50px 20px}
+  .cart-empty svg{width:46px;height:46px;color:var(--teal-line);margin-bottom:14px}
+  .cart-item{display:flex;align-items:center;gap:13px;padding:13px 4px;border-bottom:1px solid var(--line)}
+  .cart-item .ci-thumb{width:44px;flex:0 0 auto}
+  .cart-item .ci-thumb img,.cart-item .ci-thumb svg{width:100%;height:auto;display:block;aspect-ratio:1/1.4;object-fit:contain}
+  .cart-item .ci-body{flex:1 1 auto;min-width:0}
+  .cart-item .ci-name{font-size:14.5px;font-weight:600;color:var(--ink)}
+  .cart-item .ci-tag{font-size:11px;color:var(--ink-faint);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .qty{display:inline-flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:50px;overflow:hidden;margin-top:7px}
+  .qty button{width:28px;height:28px;border:none;background:var(--sand);color:var(--ink);font-size:16px;cursor:pointer;display:grid;place-items:center}
+  .qty button:active{background:var(--teal-tint)}
+  .qty span{min-width:30px;text-align:center;font-size:13px;font-weight:600}
+  .ci-del{border:none;background:none;cursor:pointer;color:var(--ink-faint);width:30px;height:30px;display:grid;place-items:center;flex:0 0 auto}
+  .ci-del svg{width:17px;height:17px}
+  .cart-foot{position:sticky;bottom:0;background:var(--white);border-top:1px solid var(--line);padding:16px 0 calc(env(safe-area-inset-bottom) + 8px);margin-top:8px}
+  .checkout-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:var(--purple);color:#fff;border:none;font-size:14px;font-weight:600;letter-spacing:.6px;padding:16px;border-radius:50px;cursor:pointer;box-shadow:0 8px 20px rgba(138,106,173,.3)}
+  .checkout-btn:active{background:var(--purple-dark)}
+  .checkout-btn svg{width:18px;height:18px}
+  .cart-note{text-align:center;font-size:11px;color:var(--ink-faint);margin-top:10px;line-height:1.5}
 
   /* SETTINGS / ACCOUNT */
   .set-wrap{padding:24px 22px 40px}
@@ -235,6 +285,7 @@
   <symbol id="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5Z"/></symbol>
   <symbol id="ic-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
   <symbol id="ic-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></symbol>
 </defs></svg>
 
 <div class="phone">
@@ -242,6 +293,7 @@
     <button class="back-btn" id="backBtn" aria-label="Back"><svg><use href="#ic-back"/></svg></button>
     <div class="brand-block"><div class="wordmark">HOME <b>ESSENTIAL</b></div><div class="tagline">Oil Finder</div></div>
     <div class="sub-title" id="subTitle"></div>
+    <button class="cart-btn" id="cartBtn" aria-label="Cart"><svg><use href="#ic-cart"/></svg><span class="cart-badge" id="cartBadge">0</span></button>
     <button class="settings-btn" id="settingsBtn" aria-label="Settings &amp; account"><svg><use href="#ic-gear"/></svg></button>
   </header>
   <div class="accent-rule"></div>
@@ -275,6 +327,8 @@
     <section class="view" id="oilView"></section>
     <!-- SETTINGS -->
     <section class="view" id="setView"></section>
+    <!-- CART -->
+    <section class="view" id="cartView"></section>
   </div>
 </div>
 
@@ -666,7 +720,12 @@ const PHOTO_IDS=["lavender","peppermint","frankincense","lemon","wildorange","or
 const PHOTOS={};
 PHOTO_IDS.forEach(id=>PHOTOS[id]="images/"+id+(id==="thyme"?".png":".jpg"));
 const SLUGS={
-  lavender:"doterra-lavender-essential-oil",peppermint:"doterra-peppermint-essential-oil",frankincense:"doterra-frankincense-essential-oil",lemon:"doterra-lemon-essential-oil",wildorange:"doterra-wild-orange-essential-oil",oregano:"doterra-oregano-essential-oil",eucalyptus:"doterra-eucalyptus-essential-oil",teatree:"doterra-melaleuca-tea-tree-essential-oil",bergamot:"doterra-bergamot-essential-oil",ginger:"doterra-ginger-essential-oil",cedarwood:"doterra-cedarwood-essential-oil",rosemary:"doterra-rosemary-essential-oil",clarysage:"doterra-clary-sage-essential-oil",romanchamomile:"doterra-roman-chamomile-essential-oil",cypress:"doterra-cypress-essential-oil",marjoram:"doterra-marjoram-essential-oil",basil:"doterra-basil-essential-oil",thyme:"doterra-thyme-essential-oil",clove:"doterra-clove-essential-oil",geranium:"doterra-geranium-essential-oil",helichrysum:"doterra-helichrysum-essential-oil",vetiver:"doterra-vetiver-essential-oil",lemongrass:"doterra-lemongrass-essential-oil",melissa:"doterra-melissa-essential-oil",myrrh:"doterra-myrrh-essential-oil",sandalwood:"doterra-sandalwood-essential-oil",fennel:"doterra-fennel-sweet-essential-oil",deepblue:"doterra-deep-blue-soothing-blend",onguard:"doterra-on-guard-protective-blend",breathe:"doterra-breathe-respiratory-blend",digestzen:"doterra-digestzen-digestive-blend",serenity:"doterra-serenity-restful-blend",cheer:"doterra-cheer-uplifting-blend",intune:"doterra-intune-focus-blend-roll-on",pasttense:"doterra-pasttense-tension-blend",balance:"doterra-balance-grounding-blend"
+  lavender:"doterra-lavender-essential-oil",peppermint:"doterra-peppermint-essential-oil",frankincense:"doterra-frankincense-essential-oil",lemon:"doterra-lemon-essential-oil",wildorange:"doterra-wild-orange-essential-oil",oregano:"doterra-oregano-essential-oil",eucalyptus:"doterra-eucalyptus-essential-oil",teatree:"doterra-melaleuca-tea-tree-essential-oil",bergamot:"doterra-bergamot-essential-oil",ginger:"doterra-ginger-essential-oil",cedarwood:"doterra-cedarwood-essential-oil",rosemary:"doterra-rosemary-essential-oil",clarysage:"doterra-clary-sage-essential-oil",romanchamomile:"doterra-roman-chamomile-essential-oil",cypress:"doterra-cypress-essential-oil",marjoram:"doterra-marjoram-essential-oil",basil:"doterra-basil-essential-oil",thyme:"doterra-thyme-essential-oil",clove:"doterra-clove-essential-oil",geranium:"doterra-geranium-essential-oil",helichrysum:"doterra-helichrysum-essential-oil",vetiver:"doterra-vetiver-essential-oil",lemongrass:"doterra-lemongrass-essential-oil",melissa:"doterra-melissa-essential-oil",myrrh:"doterra-myrrh-essential-oil",sandalwood:"doterra-sandalwood-essential-oil",fennel:"doterra-fennel-sweet-essential-oil",deepblue:"doterra-deep-blue-soothing-blend",onguard:"doterra-on-guard-protective-blend",breathe:"doterra-breathe-respiratory-blend",digestzen:"doterra-digestzen-digestive-blend",serenity:"doterra-serenity-restful-blend",cheer:"doterra-cheer-uplifting-blend",intune:"doterra-intune-focus-blend-roll-on",pasttense:"doterra-pasttense-tension-blend",balance:"doterra-balance-grounding-blend",copaiba:"copaiba-essential-oil",adaptiv:"doterra-adaptiv-calming-blend-5-ml"
+};
+/* Shopify variant IDs — let the in-app cart hand off a pre-filled cart to the shop checkout.
+   Pulled from shop.home-essential-oils.com product data. */
+const VARIANTS={
+  lavender:"28543522144330",peppermint:"28543556419658",frankincense:"28543574769738",lemon:"28543481446474",wildorange:"28635933933642",oregano:"28543585583178",eucalyptus:"28643228155978",teatree:"28543565922378",bergamot:"28635936292938",ginger:"28649083371594",cedarwood:"28635973976138",rosemary:"28659331858506",clarysage:"28671036424266",romanchamomile:"28635986853962",cypress:"28699045822538",marjoram:"28705325482058",basil:"28698945126474",thyme:"28699077804106",clove:"28699025309770",geranium:"28671000445002",helichrysum:"28740993974346",vetiver:"28635951530058",lemongrass:"28664750374986",melissa:"28741053481034",myrrh:"28705335574602",sandalwood:"28741064687690",fennel:"28705316274250",deepblue:"28543593054282",onguard:"28543669469258",breathe:"30193659314250",digestzen:"28543624183882",serenity:"28642264186954",cheer:"28659184238666",intune:"28619716493386",pasttense:"28619692671050",balance:"28659173490762",copaiba:"40485447991476",adaptiv:"50858723705045"
 };
 const buyUrl = id => SLUGS[id]
   ? "https://shop.home-essential-oils.com/products/"+SLUGS[id]
@@ -721,16 +780,51 @@ const SITE = {
   "ic-leaf":{area:"the chest and the bridge of the nose (well diluted)",tip:"Diffusing through the day helps keep the air clear."},
   "ic-heart":{area:"over the heart and on the wrists",tip:"Combine with calm, steady breathing."}
 };
+/* Which method works best for each body-system, in order of preference.
+   directionsFor() recommends the first method the chosen oil actually supports. */
+const METHOD_PRI={
+  "ic-headache":["Topical","Aromatic","Internal"],
+  "ic-digest":["Topical","Internal","Aromatic"],
+  "ic-lungs":["Aromatic","Topical","Internal"],
+  "ic-muscle":["Topical","Aromatic","Internal"],
+  "ic-skin":["Topical","Aromatic"],
+  "ic-drop":["Topical","Aromatic","Internal"],
+  "ic-sleep":["Aromatic","Topical","Internal"],
+  "ic-stress":["Aromatic","Topical","Internal"],
+  "ic-mood":["Aromatic","Topical","Internal"],
+  "ic-energy":["Aromatic","Topical","Internal"],
+  "ic-focus":["Aromatic","Topical","Internal"],
+  "ic-shield":["Topical","Internal","Aromatic"],
+  "ic-leaf":["Aromatic","Topical","Internal"],
+  "ic-heart":["Aromatic","Topical","Internal"]
+};
+const methodFlag={Aromatic:"a",Topical:"t",Internal:"i"};
+const whyMethod={
+  Topical:"applying it directly to the area delivers the oil right where you need it",
+  Aromatic:"breathing in the aroma is the fastest way to feel the benefit for this",
+  Internal:"taking it internally supports the body from the inside for this concern"
+};
+function methodText(m,o,site){
+  if(m==="Topical")return `Dilute 1–2 drops of ${o.name} with a carrier oil (such as fractionated coconut oil) and gently massage into ${site.area}. Repeat 2–3 times a day as needed.`;
+  if(m==="Aromatic")return `Diffuse 3–4 drops, or add a drop to your palms, cup them over your nose and breathe deeply for several moments.`;
+  return `Where appropriate, add 1 drop of ${o.name} to a large glass of water or take in a veggie capsule. Start with the smallest amount.`;
+}
 function directionsFor(id,condKey){
   const o=OILS[id], c=COND[condKey], site=SITE[c[3]]||SITE["ic-drop"];
-  const steps=[];
-  if(o.t)steps.push(`<b>Topical —</b> Dilute 1–2 drops of ${o.name} with a carrier oil (such as fractionated coconut oil) and gently massage into ${site.area}. Repeat 2–3 times a day as needed.`);
-  if(o.a)steps.push(`<b>Aromatic —</b> Diffuse 3–4 drops, or add a drop to your palms, cup them over your nose and breathe deeply for several moments.`);
-  if(o.i)steps.push(`<b>Internal —</b> Where appropriate, add 1 drop to a large glass of water or take in a veggie capsule. Start with the smallest amount.`);
+  const pri=METHOD_PRI[c[3]]||["Topical","Aromatic","Internal"];
+  const supported=pri.filter(m=>o[methodFlag[m]]);
+  if(!supported.length)return "";
+  const best=supported[0], others=supported.slice(1);
   return `<div class="dir-block">
     <h3>How to use it for ${c[0]}</h3>
-    <div class="dir-sub">Suggested ways to use ${o.name} for this concern.</div>
-    <ul class="dir-list">${steps.map(s=>`<li>${s}</li>`).join("")}</ul>
+    <div class="dir-sub">For ${c[0].toLowerCase()}, the best way to use ${o.name} is:</div>
+    <div class="rec">
+      <div class="rec-head"><span class="rec-badge">Recommended</span><b>${best}</b></div>
+      <p>${methodText(best,o,site)}</p>
+      <p class="rec-why">Why ${best.toLowerCase()}? Because ${whyMethod[best]}.</p>
+    </div>
+    ${others.length?`<div class="dir-other-h">Other ways to use it</div>
+      <ul class="dir-list">${others.map(m=>`<li><b>${m} —</b> ${methodText(m,o,site)}</li>`).join("")}</ul>`:""}
     <div class="dir-tip"><b>Tip:</b> ${site.tip}</div>
   </div>`;
 }
@@ -751,8 +845,21 @@ function setDark(on){ darkOn=on; localStorage.setItem("he_dark",on?"1":"0"); app
 function getName(){ return localStorage.getItem("he_name")||""; }
 function setName(n){ localStorage.setItem("he_name",n); }
 
+/* ---- Cart (oilId -> quantity), handed off to the shop checkout ---- */
+let cart={}; try{cart=JSON.parse(localStorage.getItem("he_cart")||"{}")||{};}catch(e){cart={};}
+function saveCart(){try{localStorage.setItem("he_cart",JSON.stringify(cart));}catch(e){}}
+const cartCount=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+const inCart=id=>cart[id]>0;
+function addToCart(id,n){ cart[id]=(cart[id]||0)+(n||1); if(cart[id]<1)delete cart[id]; saveCart(); updateCartBadge(); }
+function setQty(id,n){ if(n<1)delete cart[id]; else cart[id]=n; saveCart(); updateCartBadge(); }
+function updateCartBadge(){ const b=$("cartBadge"); if(!b)return; const n=cartCount(); b.textContent=n; b.style.display=n?"grid":"none"; }
+function checkoutUrl(){
+  const parts=Object.keys(cart).filter(id=>VARIANTS[id]&&cart[id]>0).map(id=>VARIANTS[id]+":"+cart[id]);
+  return parts.length ? "https://shop.home-essential-oils.com/cart/"+parts.join(",") : "";
+}
+
 const $=id=>document.getElementById(id);
-const homeView=$("homeView"),condView=$("condView"),oilView=$("oilView"),setView=$("setView"),header=$("header"),subTitle=$("subTitle"),scroll=$("scroll"),search=$("search"),clist=$("clist"),count=$("count"),noMatch=$("noMatch");
+const homeView=$("homeView"),condView=$("condView"),oilView=$("oilView"),setView=$("setView"),cartView=$("cartView"),header=$("header"),subTitle=$("subTitle"),scroll=$("scroll"),search=$("search"),clist=$("clist"),count=$("count"),noMatch=$("noMatch");
 
 let navStack=[]; // {type:'home'|'cond'|'oil', key}
 
@@ -781,7 +888,10 @@ function renderCond(k){
         <div class="oc-name">${o.name}</div>
         <div class="oc-tag">${o.tag}</div>
         ${usageTags(o)}
-        <button class="moreinfo" data-oil="${id}"><svg><use href="#ic-info"/></svg> More information</button>
+        <div class="oc-actions">
+          <button class="moreinfo" data-oil="${id}"><svg><use href="#ic-info"/></svg> More information</button>
+          <button class="oc-add ${inCart(id)?'in':''}" data-add="${id}"><svg><use href="#${inCart(id)?'ic-check':'ic-cart'}"/></svg> ${inCart(id)?'Added':'Add'}</button>
+        </div>
       </div>
     </div>`;};
   const fav=isFav(k);
@@ -799,6 +909,8 @@ function renderCond(k){
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Essential oils are not a substitute for professional medical care. Consult a healthcare provider for any health condition. Not affiliated with or endorsed by doTERRA.</div>
     </div>`;
   condView.querySelectorAll(".moreinfo").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil,cond:k}));
+  condView.querySelectorAll(".oc-add").forEach(b=>b.onclick=()=>{ const id=b.dataset.add; addToCart(id,1);
+    b.classList.add("in"); b.querySelector("use").setAttribute("href","#ic-check"); b.lastChild.textContent=" Added"; });
   const fb=$("flagBtn");
   fb.onclick=()=>{ toggleFav(k); const on=isFav(k); fb.classList.toggle("on",on);
     fb.querySelector("span").textContent=on?'Saved':'Save this concern';
@@ -817,7 +929,10 @@ function renderOil(state){
       <div class="bottle">${oilImage(id)}</div>
       <h2>${o.name}</h2>
       <div class="latin">${o.latin}</div>
-      <a class="buybtn" href="${buyUrl(id)}" target="_blank" rel="noopener"><svg><use href="#ic-cart"/></svg> Buy this oil</a>
+      <div class="hero-actions">
+        <button class="addcart ${inCart(id)?'in':''}" id="addCartBtn"><svg><use href="#${inCart(id)?'ic-check':'ic-cart'}"/></svg> <span>${inCart(id)?`In cart (${cart[id]}) · Add another`:'Add to cart'}</span></button>
+        <a class="buybtn" href="${buyUrl(id)}" target="_blank" rel="noopener"><svg><use href="#ic-cart"/></svg> Buy now on shop</a>
+      </div>
     </div>
     <div class="oil-body">
       ${dirHtml}
@@ -829,6 +944,10 @@ function renderOil(state){
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Always read product labels and consult a healthcare provider. Not affiliated with or endorsed by doTERRA.</div>
     </div>`;
   oilView.querySelectorAll(".pair").forEach(p=>p.onclick=()=>go({type:'oil',key:p.dataset.oil,cond:condKey}));
+  const acb=$("addCartBtn");
+  acb.onclick=()=>{ addToCart(id,1); acb.classList.add("in");
+    acb.querySelector("use").setAttribute("href","#ic-check");
+    acb.querySelector("span").textContent=`In cart (${cart[id]}) · Add another`; };
 }
 
 function renderSettings(){
@@ -874,22 +993,57 @@ function renderSettings(){
   setView.querySelectorAll(".sv-del").forEach(b=>b.onclick=()=>{ toggleFav(b.dataset.del); renderSettings(); });
 }
 
-function showView(type){
-  [homeView,condView,oilView,setView].forEach(v=>v.classList.remove("active"));
-  ({home:homeView,cond:condView,oil:oilView,settings:setView})[type].classList.add("active");
+function renderCart(){
+  const ids=Object.keys(cart).filter(id=>cart[id]>0 && OILS[id]);
+  if(!ids.length){
+    cartView.innerHTML=`<div class="cart-wrap"><div class="cart-empty"><svg><use href="#ic-cart"/></svg>
+      <div>Your cart is empty.</div>
+      <div style="font-size:12px;margin-top:8px">Open any concern and tap <b>Add</b> on an oil to start building your order.</div></div></div>`;
+    return;
+  }
+  const rows=ids.map(id=>{const o=OILS[id];return `
+    <div class="cart-item">
+      <div class="ci-thumb">${oilImage(id)}</div>
+      <div class="ci-body">
+        <div class="ci-name">${o.name}</div>
+        <div class="ci-tag">${o.latin}</div>
+        <div class="qty"><button data-dec="${id}" aria-label="Less">−</button><span>${cart[id]}</span><button data-inc="${id}" aria-label="More">+</button></div>
+      </div>
+      <button class="ci-del" data-del="${id}" aria-label="Remove"><svg><use href="#ic-trash"/></svg></button>
+    </div>`;}).join("");
+  cartView.innerHTML=`
+    <div class="cart-wrap">
+      <div class="cart-intro"><b>Almost there.</b> Review your oils, then check out — we'll open Home Essential Oils with these items already in your cart.</div>
+      ${rows}
+      <div class="cart-foot">
+        <button class="checkout-btn" id="checkoutBtn"><svg><use href="#ic-cart"/></svg> Checkout at Home Essential Oils</button>
+        <div class="cart-note">${cartCount()} item${cartCount()===1?'':'s'} · Opens the shop's secure checkout in a new tab. Final prices shown there.</div>
+      </div>
+    </div>`;
+  cartView.querySelectorAll("[data-inc]").forEach(b=>b.onclick=()=>{setQty(b.dataset.inc,(cart[b.dataset.inc]||0)+1);renderCart();});
+  cartView.querySelectorAll("[data-dec]").forEach(b=>b.onclick=()=>{setQty(b.dataset.dec,(cart[b.dataset.dec]||0)-1);renderCart();});
+  cartView.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{setQty(b.dataset.del,0);renderCart();});
+  $("checkoutBtn").onclick=()=>{const u=checkoutUrl();if(u)window.open(u,"_blank","noopener");};
 }
+
+function showView(type){
+  [homeView,condView,oilView,setView,cartView].forEach(v=>v.classList.remove("active"));
+  ({home:homeView,cond:condView,oil:oilView,settings:setView,cart:cartView})[type].classList.add("active");
+}
+const subTitles={settings:"Settings",cart:"Your Cart"};
 function setHeader(state){
   if(state.type==='home'){header.classList.remove("sub");}
   else{header.classList.add("sub");
-    subTitle.textContent = state.type==='cond'?COND[state.key][0]:(state.type==='oil'?OILS[state.key].name:"Settings");}
+    subTitle.textContent = state.type==='cond'?COND[state.key][0]:(state.type==='oil'?OILS[state.key].name:(subTitles[state.type]||""));}
 }
 function render(state){
   if(state.type==='cond')renderCond(state.key);
   if(state.type==='oil')renderOil(state);
   if(state.type==='settings')renderSettings();
+  if(state.type==='cart')renderCart();
   if(state.type==='home'){updateSavedLabel();if(typeof refresh==='function')refresh();}
   showView(state.type); setHeader(state); scroll.scrollTop=0;
-  const v=({home:homeView,cond:condView,oil:oilView,settings:setView})[state.type];
+  const v=({home:homeView,cond:condView,oil:oilView,settings:setView,cart:cartView})[state.type];
   v.classList.remove("anim"); void v.offsetWidth; if(state.type!=='home')v.classList.add("anim");
 }
 function go(state){ navStack.push(state); render(state); }
@@ -922,10 +1076,12 @@ search.addEventListener("keydown",e=>{if(e.key==="Enter"){let k=matchKeys(search
 const savedToggle=$("savedToggle");
 savedToggle.onclick=()=>{ showFavsOnly=!showFavsOnly; savedToggle.classList.toggle("on",showFavsOnly); refresh(); };
 $("settingsBtn").onclick=()=>go({type:'settings'});
+$("cartBtn").onclick=()=>go({type:'cart'});
 
 // init
 applyTheme(darkOn);
 updateSavedLabel();
+updateCartBadge();
 navStack=[{type:'home'}];
 refresh();
 </script>
