@@ -111,7 +111,8 @@
   .also-divider::after{content:"";height:1px;background:var(--line);flex:1}
 
   /* OIL info page */
-  .oil-hero{background:var(--white);text-align:center;padding:30px 26px 24px;border-bottom:1px solid var(--line)}
+  .oil-hero{background:var(--white);text-align:center;padding:30px 26px 24px;border-bottom:1px solid var(--line);position:relative}
+  .oil-price{font-size:19px;font-weight:700;color:var(--purple-dark);margin-top:8px}
   .oil-hero .bottle{width:150px;margin:0 auto 16px}
   .oil-hero .bottle svg,.oil-hero .bottle img{width:100%;height:auto;display:block}
   .oil-hero .bottle img{aspect-ratio:1/1.2;object-fit:contain}
@@ -250,6 +251,96 @@
   .saved-row .sv-body span{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .saved-row .sv-del{border:none;background:none;cursor:pointer;color:var(--ink-faint);width:32px;height:32px;display:grid;place-items:center;flex:0 0 auto}
   .saved-row .sv-del svg{width:17px;height:17px}
+
+  /* search clear + browse all */
+  .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:none;background:none;cursor:pointer;color:var(--ink-faint);width:30px;height:30px;display:none;align-items:center;justify-content:center}
+  .search-clear svg{width:18px;height:18px}
+  .search-wrap.has-text .search-clear{display:flex}
+  .home-links{display:flex;gap:18px;margin-top:13px;flex-wrap:wrap}
+  .browse-all{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;letter-spacing:.3px;color:var(--teal-dark);background:none;border:none;cursor:pointer;padding:2px}
+  .browse-all svg{width:15px;height:15px}
+
+  /* LEARN hub */
+  .learn-wrap{padding:22px 22px 40px}
+  .learn-hero{text-align:center;margin-bottom:22px}
+  .learn-hero .lh-ic{width:54px;height:54px;border-radius:50%;background:var(--teal-tint);border:1px solid var(--teal-line);display:grid;place-items:center;margin:0 auto 12px}
+  .learn-hero .lh-ic svg{width:26px;height:26px;color:var(--teal)}
+  .learn-hero h2{font-size:21px;font-weight:600;color:var(--ink)}
+  .learn-hero p{font-size:13px;color:var(--ink-soft);margin-top:7px;line-height:1.6}
+  .acc{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--white)}
+  .acc-head{display:flex;align-items:center;gap:12px;width:100%;padding:16px;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit}
+  .acc-head .ah-ic{width:34px;height:34px;border-radius:50%;background:var(--teal-tint);display:grid;place-items:center;flex:0 0 auto}
+  .acc-head .ah-ic svg{width:17px;height:17px;color:var(--teal)}
+  .acc-head .ah-t{flex:1 1 auto;font-size:14.5px;font-weight:600;color:var(--ink)}
+  .acc-head .ah-chev{color:var(--ink-faint);transition:transform .25s;flex:0 0 auto}
+  .acc-head .ah-chev svg{width:18px;height:18px;display:block}
+  .acc.open .ah-chev{transform:rotate(180deg)}
+  .acc-body{display:none;padding:0 16px 16px 62px}
+  .acc.open .acc-body{display:block}
+  .acc-body p{font-size:13.5px;line-height:1.7;color:var(--ink-soft);margin-bottom:10px}
+  .acc-body p:last-child{margin-bottom:0}
+  .acc-body b{color:var(--ink)}
+  .acc-body ul{list-style:none;margin:4px 0 10px}
+  .acc-body li{font-size:13.5px;line-height:1.6;color:var(--ink-soft);padding-left:16px;position:relative;margin-bottom:7px}
+  .acc-body li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .dil-table{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
+  .dil-table th,.dil-table td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+  .dil-table th{background:var(--teal-tint);color:var(--teal-dark);font-weight:600;font-size:11px;letter-spacing:.3px}
+  .dil-table td b{color:var(--purple-dark)}
+  .learn-cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:12.5px;font-weight:600;color:var(--teal-dark);background:var(--teal-tint);border:1px solid var(--teal-line);padding:11px 18px;border-radius:50px;cursor:pointer}
+  .learn-cta svg{width:15px;height:15px}
+
+  /* recently viewed */
+  .recent-strip{display:none;gap:9px;padding:14px 26px 2px;overflow-x:auto;scrollbar-width:none}
+  .recent-strip::-webkit-scrollbar{display:none}
+  .recent-strip.show{display:flex}
+  .recent-chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:500;color:var(--ink-soft);background:var(--sand);border:1px solid var(--line);padding:8px 13px;border-radius:50px;cursor:pointer;white-space:nowrap}
+  .recent-chip svg{width:14px;height:14px;color:var(--teal)}
+  .recent-head{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);font-weight:600;padding:14px 26px 0}
+  .recent-head.show{display:block}.recent-head{display:none}
+
+  /* toast */
+  .toast{position:absolute;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom) + 18px);background:var(--ink);color:#fff;border-radius:14px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13.5px;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+  .toast.show{opacity:1;transform:none;pointer-events:auto}
+  .toast button{flex:0 0 auto;background:none;border:none;color:var(--purple);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
+  [data-theme="dark"] .toast{background:#34303f;border:1px solid var(--line)}
+
+  /* share button (concern + oil) */
+  .sharebtn{position:absolute;top:0;right:0;border:none;background:var(--teal-tint);color:var(--teal-dark);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;cursor:pointer;border:1px solid var(--teal-line)}
+  .sharebtn svg{width:17px;height:17px}
+  .detail-top{position:relative}
+
+  /* owned badge */
+  .owned-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#3a7a52;background:#e6f4ec;border:1px solid #bfe3cd;padding:3px 9px;border-radius:50px;margin-bottom:8px}
+  .owned-badge svg{width:11px;height:11px}
+  [data-theme="dark"] .owned-badge{color:#7fd6a0;background:#1c2c22;border-color:#2e4636}
+  .own-toggle{display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-size:12px;font-weight:600;color:var(--ink-soft);background:var(--sand);border:1px solid var(--line);padding:9px 16px;border-radius:50px;cursor:pointer}
+  .own-toggle.in{color:#3a7a52;background:#e6f4ec;border-color:#bfe3cd}
+  .own-toggle svg{width:15px;height:15px}
+  [data-theme="dark"] .own-toggle.in{color:#7fd6a0;background:#1c2c22;border-color:#2e4636}
+  .collection-hint{font-size:12px;color:#3a7a52;background:#e6f4ec;border:1px solid #bfe3cd;border-radius:10px;padding:10px 13px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .collection-hint svg{width:16px;height:16px;flex:0 0 auto}
+  [data-theme="dark"] .collection-hint{color:#7fd6a0;background:#1c2c22;border-color:#2e4636}
+
+  /* all-oils list */
+  .oils-wrap{padding:8px 16px 30px}
+  .oils-intro{padding:18px 10px 6px;font-size:13px;color:var(--ink-soft)}
+  .orow{display:flex;align-items:center;gap:14px;padding:12px 10px;border-bottom:1px solid var(--line);cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;width:100%;text-align:left}
+  .orow:active{background:var(--teal-tint)}
+  .orow .othumb{width:30px;flex:0 0 auto}
+  .orow .othumb img,.orow .othumb svg{width:100%;height:auto;display:block;aspect-ratio:1/1.4;object-fit:contain}
+  .orow .otext{flex:1 1 auto;min-width:0}
+  .orow .oname{display:block;font-size:15px;font-weight:500;color:var(--ink)}
+  .orow .otag{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .orow .oprice{font-size:13px;font-weight:600;color:var(--purple-dark);flex:0 0 auto;margin-right:4px}
+
+  /* cart prices + total */
+  .ci-price{font-size:11.5px;color:var(--ink-soft);margin-top:2px}
+  .ci-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:0 0 auto}
+  .ci-line{font-size:13.5px;font-weight:600;color:var(--ink)}
+  .cart-total{display:flex;align-items:baseline;justify-content:space-between;padding:14px 2px 4px}
+  .cart-total .ct-label{font-size:13px;color:var(--ink-soft)}
+  .cart-total .ct-val{font-size:20px;font-weight:700;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -286,6 +377,11 @@
   <symbol id="ic-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
   <symbol id="ic-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/></symbol>
   <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></symbol>
+  <symbol id="ic-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></symbol>
+  <symbol id="ic-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></symbol>
+  <symbol id="ic-clear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></symbol>
+  <symbol id="ic-chevdown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
 </defs></svg>
 
 <div class="phone">
@@ -309,8 +405,15 @@
         <div class="search-wrap">
           <svg class="search-icon"><use href="#ic-search"/></svg>
           <input type="text" id="search" class="search-box" autocomplete="off" placeholder="Search a symptom, condition or concern" aria-label="Search" />
+          <button class="search-clear" id="searchClear" aria-label="Clear search"><svg><use href="#ic-clear"/></svg></button>
+        </div>
+        <div class="home-links">
+          <button class="browse-all" id="browseAll"><svg><use href="#ic-grid"/></svg> Browse all oils</button>
+          <button class="browse-all" id="learnBtn"><svg><use href="#ic-book"/></svg> Learn the basics</button>
         </div>
       </div>
+      <div class="recent-head" id="recentHead">Recently viewed</div>
+      <div class="recent-strip" id="recentStrip"></div>
       <div class="count-row">
         <div class="count" id="count"></div>
         <button class="saved-toggle" id="savedToggle"><svg><use href="#ic-bookmark"/></svg> <span id="savedLabel">Saved</span></button>
@@ -329,7 +432,12 @@
     <section class="view" id="setView"></section>
     <!-- CART -->
     <section class="view" id="cartView"></section>
+    <!-- ALL OILS -->
+    <section class="view" id="oilsView"></section>
+    <!-- LEARN -->
+    <section class="view" id="learnView"></section>
   </div>
+  <div class="toast" id="toast"></div>
 </div>
 
 <script>
@@ -727,6 +835,12 @@ const SLUGS={
 const VARIANTS={
   lavender:"28543522144330",peppermint:"28543556419658",frankincense:"28543574769738",lemon:"28543481446474",wildorange:"28635933933642",oregano:"28543585583178",eucalyptus:"28643228155978",teatree:"28543565922378",bergamot:"28635936292938",ginger:"28649083371594",cedarwood:"28635973976138",rosemary:"28659331858506",clarysage:"28671036424266",romanchamomile:"28635986853962",cypress:"28699045822538",marjoram:"28705325482058",basil:"28698945126474",thyme:"28699077804106",clove:"28699025309770",geranium:"28671000445002",helichrysum:"28740993974346",vetiver:"28635951530058",lemongrass:"28664750374986",melissa:"28741053481034",myrrh:"28705335574602",sandalwood:"28741064687690",fennel:"28705316274250",deepblue:"28543593054282",onguard:"28543669469258",breathe:"30193659314250",digestzen:"28543624183882",serenity:"28642264186954",cheer:"28659184238666",intune:"28619716493386",pasttense:"28619692671050",balance:"28659173490762",copaiba:"40485447991476",adaptiv:"50858723705045"
 };
+/* Retail prices (USD) pulled from shop.home-essential-oils.com product data. Indicative — final price shown at checkout. */
+const PRICES={
+  lavender:"36.67",peppermint:"32.67",frankincense:"99.67",lemon:"19.67",wildorange:"16.67",oregano:"35.67",eucalyptus:"29.67",teatree:"32.67",bergamot:"55.67",ginger:"66.67",cedarwood:"20.67",rosemary:"27.67",clarysage:"50.67",romanchamomile:"65.67",cypress:"24.67",marjoram:"30.67",basil:"42.67",thyme:"43.67",clove:"28.67",geranium:"64.67",helichrysum:"104.67",vetiver:"84.67",lemongrass:"19.67",melissa:"123.67",myrrh:"94.67",sandalwood:"114.67",fennel:"23.67",deepblue:"48.67",onguard:"49.67",breathe:"36.67",digestzen:"48.67",serenity:"53.67",cheer:"32.67",intune:"53.67",pasttense:"44.67",balance:"32.67",copaiba:"49.67",adaptiv:"29.67"
+};
+const priceOf=id=>PRICES[id]?parseFloat(PRICES[id]):0;
+const fmt=n=>"$"+n.toFixed(2);
 const buyUrl = id => SLUGS[id]
   ? "https://shop.home-essential-oils.com/products/"+SLUGS[id]
   : "https://shop.home-essential-oils.com/search?q="+encodeURIComponent(OILS[id].name.replace(/\s*\(.*\)/,"").trim());
@@ -857,9 +971,38 @@ function checkoutUrl(){
   const parts=Object.keys(cart).filter(id=>VARIANTS[id]&&cart[id]>0).map(id=>VARIANTS[id]+":"+cart[id]);
   return parts.length ? "https://shop.home-essential-oils.com/cart/"+parts.join(",") : "";
 }
+const cartSubtotal=()=>Object.keys(cart).reduce((s,id)=>s+priceOf(id)*(cart[id]||0),0);
+
+/* ---- Oils I own (prioritise what's in your collection) ---- */
+let owned=[]; try{owned=JSON.parse(localStorage.getItem("he_owned")||"[]")||[];}catch(e){owned=[];}
+const isOwned=id=>owned.includes(id);
+function toggleOwned(id){ if(isOwned(id))owned=owned.filter(x=>x!==id); else owned.push(id); try{localStorage.setItem("he_owned",JSON.stringify(owned));}catch(e){} }
+
+/* ---- Recently viewed concerns ---- */
+let recent=[]; try{recent=JSON.parse(localStorage.getItem("he_recent")||"[]")||[];}catch(e){recent=[];}
+function pushRecent(k){ recent=[k,...recent.filter(x=>x!==k)].slice(0,8); try{localStorage.setItem("he_recent",JSON.stringify(recent));}catch(e){} }
+
+/* ---- Toast ---- */
+let toastTimer=null;
+function showToast(msg,actionLabel,actionFn){
+  const t=$("toast"); if(!t)return;
+  t.innerHTML=`<span>${msg}</span>`+(actionLabel?`<button id="toastAction">${actionLabel}</button>`:"");
+  t.classList.add("show");
+  if(actionLabel){ $("toastAction").onclick=()=>{ t.classList.remove("show"); actionFn&&actionFn(); }; }
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove("show"),3200);
+}
+
+/* ---- Share (concern or oil), with clipboard fallback ---- */
+async function shareThis(title,text,url){
+  try{
+    if(navigator.share){ await navigator.share({title,text,url}); return; }
+    await navigator.clipboard.writeText(text+" "+url);
+    showToast("Link copied to clipboard");
+  }catch(e){ /* user cancelled or unsupported */ }
+}
 
 const $=id=>document.getElementById(id);
-const homeView=$("homeView"),condView=$("condView"),oilView=$("oilView"),setView=$("setView"),cartView=$("cartView"),header=$("header"),subTitle=$("subTitle"),scroll=$("scroll"),search=$("search"),clist=$("clist"),count=$("count"),noMatch=$("noMatch");
+const homeView=$("homeView"),condView=$("condView"),oilView=$("oilView"),setView=$("setView"),cartView=$("cartView"),oilsView=$("oilsView"),learnView=$("learnView"),header=$("header"),subTitle=$("subTitle"),scroll=$("scroll"),search=$("search"),clist=$("clist"),count=$("count"),noMatch=$("noMatch");
 
 let navStack=[]; // {type:'home'|'cond'|'oil', key}
 
@@ -879,12 +1022,16 @@ function renderList(keys){
 }
 
 function renderCond(k){
-  const c=COND[k], pid=c[1], primary=OILS[pid], alts=c[2];
+  pushRecent(k);
+  const c=COND[k], pid=c[1], alts=c[2];
+  const allOils=[pid,...alts];
+  const ownedHere=allOils.filter(isOwned);
   const card=(id,isPrimary)=>{const o=OILS[id];return `
     <div class="oilcard ${isPrimary?'primary':''}">
       <div class="thumb">${oilImage(id)}</div>
       <div class="oc-body">
         ${isPrimary?'<span class="pill best">Best Match</span>':''}
+        ${isOwned(id)?'<span class="owned-badge"><svg><use href="#ic-check"/></svg> In your collection</span>':''}
         <div class="oc-name">${o.name}</div>
         <div class="oc-tag">${o.tag}</div>
         ${usageTags(o)}
@@ -895,14 +1042,18 @@ function renderCond(k){
       </div>
     </div>`;};
   const fav=isFav(k);
+  const hint = ownedHere.length
+    ? `<div class="collection-hint"><svg><use href="#ic-check"/></svg> <span>You already own <b>${ownedHere.map(id=>OILS[id].name).join(", ")}</b> — great for this concern.</span></div>` : "";
   condView.innerHTML=`
     <div class="detail-wrap">
       <div class="detail-top">
+        <button class="sharebtn" id="shareBtn" aria-label="Share"><svg><use href="#ic-share"/></svg></button>
         <div class="ic"><svg><use href="#${c[3]}"/></svg></div>
         <h2>${c[0]}</h2>
         <div class="desc">${condDesc(k)}</div>
         <button class="flagbtn ${fav?'on':''}" id="flagBtn"><svg><use href="#${fav?'ic-bookmark-fill':'ic-bookmark'}"/></svg> <span>${fav?'Saved':'Save this concern'}</span></button>
       </div>
+      ${hint}
       ${card(pid,true)}
       <div class="also-divider"><span>Also Great</span></div>
       ${alts.map(id=>card(id,false)).join("")}
@@ -910,11 +1061,14 @@ function renderCond(k){
     </div>`;
   condView.querySelectorAll(".moreinfo").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil,cond:k}));
   condView.querySelectorAll(".oc-add").forEach(b=>b.onclick=()=>{ const id=b.dataset.add; addToCart(id,1);
-    b.classList.add("in"); b.querySelector("use").setAttribute("href","#ic-check"); b.lastChild.textContent=" Added"; });
+    b.classList.add("in"); b.querySelector("use").setAttribute("href","#ic-check"); b.lastChild.textContent=" Added";
+    showToast(`Added ${OILS[id].name} to cart`,"View cart",()=>go({type:'cart'})); });
   const fb=$("flagBtn");
   fb.onclick=()=>{ toggleFav(k); const on=isFav(k); fb.classList.toggle("on",on);
     fb.querySelector("span").textContent=on?'Saved':'Save this concern';
     fb.querySelector("use").setAttribute("href",on?'#ic-bookmark-fill':'#ic-bookmark'); };
+  $("shareBtn").onclick=()=>shareThis(`${c[0]} — Home Essential Oil Finder`,
+    `${OILS[pid].name} is a great essential oil for ${c[0].toLowerCase()}.`, buyUrl(pid));
 }
 
 function renderOil(state){
@@ -926,12 +1080,15 @@ function renderOil(state){
     <span><b>${m}</b><span>${m==="Topical"||m==="Internal"||m==="Aromatic"?(o.appNote && m===methodsOf(o)[0]?o.appNote:methodNote[m]):""}</span></span></div>`).join("");
   oilView.innerHTML=`
     <div class="oil-hero">
+      <button class="sharebtn" id="shareBtn" aria-label="Share"><svg><use href="#ic-share"/></svg></button>
       <div class="bottle">${oilImage(id)}</div>
       <h2>${o.name}</h2>
       <div class="latin">${o.latin}</div>
+      ${PRICES[id]?`<div class="oil-price">${fmt(priceOf(id))}</div>`:""}
       <div class="hero-actions">
         <button class="addcart ${inCart(id)?'in':''}" id="addCartBtn"><svg><use href="#${inCart(id)?'ic-check':'ic-cart'}"/></svg> <span>${inCart(id)?`In cart (${cart[id]}) · Add another`:'Add to cart'}</span></button>
         <a class="buybtn" href="${buyUrl(id)}" target="_blank" rel="noopener"><svg><use href="#ic-cart"/></svg> Buy now on shop</a>
+        <button class="own-toggle ${isOwned(id)?'in':''}" id="ownBtn"><svg><use href="#${isOwned(id)?'ic-check':'ic-leaf'}"/></svg> <span>${isOwned(id)?'In your collection':'I own this oil'}</span></button>
       </div>
     </div>
     <div class="oil-body">
@@ -941,13 +1098,23 @@ function renderOil(state){
       <div class="oblock"><h3>How to Use</h3><div class="methods">${methodHtml}</div></div>
       <div class="oblock"><h3>Safety</h3><div class="safety"><b>Caution:</b> ${o.safety}</div></div>
       <div class="oblock"><h3>Pairs Well With</h3><div class="pairs">${o.pairs.filter(p=>OILS[p]).map(p=>`<span class="pair" data-oil="${p}">${OILS[p].name}</span>`).join("")}</div></div>
+      <button class="learn-cta" id="oilLearn"><svg><use href="#ic-book"/></svg> New to oils? Learn the basics</button>
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Always read product labels and consult a healthcare provider. Not affiliated with or endorsed by doTERRA.</div>
     </div>`;
   oilView.querySelectorAll(".pair").forEach(p=>p.onclick=()=>go({type:'oil',key:p.dataset.oil,cond:condKey}));
   const acb=$("addCartBtn");
   acb.onclick=()=>{ addToCart(id,1); acb.classList.add("in");
     acb.querySelector("use").setAttribute("href","#ic-check");
-    acb.querySelector("span").textContent=`In cart (${cart[id]}) · Add another`; };
+    acb.querySelector("span").textContent=`In cart (${cart[id]}) · Add another`;
+    showToast(`Added ${o.name} to cart`,"View cart",()=>go({type:'cart'})); };
+  const ob=$("ownBtn");
+  ob.onclick=()=>{ toggleOwned(id); const on=isOwned(id); ob.classList.toggle("in",on);
+    ob.querySelector("use").setAttribute("href",on?"#ic-check":"#ic-leaf");
+    ob.querySelector("span").textContent=on?'In your collection':'I own this oil';
+    showToast(on?`Saved ${o.name} to your collection`:`Removed ${o.name} from your collection`); };
+  $("shareBtn").onclick=()=>shareThis(`${o.name} — Home Essential Oils`,
+    `Check out ${o.name} essential oil${o.tag?": "+o.tag.toLowerCase():""}`, buyUrl(id));
+  $("oilLearn").onclick=()=>go({type:'learn'});
 }
 
 function renderSettings(){
@@ -998,26 +1165,33 @@ function renderCart(){
   if(!ids.length){
     cartView.innerHTML=`<div class="cart-wrap"><div class="cart-empty"><svg><use href="#ic-cart"/></svg>
       <div>Your cart is empty.</div>
-      <div style="font-size:12px;margin-top:8px">Open any concern and tap <b>Add</b> on an oil to start building your order.</div></div></div>`;
+      <div style="font-size:12px;margin-top:8px 0">Open any concern and tap <b>Add</b> on an oil to start building your order.</div>
+      <button class="checkout-btn" id="cartBrowse" style="max-width:240px;margin:22px auto 0"><svg><use href="#ic-search"/></svg> Browse concerns</button>
+      </div></div>`;
+    $("cartBrowse").onclick=()=>go({type:'home'});
     return;
   }
-  const rows=ids.map(id=>{const o=OILS[id];return `
+  const rows=ids.map(id=>{const o=OILS[id];const line=priceOf(id)*cart[id];return `
     <div class="cart-item">
       <div class="ci-thumb">${oilImage(id)}</div>
       <div class="ci-body">
         <div class="ci-name">${o.name}</div>
-        <div class="ci-tag">${o.latin}</div>
+        ${PRICES[id]?`<div class="ci-price">${fmt(priceOf(id))} each</div>`:`<div class="ci-tag">${o.latin}</div>`}
         <div class="qty"><button data-dec="${id}" aria-label="Less">−</button><span>${cart[id]}</span><button data-inc="${id}" aria-label="More">+</button></div>
       </div>
-      <button class="ci-del" data-del="${id}" aria-label="Remove"><svg><use href="#ic-trash"/></svg></button>
+      <div class="ci-right">
+        ${PRICES[id]?`<div class="ci-line">${fmt(line)}</div>`:""}
+        <button class="ci-del" data-del="${id}" aria-label="Remove"><svg><use href="#ic-trash"/></svg></button>
+      </div>
     </div>`;}).join("");
   cartView.innerHTML=`
     <div class="cart-wrap">
       <div class="cart-intro"><b>Almost there.</b> Review your oils, then check out — we'll open Home Essential Oils with these items already in your cart.</div>
       ${rows}
+      <div class="cart-total"><span class="ct-label">Subtotal (${cartCount()} item${cartCount()===1?'':'s'})</span><span class="ct-val">${fmt(cartSubtotal())}</span></div>
       <div class="cart-foot">
         <button class="checkout-btn" id="checkoutBtn"><svg><use href="#ic-cart"/></svg> Checkout at Home Essential Oils</button>
-        <div class="cart-note">${cartCount()} item${cartCount()===1?'':'s'} · Opens the shop's secure checkout in a new tab. Final prices shown there.</div>
+        <div class="cart-note">Opens the shop's secure checkout in a new tab. Taxes &amp; final pricing confirmed there.</div>
       </div>
     </div>`;
   cartView.querySelectorAll("[data-inc]").forEach(b=>b.onclick=()=>{setQty(b.dataset.inc,(cart[b.dataset.inc]||0)+1);renderCart();});
@@ -1026,11 +1200,92 @@ function renderCart(){
   $("checkoutBtn").onclick=()=>{const u=checkoutUrl();if(u)window.open(u,"_blank","noopener");};
 }
 
-function showView(type){
-  [homeView,condView,oilView,setView,cartView].forEach(v=>v.classList.remove("active"));
-  ({home:homeView,cond:condView,oil:oilView,settings:setView,cart:cartView})[type].classList.add("active");
+function renderOils(){
+  const ids=Object.keys(OILS).sort((a,b)=>OILS[a].name.localeCompare(OILS[b].name));
+  const rows=ids.map(id=>{const o=OILS[id];return `
+    <button class="orow" data-oil="${id}">
+      <span class="othumb">${oilImage(id)}</span>
+      <span class="otext"><span class="oname">${o.name}</span><span class="otag">${o.tag}</span></span>
+      ${PRICES[id]?`<span class="oprice">${fmt(priceOf(id))}</span>`:""}
+      <span class="chev"><svg><use href="#ic-fwd"/></svg></span>
+    </button>`;}).join("");
+  oilsView.innerHTML=`<div class="oils-wrap">
+    <div class="oils-intro">All ${ids.length} oils, A–Z. Tap any oil for full details, uses and safety.</div>
+    ${rows}
+    <div class="disclaimer" style="margin:20px 0 0"><b>For educational purposes only — not medical advice.</b> Not affiliated with or endorsed by doTERRA.</div>
+  </div>`;
+  oilsView.querySelectorAll(".orow").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil}));
 }
-const subTitles={settings:"Settings",cart:"Your Cart"};
+
+function renderRecent(){
+  const strip=$("recentStrip"), head=$("recentHead");
+  const ks=recent.filter(k=>COND[k]);
+  const showIt = ks.length && !search.value.trim() && !showFavsOnly;
+  strip.classList.toggle("show",!!showIt);
+  if(head)head.classList.toggle("show",!!showIt);
+  if(!showIt){strip.innerHTML="";return;}
+  strip.innerHTML=ks.map(k=>`<button class="recent-chip" data-k="${k}"><svg><use href="#${COND[k][3]}"/></svg> ${COND[k][0]}</button>`).join("");
+  strip.querySelectorAll(".recent-chip").forEach(b=>b.onclick=()=>go({type:'cond',key:b.dataset.k}));
+}
+
+const LEARN=[
+  {ic:"ic-leaf",t:"Essential oils 101",body:`
+    <p>Essential oils are concentrated plant extracts — the aromatic compounds captured from a plant's flowers, leaves, bark, roots or peel, usually by steam distillation or cold pressing.</p>
+    <p>Because they're so concentrated, <b>a little goes a long way</b> — a single drop can be very potent. That's why quality and correct use matter. Look for oils that are pure, independently tested, and labelled with the plant's <b>botanical (Latin) name</b>.</p>
+    <p>The aroma you smell is the oil at work — those same compounds are what support your body and mood when used properly.</p>`},
+  {ic:"ic-aromatic",t:"The 3 ways to use oils",body:`
+    <p><b>Aromatic</b> — breathing in the aroma. Diffuse a few drops in water, or inhale from cupped hands. Great for mood, focus and freshening a room. This is the <b>gentlest method and a good place to start</b>.</p>
+    <p><b>Topical</b> — applying to the skin, <b>almost always diluted</b> with a carrier oil. Best for targeted support (muscles, skin, tummy). Apply to the area of concern, the soles of the feet, or pulse points — and patch-test first.</p>
+    <p><b>Internal</b> — only <b>some</b> oils are labelled safe to take internally, and only in small amounts: a drop in water, a veggie capsule, or in cooking. Always check the label says it's suitable, and start with the smallest amount. <b>When in doubt, don't.</b></p>`},
+  {ic:"ic-drop",t:"Dilution & carrier oils",body:`
+    <p>A <b>carrier oil</b> (such as fractionated coconut, jojoba or sweet almond oil) "carries" the essential oil across your skin and prevents irritation. Diluting doesn't weaken an oil — it makes it <b>safer and often helps it absorb better</b>. More is not stronger.</p>
+    <table class="dil-table">
+      <tr><th>Who / when</th><th>Strength</th><th>Drops per 1 tsp (5 ml) carrier</th></tr>
+      <tr><td>Face, sensitive or elderly skin, daily use</td><td>1%</td><td><b>~3 drops</b></td></tr>
+      <tr><td>General adult use</td><td>2%</td><td><b>~6 drops</b></td></tr>
+      <tr><td>Short-term, localised support</td><td>3%</td><td><b>~9 drops</b></td></tr>
+      <tr><td>Children 2–6 (gentle oils only)</td><td>0.5–1%</td><td><b>1–3 drops</b></td></tr>
+    </table>
+    <p>Babies, young children, pregnancy and very sensitive skin need <b>much greater dilution</b> — check with a qualified professional first.</p>`},
+  {ic:"ic-shield",t:"Safety first",body:`
+    <ul>
+      <li><b>Patch-test</b> any new oil — a small diluted amount on the inner arm, then wait.</li>
+      <li><b>"Hot" oils</b> (oregano, cinnamon, clove, thyme) feel warm and need heavy dilution.</li>
+      <li><b>Citrus oils</b> (lemon, wild orange, bergamot) can be <b>photosensitive</b> — keep applied skin out of sun/UV for ~12 hours.</li>
+      <li>Keep oils <b>away from eyes, inner ears and broken skin</b>. If an oil stings, dilute with more carrier oil — <b>not water</b>.</li>
+      <li><b>Pregnant, nursing, young children, or on medication?</b> Check with your healthcare provider before use.</li>
+      <li><b>Store</b> tightly capped, away from heat and sunlight, and out of reach of children and pets.</li>
+    </ul>`},
+  {ic:"ic-energy",t:"Getting the most from your oils",body:`
+    <ul>
+      <li><b>Diffuse in short sessions</b> — around 30–60 minutes on, then a break — rather than all day.</li>
+      <li><b>Start with fewer drops.</b> You can always add more; you can't take it back.</li>
+      <li><b>Layer methods</b> — e.g. diffuse <i>and</i> apply diluted to the feet for extra support.</li>
+      <li><b>Keep favourites handy</b> and store the rest cool and dark — most oils last for years that way.</li>
+    </ul>`}
+];
+function renderLearn(){
+  learnView.innerHTML=`<div class="learn-wrap">
+    <div class="learn-hero">
+      <div class="lh-ic"><svg><use href="#ic-book"/></svg></div>
+      <h2>Essential oil basics</h2>
+      <p>A quick, plain-language guide to using oils safely and getting the most from them.</p>
+    </div>
+    ${LEARN.map((s,i)=>`
+      <div class="acc ${i===0?'open':''}">
+        <button class="acc-head"><span class="ah-ic"><svg><use href="#${s.ic}"/></svg></span><span class="ah-t">${s.t}</span><span class="ah-chev"><svg><use href="#ic-chevdown"/></svg></span></button>
+        <div class="acc-body">${s.body}</div>
+      </div>`).join("")}
+    <div class="disclaimer" style="margin:18px 0 0"><b>For educational purposes only — not medical advice.</b> General guidance summarised from common essential-oil references. Always read product labels and consult a healthcare provider. Not affiliated with or endorsed by doTERRA.</div>
+  </div>`;
+  learnView.querySelectorAll(".acc-head").forEach(h=>h.onclick=()=>h.parentElement.classList.toggle("open"));
+}
+
+function showView(type){
+  [homeView,condView,oilView,setView,cartView,oilsView,learnView].forEach(v=>v.classList.remove("active"));
+  ({home:homeView,cond:condView,oil:oilView,settings:setView,cart:cartView,oils:oilsView,learn:learnView})[type].classList.add("active");
+}
+const subTitles={settings:"Settings",cart:"Your Cart",oils:"All Oils",learn:"Learn"};
 function setHeader(state){
   if(state.type==='home'){header.classList.remove("sub");}
   else{header.classList.add("sub");
@@ -1041,9 +1296,11 @@ function render(state){
   if(state.type==='oil')renderOil(state);
   if(state.type==='settings')renderSettings();
   if(state.type==='cart')renderCart();
-  if(state.type==='home'){updateSavedLabel();if(typeof refresh==='function')refresh();}
+  if(state.type==='oils')renderOils();
+  if(state.type==='learn')renderLearn();
+  if(state.type==='home'){updateSavedLabel();if(typeof refresh==='function')refresh();if(typeof renderRecent==='function')renderRecent();}
   showView(state.type); setHeader(state); scroll.scrollTop=0;
-  const v=({home:homeView,cond:condView,oil:oilView,settings:setView,cart:cartView})[state.type];
+  const v=({home:homeView,cond:condView,oil:oilView,settings:setView,cart:cartView,oils:oilsView,learn:learnView})[state.type];
   v.classList.remove("anim"); void v.offsetWidth; if(state.type!=='home')v.classList.add("anim");
 }
 function go(state){ navStack.push(state); render(state); }
@@ -1060,7 +1317,10 @@ function matchKeys(q){
     return c[0].toLowerCase().includes(q) || (c[4]||"").toLowerCase().includes(q) || OILS[c[1]].name.toLowerCase().includes(q);
   });
 }
+const searchWrap=document.querySelector(".search-wrap");
 function refresh(){
+  searchWrap.classList.toggle("has-text",!!search.value);
+  renderRecent();
   let keys=matchKeys(search.value);
   if(showFavsOnly) keys=keys.filter(isFav);
   if(!keys.length){
@@ -1072,6 +1332,9 @@ function refresh(){
 }
 search.addEventListener("input",refresh);
 search.addEventListener("keydown",e=>{if(e.key==="Enter"){let k=matchKeys(search.value);if(showFavsOnly)k=k.filter(isFav);if(k.length)go({type:'cond',key:k[0]});}});
+$("searchClear").onclick=()=>{ search.value=""; search.focus(); refresh(); };
+$("browseAll").onclick=()=>go({type:'oils'});
+$("learnBtn").onclick=()=>go({type:'learn'});
 
 const savedToggle=$("savedToggle");
 savedToggle.onclick=()=>{ showFavsOnly=!showFavsOnly; savedToggle.classList.toggle("on",showFavsOnly); refresh(); };
