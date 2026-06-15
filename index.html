@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <meta name="theme-color" content="#ffffff" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>doTERRA Oil Finder</title>
+<title>Home Essential · Oil Finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,11 +15,22 @@
     --teal:#9a78b5; --teal-dark:#7a5a9c; --teal-tint:#f2ecf8; --teal-line:#e3d7ef;
     --purple:#a585c4; --purple-dark:#8a6aad;
     --gold:#b08d57; --gold-tint:#f3ecdf; --sand:#f5f2f8;
-    --white:#fff; --line:#e9e6ee; --shadow-sm:0 1px 2px rgba(43,45,58,.05); --shadow:0 12px 34px rgba(122,90,156,.14);
+    --white:#fff; --line:#e9e6ee; --app-bg:#e8e4ef;
+    --safety-bg:#f3ecdf; --safety-line:#e4d3b3; --safety-ink:#6e5526; --safety-ink-strong:#5a4420;
+    --shadow-sm:0 1px 2px rgba(43,45,58,.05); --shadow:0 12px 34px rgba(122,90,156,.14);
+  }
+  [data-theme="dark"]{
+    --ink:#ece9f3; --ink-soft:#b6b1c4; --ink-faint:#857f95;
+    --teal:#b89cd0; --teal-dark:#c8b2dd; --teal-tint:#2a2336; --teal-line:#3b3149;
+    --purple:#b095cf; --purple-dark:#9a7fbb;
+    --gold:#c7a877; --gold-tint:#2c2418; --sand:#241f2d;
+    --white:#1d1a24; --line:#322b3d; --app-bg:#131019;
+    --safety-bg:#2c2418; --safety-line:#473a23; --safety-ink:#e2cda3; --safety-ink-strong:#f1e0bf;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow:0 12px 34px rgba(0,0,0,.5);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html,body{height:100%}
-  body{font-family:'Poppins',"Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;color:var(--ink);background:#e8e4ef;display:flex;align-items:center;justify-content:center;min-height:100%;-webkit-font-smoothing:antialiased}
+  body{font-family:'Poppins',"Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;color:var(--ink);background:var(--app-bg);display:flex;align-items:center;justify-content:center;min-height:100%;-webkit-font-smoothing:antialiased;transition:background .25s}
   .phone{position:relative;width:100%;max-width:412px;height:100vh;max-height:900px;background:var(--white);overflow:hidden;display:flex;flex-direction:column}
   @media(min-width:480px){body{padding:26px}.phone{border-radius:44px;border:11px solid #15201f;height:860px;box-shadow:0 30px 70px rgba(20,32,31,.4)}}
 
@@ -28,9 +39,12 @@
   .back-btn svg{width:22px;height:22px}
   header.sub .back-btn{display:flex}
   header.sub .brand-block{opacity:0;pointer-events:none}
+  .settings-btn{border:none;background:none;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;margin-right:-4px;color:var(--ink-soft);flex:0 0 auto}
+  .settings-btn svg{width:23px;height:23px}
+  header.sub .settings-btn{display:none}
   .brand-block{flex:1 1 auto;text-align:center;line-height:1}
-  .wordmark{font-size:21px;font-weight:300;letter-spacing:5px;text-transform:uppercase}
-  .wordmark b{font-weight:600}
+  .wordmark{font-size:18px;font-weight:300;letter-spacing:3.5px;text-transform:uppercase}
+  .wordmark b{font-weight:600;color:var(--teal-dark)}
   .tagline{font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-top:5px;font-weight:500}
   .sub-title{display:none;position:absolute;left:48px;right:48px;text-align:center;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   header.sub .sub-title{display:block}
@@ -77,7 +91,7 @@
   .detail-top h2{font-size:22px;font-weight:300}.detail-top h2 b{font-weight:600}
   .detail-top .desc{font-size:12.5px;color:var(--ink-soft);margin-top:7px}
   .pill{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:5px 12px;border-radius:2px;margin-bottom:14px}
-  .pill.best{background:var(--gold-tint);color:#80622f;border:1px solid #e4d3b3}
+  .pill.best{background:var(--safety-bg);color:var(--safety-ink-strong);border:1px solid var(--safety-line)}
   .oilcard{border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px;background:var(--white);display:flex;gap:14px;align-items:flex-start}
   .oilcard.primary{border-color:var(--gold);box-shadow:var(--shadow)}
   .oilcard .thumb{width:58px;flex:0 0 auto}
@@ -119,8 +133,8 @@
   .method .mic svg{width:16px;height:16px;color:var(--teal)}
   .method b{font-size:13px;display:block;margin-bottom:2px}
   .method span{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
-  .safety{background:var(--gold-tint);border:1px solid #e4d3b3;border-radius:4px;padding:14px 16px;font-size:12.5px;line-height:1.6;color:#6e5526}
-  .safety b{color:#5a4420}
+  .safety{background:var(--safety-bg);border:1px solid var(--safety-line);border-radius:4px;padding:14px 16px;font-size:12.5px;line-height:1.6;color:var(--safety-ink)}
+  .safety b{color:var(--safety-ink-strong)}
   .pairs{display:flex;flex-wrap:wrap;gap:7px}
   .pair{font-size:12px;color:var(--teal-dark);border:1px solid var(--teal-line);background:var(--teal-tint);padding:6px 11px;border-radius:2px;cursor:pointer}
 
@@ -128,6 +142,64 @@
   .disclaimer b{color:var(--ink);font-weight:600}
   .detail-wrap .disclaimer,.oil-body .disclaimer{margin:24px 0 0}
   .footer-brand{text-align:center;padding:6px 0 30px;color:var(--ink-faint);font-size:9px;letter-spacing:3px;text-transform:uppercase}
+
+  /* Saved toggle on home */
+  .count-row{display:flex;align-items:center;justify-content:space-between;padding:14px 26px 8px;gap:10px}
+  .count-row .count{padding:0}
+  .saved-toggle{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--teal-dark);background:var(--teal-tint);border:1px solid var(--teal-line);padding:7px 13px;border-radius:50px;cursor:pointer}
+  .saved-toggle svg{width:14px;height:14px}
+  .saved-toggle.on{background:var(--purple);border-color:var(--purple);color:#fff}
+
+  /* Flag/save button on condition page */
+  .flagbtn{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--teal-dark);background:var(--teal-tint);border:1px solid var(--teal-line);padding:9px 18px;border-radius:50px;cursor:pointer}
+  .flagbtn svg{width:15px;height:15px}
+  .flagbtn.on{background:var(--purple);border-color:var(--purple);color:#fff}
+
+  /* Directions-for-this-concern block */
+  .dir-block{background:var(--teal-tint);border:1px solid var(--teal-line);border-radius:14px;padding:18px 18px 16px;margin-bottom:24px}
+  .dir-block h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:6px;border:none;padding:0}
+  .dir-block .dir-sub{font-size:12px;color:var(--ink-soft);margin-bottom:12px}
+  .dir-list{list-style:none}
+  .dir-list li{font-size:13.5px;line-height:1.6;color:var(--ink-soft);padding-left:20px;position:relative;margin-bottom:10px}
+  .dir-list li:last-child{margin-bottom:0}
+  .dir-list li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--purple)}
+  .dir-list li b{color:var(--ink);font-weight:600}
+  .dir-tip{font-size:12.5px;line-height:1.6;color:var(--ink-soft);margin-top:12px;padding-top:12px;border-top:1px dashed var(--teal-line)}
+  .dir-tip b{color:var(--teal-dark)}
+
+  /* SETTINGS / ACCOUNT */
+  .set-wrap{padding:24px 22px 40px}
+  .set-section{margin-bottom:26px}
+  .set-section>.set-head{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .account-card{display:flex;align-items:center;gap:16px;background:var(--sand);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .avatar{width:56px;height:56px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:22px;font-weight:600;flex:0 0 auto}
+  .account-card .ac-body{flex:1 1 auto;min-width:0}
+  .name-input{width:100%;font-family:inherit;font-size:16px;font-weight:600;color:var(--ink);background:transparent;border:none;border-bottom:1.5px solid var(--line);padding:2px 0 5px;outline:none}
+  .name-input:focus{border-color:var(--purple)}
+  .account-card .ac-note{font-size:11px;color:var(--ink-faint);margin-top:6px}
+  .set-row{display:flex;align-items:center;gap:14px;padding:16px 4px;border-bottom:1px solid var(--line)}
+  .set-row .sr-ic{width:36px;height:36px;border-radius:50%;background:var(--teal-tint);display:grid;place-items:center;flex:0 0 auto}
+  .set-row .sr-ic svg{width:18px;height:18px;color:var(--teal)}
+  .set-row .sr-text{flex:1 1 auto;min-width:0}
+  .set-row .sr-text b{display:block;font-size:14.5px;font-weight:500;color:var(--ink)}
+  .set-row .sr-text span{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:2px}
+  /* toggle switch */
+  .switch{position:relative;width:48px;height:28px;flex:0 0 auto;cursor:pointer}
+  .switch input{opacity:0;width:0;height:0;position:absolute}
+  .switch .track{position:absolute;inset:0;background:var(--line);border-radius:50px;transition:background .2s}
+  .switch .knob{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+  .switch input:checked + .track{background:var(--purple)}
+  .switch input:checked + .track + .knob{transform:translateX(20px)}
+  /* saved list in settings */
+  .saved-empty{text-align:center;color:var(--ink-faint);font-size:13px;padding:24px 10px;background:var(--sand);border:1px dashed var(--line);border-radius:14px}
+  .saved-row{display:flex;align-items:center;gap:13px;padding:13px 6px;border-bottom:1px solid var(--line)}
+  .saved-row .sv-ic{width:34px;height:34px;border-radius:50%;background:var(--teal-tint);display:grid;place-items:center;flex:0 0 auto}
+  .saved-row .sv-ic svg{width:17px;height:17px;color:var(--teal)}
+  .saved-row .sv-body{flex:1 1 auto;min-width:0;cursor:pointer}
+  .saved-row .sv-body b{display:block;font-size:14.5px;font-weight:500;color:var(--ink)}
+  .saved-row .sv-body span{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .saved-row .sv-del{border:none;background:none;cursor:pointer;color:var(--ink-faint);width:32px;height:32px;display:grid;place-items:center;flex:0 0 auto}
+  .saved-row .sv-del svg{width:17px;height:17px}
 </style>
 </head>
 <body>
@@ -157,13 +229,20 @@
   <symbol id="ic-aromatic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21c-2-3-1-6 1-8M12 21c-1-4 1-7 3-9M16 21c0-3 1-5 3-6"/></symbol>
   <symbol id="ic-topical" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4s5 6 5 10a5 5 0 0 1-10 0c0-4 5-10 5-10Z"/></symbol>
   <symbol id="ic-internal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11Z"/><path d="M9 13a3 3 0 0 0 3 3"/></symbol>
+  <symbol id="ic-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></symbol>
+  <symbol id="ic-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12a1 1 0 0 1 1 1v15l-7-4-7 4V5a1 1 0 0 1 1-1Z"/></symbol>
+  <symbol id="ic-bookmark-fill" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M6 4h12a1 1 0 0 1 1 1v15l-7-4-7 4V5a1 1 0 0 1 1-1Z"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5Z"/></symbol>
+  <symbol id="ic-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="ic-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1l1-13"/></symbol>
 </defs></svg>
 
 <div class="phone">
   <header id="header">
     <button class="back-btn" id="backBtn" aria-label="Back"><svg><use href="#ic-back"/></svg></button>
-    <div class="brand-block"><div class="wordmark">dō<b>TERRA</b></div><div class="tagline">Oil Finder</div></div>
+    <div class="brand-block"><div class="wordmark">HOME <b>ESSENTIAL</b></div><div class="tagline">Oil Finder</div></div>
     <div class="sub-title" id="subTitle"></div>
+    <button class="settings-btn" id="settingsBtn" aria-label="Settings &amp; account"><svg><use href="#ic-gear"/></svg></button>
   </header>
   <div class="accent-rule"></div>
 
@@ -180,7 +259,10 @@
           <input type="text" id="search" class="search-box" autocomplete="off" placeholder="Search a symptom, condition or concern" aria-label="Search" />
         </div>
       </div>
-      <div class="count" id="count"></div>
+      <div class="count-row">
+        <div class="count" id="count"></div>
+        <button class="saved-toggle" id="savedToggle"><svg><use href="#ic-bookmark"/></svg> <span id="savedLabel">Saved</span></button>
+      </div>
       <div class="clist" id="clist"></div>
       <p class="no-match" id="noMatch">No match found — try another word.</p>
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Essential oils are not a substitute for professional medical care. Consult a healthcare provider for any health condition.</div>
@@ -191,6 +273,8 @@
     <section class="view" id="condView"></section>
     <!-- OIL -->
     <section class="view" id="oilView"></section>
+    <!-- SETTINGS -->
+    <section class="view" id="setView"></section>
   </div>
 </div>
 
@@ -483,6 +567,97 @@ const COND = {
   wrinkles:["Wrinkles","frankincense",["sandalwood","helichrysum"],"ic-skin","fine lines,crow's feet,ageing"]
 };
 
+/* ===================== CONDITION DESCRIPTIONS =====================
+   A short, plain-language "what it is" line shown on each concern's page. */
+const CDESC = {
+  acne:"A common skin condition where pores become clogged with oil and dead skin, leading to pimples, blackheads and breakouts.",
+  allergies:"The immune system over-reacting to harmless triggers like pollen or dust, causing sneezing, a runny nose and itchy eyes.",
+  anxiety:"Persistent feelings of worry, nervousness or unease, often about everyday situations.",
+  arthritis:"Inflammation of one or more joints, causing stiffness, swelling and discomfort that can worsen with age.",
+  asthma:"A condition where the airways narrow and swell, making breathing difficult and sometimes causing wheezing.",
+  athletesfoot:"A fungal infection of the feet that causes itching, redness and peeling skin, usually between the toes.",
+  backpain:"Discomfort anywhere along the spine, from a dull ache to sharp pain, often from strain or poor posture.",
+  bloating:"A feeling of fullness or tightness in the belly, usually from trapped gas or fluid.",
+  blisters:"Small pockets of fluid that form on the skin, often from friction, heat or irritation.",
+  boils:"Painful, pus-filled bumps under the skin caused by infected, inflamed hair follicles.",
+  bronchitis:"Inflammation of the airways to the lungs, leading to a persistent cough and chest congestion.",
+  bruises:"Discoloured marks on the skin caused by small blood vessels breaking under the surface after a knock.",
+  burns:"Skin damage from heat, sun or chemicals, ranging from mild redness to blistering.",
+  cankersores:"Small, painful ulcers that form inside the mouth on the gums or soft tissue.",
+  coldsores:"Small fluid-filled blisters around the lips caused by the herpes simplex virus.",
+  colds:"A mild viral infection of the nose and throat causing a runny nose, sneezing and a sore throat.",
+  colic:"Frequent, prolonged crying in an otherwise healthy baby, often linked to digestive discomfort.",
+  congestion:"A blocked or stuffy nose caused by swollen nasal tissues and excess mucus.",
+  constipation:"Infrequent or difficult bowel movements, often with hard, dry stools.",
+  cough:"A reflex that clears the airways of irritants or mucus; can be dry or chesty.",
+  cuts:"Breaks in the skin from a sharp object or graze that may need cleaning and protecting.",
+  dandruff:"A flaky, sometimes itchy scalp caused by dry skin or excess oil.",
+  depression:"A lasting low mood with loss of interest or energy that affects daily life.",
+  dermatitis:"Inflamed, red and itchy skin, often triggered by an irritant or allergen.",
+  diarrhea:"Loose, watery stools occurring more often than usual, usually short-lived.",
+  dryskin:"Skin that lacks moisture, feeling rough, tight or flaky.",
+  earache:"Pain in one or both ears, often from pressure, fluid or infection.",
+  eczema:"A condition causing dry, itchy and inflamed patches of skin that can flare up periodically.",
+  energy:"A general lack of vitality or get-up-and-go through the day.",
+  fatigue:"Ongoing tiredness or exhaustion that isn't relieved by rest.",
+  fever:"A temporary rise in body temperature, often a sign the body is fighting an infection.",
+  flu:"A contagious viral infection causing fever, body aches, chills and fatigue.",
+  focus:"Difficulty concentrating or staying on task, sometimes described as 'brain fog'.",
+  gas:"Trapped air in the digestive tract causing bloating, discomfort and flatulence.",
+  grief:"The deep sorrow and emotional pain that follows a loss.",
+  gumdisease:"Inflammation or infection of the gums, ranging from redness and bleeding to more serious problems.",
+  hairloss:"Thinning or shedding of hair, which can affect the scalp or whole body.",
+  hayfever:"An allergic reaction to pollen causing sneezing, itchy eyes and a runny nose.",
+  headache:"Pain or pressure in the head, commonly from tension, dehydration or fatigue.",
+  heartburn:"A burning feeling in the chest when stomach acid rises into the food pipe.",
+  hemorrhoids:"Swollen veins around the lower rectum and anus that can cause discomfort or itching.",
+  hotflashes:"Sudden waves of heat, often with sweating and flushing, common during menopause.",
+  immune:"Support for the body's natural defences to help you stay well.",
+  indigestion:"Discomfort or a burning feeling in the upper belly, often after eating.",
+  inflammation:"The body's natural response to injury or irritation, causing redness, heat or swelling.",
+  insectbites:"Red, itchy or swollen marks left after an insect bites or stings the skin.",
+  insomnia:"Ongoing difficulty falling asleep or staying asleep.",
+  irritability:"A heightened tendency to feel annoyed, impatient or quick to anger.",
+  itching:"An uncomfortable sensation on the skin that makes you want to scratch.",
+  jetlag:"Tiredness and disrupted sleep after travelling quickly across time zones.",
+  jointpain:"Aches, soreness or stiffness in one or more joints.",
+  laryngitis:"Inflammation of the voice box causing hoarseness or temporary loss of voice.",
+  legcramps:"Sudden, involuntary tightening of the leg muscles, often at night.",
+  memory:"Trouble recalling information or staying mentally sharp.",
+  menstrual:"Cramping pain in the lower belly that occurs around the monthly period.",
+  migraine:"An intense, often throbbing headache that may come with nausea or sensitivity to light.",
+  moodswings:"Rapid or extreme shifts in emotional state.",
+  morningsickness:"Nausea and vomiting during pregnancy, often in the early months.",
+  motionsickness:"Nausea and dizziness triggered by motion, such as in a car, boat or plane.",
+  musclepain:"Soreness, aching or stiffness in the muscles, often from overuse or tension.",
+  nailfungus:"A fungal infection that makes nails thickened, discoloured or brittle.",
+  nausea:"An uneasy feeling in the stomach with the urge to vomit.",
+  nervoustension:"A state of being mentally and physically wound-up or on edge.",
+  oilyskin:"Skin that produces excess oil, often looking shiny with enlarged pores.",
+  pain:"General physical discomfort that can range from mild to severe.",
+  pms:"Physical and emotional symptoms in the days before a period, such as mood changes and cramps.",
+  poisonivy:"An itchy, blistering rash caused by contact with the oil of poison ivy or similar plants.",
+  rash:"An area of irritated, red or bumpy skin that can be itchy or sore.",
+  restlessness:"An inability to relax or stay still, feeling fidgety or unsettled.",
+  ringworm:"A contagious fungal infection that causes a ring-shaped, itchy rash on the skin.",
+  sciatica:"Pain that travels along the sciatic nerve, from the lower back down through the leg.",
+  sinusitis:"Inflammation of the sinuses causing facial pressure, congestion and headaches.",
+  agingskin:"Mature skin showing fine lines, loss of firmness and uneven tone over time.",
+  sleep:"Difficulty winding down or getting enough restful sleep.",
+  sorethroat:"Pain, scratchiness or irritation of the throat, often worse when swallowing.",
+  sprains:"A stretched or torn ligament, usually from twisting or overextending a joint.",
+  stress:"The body's response to pressure or demands, which can affect mood and the body.",
+  sunburn:"Red, sore skin caused by too much exposure to the sun's UV rays.",
+  tendonitis:"Inflammation of a tendon, causing pain and tenderness near a joint.",
+  teething:"The discomfort a baby feels as new teeth push through the gums.",
+  toothache:"Pain in or around a tooth, often from decay, sensitivity or irritation.",
+  varicoseveins:"Enlarged, twisted veins, usually in the legs, that can ache or feel heavy.",
+  warts:"Small, rough growths on the skin caused by a virus.",
+  wounds:"Breaks or damage to the skin that need care to heal cleanly.",
+  wrinkles:"Lines and creases that form in the skin as it loses elasticity with age."
+};
+const condDesc = k => CDESC[k] || "A common everyday concern — here are the oils best suited to support it.";
+
 /* Real product photos + shop product-page handles, pulled from shop.home-essential-oils.com.
    To add a photo for a new oil: paste its image URL here keyed by oil id. */
 /* Photos are stored locally in /images so they ALWAYS load (offline-safe).
@@ -528,8 +703,56 @@ const usageIcon={Aromatic:"ic-aromatic",Topical:"ic-topical",Internal:"ic-intern
 function methodsOf(o){const m=[];if(o.a)m.push("Aromatic");if(o.t)m.push("Topical");if(o.i)m.push("Internal");return m;}
 function usageTags(o){return `<div class="usages">${methodsOf(o).map(u=>`<span class="usage"><svg><use href="#${usageIcon[u]}"/></svg>${u}</span>`).join("")}</div>`;}
 
+/* Where/how to apply, by body-system (keyed off the concern's icon).
+   This lets every concern get tailored directions without per-oil data entry. */
+const SITE = {
+  "ic-headache":{area:"the temples, forehead and back of the neck",tip:"Keep the oil well away from your eyes, and sip water as you go."},
+  "ic-digest":{area:"the abdomen in a slow, clockwise circle",tip:"A warm compress over the tummy afterwards adds extra comfort."},
+  "ic-lungs":{area:"the chest and upper back",tip:"Leaning over a bowl of steaming water and breathing in the vapour also helps open the airways."},
+  "ic-muscle":{area:"the affected muscles or joints",tip:"Warm the area first and follow with gentle massage for deeper relief."},
+  "ic-skin":{area:"the affected patch of skin",tip:"Do a small patch test on the inner arm first to check for sensitivity."},
+  "ic-drop":{area:"the area of concern",tip:"Re-apply gently as needed through the day."},
+  "ic-sleep":{area:"the soles of the feet and the back of the neck",tip:"Apply about 30 minutes before bed and diffuse beside you overnight."},
+  "ic-stress":{area:"the wrists, back of the neck and over the heart",tip:"Pair each application with a few slow, deep breaths."},
+  "ic-mood":{area:"the wrists and over the heart",tip:"Breathe in slowly from your wrists whenever you need a lift."},
+  "ic-energy":{area:"the back of the neck and shoulders",tip:"Inhaling straight from cupped hands gives the fastest pick-me-up."},
+  "ic-focus":{area:"the back of the neck and the temples",tip:"Diffuse nearby while you study or work to help stay on task."},
+  "ic-shield":{area:"the soles of the feet and along the spine",tip:"Use daily during seasonal changes for ongoing support."},
+  "ic-leaf":{area:"the chest and the bridge of the nose (well diluted)",tip:"Diffusing through the day helps keep the air clear."},
+  "ic-heart":{area:"over the heart and on the wrists",tip:"Combine with calm, steady breathing."}
+};
+function directionsFor(id,condKey){
+  const o=OILS[id], c=COND[condKey], site=SITE[c[3]]||SITE["ic-drop"];
+  const steps=[];
+  if(o.t)steps.push(`<b>Topical —</b> Dilute 1–2 drops of ${o.name} with a carrier oil (such as fractionated coconut oil) and gently massage into ${site.area}. Repeat 2–3 times a day as needed.`);
+  if(o.a)steps.push(`<b>Aromatic —</b> Diffuse 3–4 drops, or add a drop to your palms, cup them over your nose and breathe deeply for several moments.`);
+  if(o.i)steps.push(`<b>Internal —</b> Where appropriate, add 1 drop to a large glass of water or take in a veggie capsule. Start with the smallest amount.`);
+  return `<div class="dir-block">
+    <h3>How to use it for ${c[0]}</h3>
+    <div class="dir-sub">Suggested ways to use ${o.name} for this concern.</div>
+    <ul class="dir-list">${steps.map(s=>`<li>${s}</li>`).join("")}</ul>
+    <div class="dir-tip"><b>Tip:</b> ${site.tip}</div>
+  </div>`;
+}
+
+/* ---- Saved concerns + dark mode (stored on the device) ---- */
+let favs = []; try{favs = JSON.parse(localStorage.getItem("he_favs")||"[]")||[];}catch(e){favs=[];}
+const isFav = k => favs.includes(k);
+function saveFavs(){try{localStorage.setItem("he_favs",JSON.stringify(favs));}catch(e){}}
+function toggleFav(k){ if(isFav(k))favs=favs.filter(x=>x!==k); else favs.push(k); saveFavs(); updateSavedLabel(); }
+function updateSavedLabel(){ const l=$("savedLabel"); if(l)l.textContent = favs.length?`Saved (${favs.length})`:"Saved"; }
+
+function applyTheme(dark){
+  document.documentElement.setAttribute("data-theme",dark?"dark":"light");
+  const m=document.querySelector('meta[name="theme-color"]'); if(m)m.setAttribute("content",dark?"#1d1a24":"#ffffff");
+}
+let darkOn = localStorage.getItem("he_dark")==="1";
+function setDark(on){ darkOn=on; localStorage.setItem("he_dark",on?"1":"0"); applyTheme(on); }
+function getName(){ return localStorage.getItem("he_name")||""; }
+function setName(n){ localStorage.setItem("he_name",n); }
+
 const $=id=>document.getElementById(id);
-const homeView=$("homeView"),condView=$("condView"),oilView=$("oilView"),header=$("header"),subTitle=$("subTitle"),scroll=$("scroll"),search=$("search"),clist=$("clist"),count=$("count"),noMatch=$("noMatch");
+const homeView=$("homeView"),condView=$("condView"),oilView=$("oilView"),setView=$("setView"),header=$("header"),subTitle=$("subTitle"),scroll=$("scroll"),search=$("search"),clist=$("clist"),count=$("count"),noMatch=$("noMatch");
 
 let navStack=[]; // {type:'home'|'cond'|'oil', key}
 
@@ -561,23 +784,30 @@ function renderCond(k){
         <button class="moreinfo" data-oil="${id}"><svg><use href="#ic-info"/></svg> More information</button>
       </div>
     </div>`;};
+  const fav=isFav(k);
   condView.innerHTML=`
     <div class="detail-wrap">
       <div class="detail-top">
         <div class="ic"><svg><use href="#${c[3]}"/></svg></div>
         <h2>${c[0]}</h2>
-        <div class="desc">Your best match, with recommended alternatives</div>
+        <div class="desc">${condDesc(k)}</div>
+        <button class="flagbtn ${fav?'on':''}" id="flagBtn"><svg><use href="#${fav?'ic-bookmark-fill':'ic-bookmark'}"/></svg> <span>${fav?'Saved':'Save this concern'}</span></button>
       </div>
       ${card(pid,true)}
       <div class="also-divider"><span>Also Great</span></div>
       ${alts.map(id=>card(id,false)).join("")}
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Essential oils are not a substitute for professional medical care. Consult a healthcare provider for any health condition. Not affiliated with or endorsed by doTERRA.</div>
     </div>`;
-  condView.querySelectorAll(".moreinfo").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil}));
+  condView.querySelectorAll(".moreinfo").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil,cond:k}));
+  const fb=$("flagBtn");
+  fb.onclick=()=>{ toggleFav(k); const on=isFav(k); fb.classList.toggle("on",on);
+    fb.querySelector("span").textContent=on?'Saved':'Save this concern';
+    fb.querySelector("use").setAttribute("href",on?'#ic-bookmark-fill':'#ic-bookmark'); };
 }
 
-function renderOil(id){
-  const o=OILS[id];
+function renderOil(state){
+  const id=state.key, condKey=state.cond, o=OILS[id];
+  const dirHtml = (condKey && COND[condKey]) ? directionsFor(id,condKey) : "";
   const methodNote={Aromatic:"Diffuse or inhale to enjoy the aroma and its mood benefits.",Topical:"Apply to the skin; dilute with a carrier oil as needed.",Internal:"Use in water, a capsule or recipes where appropriate."};
   const methodHtml=methodsOf(o).map(m=>`
     <div class="method"><span class="mic"><svg><use href="#${usageIcon[m]}"/></svg></span>
@@ -590,6 +820,7 @@ function renderOil(id){
       <a class="buybtn" href="${buyUrl(id)}" target="_blank" rel="noopener"><svg><use href="#ic-cart"/></svg> Buy this oil</a>
     </div>
     <div class="oil-body">
+      ${dirHtml}
       <div class="oblock"><h3>About</h3><p>${o.desc}</p></div>
       <div class="oblock"><h3>Primary Uses</h3><ul class="uses-list">${o.uses.map(u=>`<li>${u}</li>`).join("")}</ul></div>
       <div class="oblock"><h3>How to Use</h3><div class="methods">${methodHtml}</div></div>
@@ -597,22 +828,68 @@ function renderOil(id){
       <div class="oblock"><h3>Pairs Well With</h3><div class="pairs">${o.pairs.filter(p=>OILS[p]).map(p=>`<span class="pair" data-oil="${p}">${OILS[p].name}</span>`).join("")}</div></div>
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Always read product labels and consult a healthcare provider. Not affiliated with or endorsed by doTERRA.</div>
     </div>`;
-  oilView.querySelectorAll(".pair").forEach(p=>p.onclick=()=>go({type:'oil',key:p.dataset.oil}));
+  oilView.querySelectorAll(".pair").forEach(p=>p.onclick=()=>go({type:'oil',key:p.dataset.oil,cond:condKey}));
+}
+
+function renderSettings(){
+  const nm=getName(), initial=(nm.trim()[0]||"H").toUpperCase();
+  const savedHtml = favs.length
+    ? favs.filter(k=>COND[k]).map(k=>{const c=COND[k];return `
+        <div class="saved-row">
+          <span class="sv-ic"><svg><use href="#${c[3]}"/></svg></span>
+          <span class="sv-body" data-open="${k}"><b>${c[0]}</b><span>Best match · ${OILS[c[1]].name}</span></span>
+          <button class="sv-del" data-del="${k}" aria-label="Remove"><svg><use href="#ic-trash"/></svg></button>
+        </div>`;}).join("")
+    : `<div class="saved-empty">No saved concerns yet. Tap <b>Save this concern</b> on any concern to keep it here.</div>`;
+  setView.innerHTML=`
+    <div class="set-wrap">
+      <div class="set-section">
+        <div class="set-head">Account</div>
+        <div class="account-card">
+          <div class="avatar" id="avatar">${initial}</div>
+          <div class="ac-body">
+            <input class="name-input" id="nameInput" type="text" placeholder="Your name" value="${nm.replace(/"/g,'&quot;')}" maxlength="24" autocomplete="off">
+            <div class="ac-note">Your profile and saved concerns are stored only on this device.</div>
+          </div>
+        </div>
+      </div>
+      <div class="set-section">
+        <div class="set-head">Preferences</div>
+        <div class="set-row">
+          <span class="sr-ic"><svg><use href="#ic-moon"/></svg></span>
+          <span class="sr-text"><b>Dark mode</b><span>Easier on the eyes in low light</span></span>
+          <label class="switch"><input type="checkbox" id="darkSwitch" ${darkOn?'checked':''}><span class="track"></span><span class="knob"></span></label>
+        </div>
+      </div>
+      <div class="set-section">
+        <div class="set-head">Saved concerns</div>
+        ${savedHtml}
+      </div>
+      <div class="disclaimer"><b>Home Essential · Oil Finder.</b> For educational purposes only — not medical advice. Not affiliated with or endorsed by doTERRA.</div>
+    </div>`;
+  const ni=$("nameInput");
+  ni.oninput=()=>{ setName(ni.value); $("avatar").textContent=(ni.value.trim()[0]||"H").toUpperCase(); };
+  $("darkSwitch").onchange=e=>setDark(e.target.checked);
+  setView.querySelectorAll(".sv-body").forEach(b=>b.onclick=()=>go({type:'cond',key:b.dataset.open}));
+  setView.querySelectorAll(".sv-del").forEach(b=>b.onclick=()=>{ toggleFav(b.dataset.del); renderSettings(); });
 }
 
 function showView(type){
-  [homeView,condView,oilView].forEach(v=>v.classList.remove("active"));
-  ({home:homeView,cond:condView,oil:oilView})[type].classList.add("active");
+  [homeView,condView,oilView,setView].forEach(v=>v.classList.remove("active"));
+  ({home:homeView,cond:condView,oil:oilView,settings:setView})[type].classList.add("active");
 }
 function setHeader(state){
   if(state.type==='home'){header.classList.remove("sub");}
-  else{header.classList.add("sub");subTitle.textContent = state.type==='cond'?COND[state.key][0]:OILS[state.key].name;}
+  else{header.classList.add("sub");
+    subTitle.textContent = state.type==='cond'?COND[state.key][0]:(state.type==='oil'?OILS[state.key].name:"Settings");}
 }
 function render(state){
   if(state.type==='cond')renderCond(state.key);
-  if(state.type==='oil')renderOil(state.key);
+  if(state.type==='oil')renderOil(state);
+  if(state.type==='settings')renderSettings();
+  if(state.type==='home'){updateSavedLabel();if(typeof refresh==='function')refresh();}
   showView(state.type); setHeader(state); scroll.scrollTop=0;
-  const v=state.type==='home'?homeView:(state.type==='cond'?condView:oilView);
+  const v=({home:homeView,cond:condView,oil:oilView,settings:setView})[state.type];
   v.classList.remove("anim"); void v.offsetWidth; if(state.type!=='home')v.classList.add("anim");
 }
 function go(state){ navStack.push(state); render(state); }
@@ -620,7 +897,8 @@ function back(){ navStack.pop(); render(navStack[navStack.length-1]||{type:'home
 
 $("backBtn").onclick=back;
 
-// search
+// search + saved filter
+let showFavsOnly=false;
 function matchKeys(q){
   q=q.toLowerCase().trim(); if(!q)return Object.keys(COND);
   return Object.keys(COND).filter(k=>{
@@ -628,16 +906,28 @@ function matchKeys(q){
     return c[0].toLowerCase().includes(q) || (c[4]||"").toLowerCase().includes(q) || OILS[c[1]].name.toLowerCase().includes(q);
   });
 }
-search.addEventListener("input",()=>{
-  const keys=matchKeys(search.value);
-  if(!keys.length){clist.innerHTML="";count.textContent="";noMatch.style.display="block";return;}
+function refresh(){
+  let keys=matchKeys(search.value);
+  if(showFavsOnly) keys=keys.filter(isFav);
+  if(!keys.length){
+    clist.innerHTML=""; count.textContent="";
+    noMatch.textContent = showFavsOnly ? "No saved concerns yet — tap Saved on a concern to add it." : "No match found — try another word.";
+    noMatch.style.display="block"; return;
+  }
   noMatch.style.display="none"; renderList(keys);
-});
-search.addEventListener("keydown",e=>{if(e.key==="Enter"){const k=matchKeys(search.value);if(k.length)go({type:'cond',key:k[0]});}});
+}
+search.addEventListener("input",refresh);
+search.addEventListener("keydown",e=>{if(e.key==="Enter"){let k=matchKeys(search.value);if(showFavsOnly)k=k.filter(isFav);if(k.length)go({type:'cond',key:k[0]});}});
+
+const savedToggle=$("savedToggle");
+savedToggle.onclick=()=>{ showFavsOnly=!showFavsOnly; savedToggle.classList.toggle("on",showFavsOnly); refresh(); };
+$("settingsBtn").onclick=()=>go({type:'settings'});
 
 // init
+applyTheme(darkOn);
+updateSavedLabel();
 navStack=[{type:'home'}];
-renderList(Object.keys(COND));
+refresh();
 </script>
 </body>
 </html>
