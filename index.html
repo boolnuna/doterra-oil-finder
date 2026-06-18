@@ -9,22 +9,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#2b2d3a; --ink-soft:#5f6b7a; --ink-faint:#9aa0ad;
-    --teal:#9a78b5; --teal-dark:#7a5a9c; --teal-tint:#f2ecf8; --teal-line:#e3d7ef;
+    --ink:#332f38; --ink-soft:#6b6470; --ink-faint:#a59ca6;
+    --teal:#9a78b5; --teal-dark:#7a5a9c; --teal-tint:#f4eef3; --teal-line:#e7dbe7;
     --purple:#a585c4; --purple-dark:#8a6aad;
-    --gold:#b08d57; --gold-tint:#f3ecdf; --sand:#f5f2f8;
-    --white:#fff; --line:#e9e6ee; --app-bg:#e8e4ef;
-    --safety-bg:#f3ecdf; --safety-line:#e4d3b3; --safety-ink:#6e5526; --safety-ink-strong:#5a4420;
-    --shadow-sm:0 1px 2px rgba(43,45,58,.05); --shadow:0 12px 34px rgba(122,90,156,.14);
+    --gold:#b08d57; --gold-tint:#f4ecde; --sand:#f7f2ed;
+    --white:#fcf9f5; --line:#ece4dc; --app-bg:#ebe5dd;
+    --safety-bg:#f4ecde; --safety-line:#e4d3b3; --safety-ink:#6e5526; --safety-ink-strong:#5a4420;
+    --shadow-sm:0 1px 2px rgba(80,64,72,.05); --shadow:0 2px 6px rgba(120,92,110,.05), 0 18px 40px rgba(120,92,110,.12);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
   }
   [data-theme="dark"]{
-    --ink:#ece9f3; --ink-soft:#b6b1c4; --ink-faint:#857f95;
-    --teal:#b89cd0; --teal-dark:#c8b2dd; --teal-tint:#2a2336; --teal-line:#3b3149;
+    --ink:#efe9ee; --ink-soft:#b8b0bb; --ink-faint:#8a8290;
+    --teal:#b89cd0; --teal-dark:#c8b2dd; --teal-tint:#2c2431; --teal-line:#3e3447;
     --purple:#b095cf; --purple-dark:#9a7fbb;
-    --gold:#c7a877; --gold-tint:#2c2418; --sand:#241f2d;
-    --white:#1d1a24; --line:#322b3d; --app-bg:#131019;
+    --gold:#c7a877; --gold-tint:#2c2418; --sand:#26212c;
+    --white:#211c22; --line:#37303a; --app-bg:#161217;
     --safety-bg:#2c2418; --safety-line:#473a23; --safety-ink:#e2cda3; --safety-ink-strong:#f1e0bf;
     --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow:0 12px 34px rgba(0,0,0,.5);
   }
@@ -45,7 +47,8 @@
   .brand-block{flex:1 1 auto;text-align:center;line-height:1}
   .wordmark{font-size:18px;font-weight:300;letter-spacing:3.5px;text-transform:uppercase}
   .wordmark b{font-weight:600;color:var(--teal-dark)}
-  .tagline{font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-top:5px;font-weight:500}
+  .brand-logo{height:40px;width:auto;display:block;margin:0 auto}
+  [data-theme="dark"] .brand-logo{filter:brightness(0) invert(.85)}
   .sub-title{display:none;position:absolute;left:48px;right:48px;text-align:center;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   header.sub .sub-title{display:block}
   .accent-rule{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5;flex:0 0 auto}
@@ -251,6 +254,21 @@
   .saved-row .sv-body span{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .saved-row .sv-del{border:none;background:none;cursor:pointer;color:var(--ink-faint);width:32px;height:32px;display:grid;place-items:center;flex:0 0 auto}
   .saved-row .sv-del svg{width:17px;height:17px}
+  /* my collection */
+  .coll-row{display:flex;align-items:center;gap:12px;padding:9px 6px;border-bottom:1px solid var(--line)}
+  .coll-thumb{width:34px;height:34px;flex:0 0 auto;background:var(--sand);border-radius:10px;padding:4px 5px;display:flex;align-items:center;justify-content:center}
+  .coll-thumb img,.coll-thumb svg{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+  .coll-name{flex:1 1 auto;min-width:0;font-size:14px;color:var(--ink);cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .coll-row .sv-del{border:none;background:none;cursor:pointer;color:var(--ink-faint);width:32px;height:32px;display:grid;place-items:center;flex:0 0 auto}
+  .coll-row .sv-del svg{width:17px;height:17px}
+  .coll-add-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:12px;border:1px dashed var(--teal-line);background:var(--teal-tint);color:var(--teal-dark);border-radius:14px;padding:13px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+  .coll-add-btn svg{width:16px;height:16px}
+  .coll-add-btn.on{border-style:solid;background:var(--purple);border-color:var(--purple);color:#fff}
+  .coll-add{margin-top:4px}
+  #collResults{max-height:50vh;overflow-y:auto}
+  .coll-pick{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:none;border-bottom:1px solid var(--line);background:none;padding:9px 4px;cursor:pointer}
+  .coll-pick:active{background:var(--teal-tint)}
+  .coll-pick .coll-plus{margin-left:auto;flex:0 0 auto;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--purple-dark);background:var(--teal-tint);border:1px solid var(--teal-line);border-radius:999px;padding:5px 12px}
 
   /* search clear + browse all */
   .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:none;background:none;cursor:pointer;color:var(--ink-faint);width:30px;height:30px;display:none;align-items:center;justify-content:center}
@@ -343,6 +361,210 @@
   .cart-total{display:flex;align-items:baseline;justify-content:space-between;padding:14px 2px 4px}
   .cart-total .ct-label{font-size:13px;color:var(--ink-soft)}
   .cart-total .ct-val{font-size:20px;font-weight:700;color:var(--ink)}
+
+  /* ===== HUB (home) ===== */
+  .hub-hero{padding:26px 26px 6px;text-align:center}
+  .hub-hero .eyebrow{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+  .hub-hero h1{font-size:25px;line-height:1.22;font-weight:600;letter-spacing:-.01em;margin:0 auto;max-width:300px}
+  .hub-hero h1 b{color:var(--teal-dark);font-weight:700}
+  .hub-hero .hub-sub{font-size:13px;color:var(--ink-soft);margin:10px auto 0;max-width:280px;line-height:1.5}
+  .hub-search{position:relative;margin:18px 18px 0}
+  .hub-search input{width:100%;border:1px solid var(--line);background:var(--white);border-radius:15px;padding:13px 40px 13px 42px;font:inherit;font-size:14px;color:var(--ink);outline:none}
+  .hub-search input:focus{border-color:var(--purple)}
+  .hub-search .hs-ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-faint)}
+  .hub-search .hs-clear{position:absolute;right:9px;top:50%;transform:translateY(-50%);width:28px;height:28px;border:none;background:none;color:var(--ink-faint);cursor:pointer;display:none;align-items:center;justify-content:center}
+  .hub-search .hs-clear svg{width:18px;height:18px}
+  .hub-search.has-text .hs-clear{display:flex}
+  .hub-results{display:none;padding:6px 16px 0}
+  .hub-results.show{display:block}
+  .hr-group{margin-top:16px}
+  .hr-head{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-weight:700;margin:0 4px 9px;display:flex;align-items:center;gap:7px}
+  .hr-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1px solid var(--line);background:var(--white);border-radius:13px;padding:11px 12px;margin-bottom:8px;cursor:pointer}
+  .hr-row:active{background:var(--teal-tint)}
+  .hr-ic{width:34px;height:34px;border-radius:10px;background:var(--teal-tint);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;flex:0 0 auto;overflow:hidden}
+  .hr-ic svg{width:18px;height:18px}
+  .hr-ic img,.hr-ic .ic-bottle{width:18px;height:24px;object-fit:contain}
+  .hr-body{flex:1 1 auto;min-width:0}
+  .hr-name{display:block;font-size:14px;font-weight:500;color:var(--ink)}
+  .hr-sub{display:block;font-size:11px;color:var(--ink-soft);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .hr-chev{color:var(--ink-faint);flex:0 0 auto}
+  .hr-chev svg{width:15px;height:15px}
+  .hr-empty{text-align:center;color:var(--ink-soft);font-size:13.5px;padding:30px 20px}
+  .hub{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:22px 18px 8px}
+  .hub-box{display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-align:left;border:1px solid var(--line);border-radius:24px;background:var(--white);padding:20px 17px 18px;cursor:pointer;min-height:166px;position:relative;box-shadow:var(--shadow-sm);transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease}
+  .hub-box:active{transform:scale(.965)}
+  .hub-box:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+  .hub-box .hb-ic{width:52px;height:52px;border-radius:17px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 4px 10px rgba(120,92,110,.10)}
+  .hub-box .hb-ic svg{width:25px;height:25px}
+  .hub-box .hb-title{font-size:16px;font-weight:600;letter-spacing:-.012em;color:var(--ink);line-height:1.15}
+  .hub-box .hb-desc{font-size:11.5px;color:var(--ink-soft);line-height:1.5;max-width:95%}
+  .hub-box .hb-arrow{position:absolute;top:19px;right:18px;width:18px;height:18px;color:var(--ink-faint);opacity:.55;transition:transform .2s ease,opacity .2s}
+  .hub-box:hover .hb-arrow{opacity:.9;transform:translateX(2px)}
+  .hb-ailments .hb-ic{background:#efe4ec;color:#97698c}
+  .hb-oils .hb-ic{background:#e6efe7;color:#5d8765}
+  .hb-recipes .hb-ic{background:#f4ead9;color:#b07e48}
+  .hb-videos .hb-ic{background:#e6edf3;color:#5c7d9c}
+  [data-theme="dark"] .hb-ailments .hb-ic{background:#392e37;color:#cba3bf}
+  [data-theme="dark"] .hb-oils .hb-ic{background:#2a3530;color:#90c19c}
+  [data-theme="dark"] .hb-recipes .hb-ic{background:#3a3024;color:#dcb079}
+  [data-theme="dark"] .hb-videos .hb-ic{background:#28323c;color:#9bb7d2}
+  [data-theme="dark"] .hub-box .hb-ic{box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 4px 10px rgba(0,0,0,.25)}
+
+  /* ===== AILMENT DETAIL (protocols) ===== */
+  .cond-page{padding:0 0 36px}
+  .cond-page .disclaimer{margin:24px 16px 0}
+  .cond-page .collection-hint{margin:0 16px 16px}
+  .ail-hero{position:relative;text-align:center;padding:24px 22px 8px}
+  .ail-hero .sharebtn{top:14px;right:16px}
+  .ail-hero .ail-pic{width:96px;height:96px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,var(--teal-tint),var(--teal-line));color:var(--teal-dark);border:1px solid var(--teal-line)}
+  .ail-hero .ail-pic svg{width:46px;height:46px}
+  .ail-diagram{margin:2px auto 12px;max-width:300px}
+  .ail-diagram svg{width:104px;height:138px;display:block;margin:0 auto;color:var(--teal-dark)}
+  .diag-body{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
+  .diag-hot .dh-glow{fill:var(--purple);opacity:.16}
+  .diag-hot .dh-ring{fill:none;stroke:var(--purple);stroke-width:2;stroke-dasharray:3 3}
+  .diag-hot .dh-dot{fill:var(--purple)}
+  .diag-aura{fill:none;stroke:var(--purple);stroke-width:1.5;stroke-dasharray:2 5;opacity:.45}
+  .ail-diag-cap{display:inline-flex;align-items:center;gap:7px;background:var(--teal-tint);border:1px solid var(--teal-line);color:var(--teal-dark);border-radius:999px;padding:7px 14px;font-size:11.5px;font-weight:500;line-height:1.35;text-align:left;margin-top:4px}
+  .ail-diag-cap .adc-ic{width:14px;height:14px;flex:0 0 auto}
+  .ail-hero h2{font-size:23px;font-weight:600;margin:0}
+  .ail-hero .desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin:10px auto 0;max-width:330px}
+  .proto-section{padding:6px 16px 0}
+  .section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin:22px 4px 12px}
+  .protocol{border:1px solid var(--line);border-radius:18px;background:var(--white);padding:15px 15px 6px;margin-bottom:13px}
+  .proto-head{display:flex;align-items:center;gap:11px;margin-bottom:11px}
+  .proto-num{width:27px;height:27px;border-radius:50%;background:var(--teal-tint);color:var(--teal-dark);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .proto-title{font-size:15px;font-weight:600;color:var(--ink);line-height:1.2}
+  .proto-title span{display:block;font-size:11px;font-weight:500;color:var(--ink-faint);margin-top:1px}
+  .proto-oils{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:11px}
+  .proto-oil{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--teal-line);background:var(--teal-tint);color:var(--teal-dark);border-radius:999px;padding:5px 11px 5px 7px;font-size:12px;font-weight:500;cursor:pointer}
+  .proto-oil img{width:15px;height:20px;object-fit:contain;flex:0 0 auto;mix-blend-mode:multiply}
+  .proto-oil>svg{width:16px;height:20px;flex:0 0 auto}
+  .proto-oil .po-go{width:11px;height:11px;opacity:.5;margin-left:1px}
+  .proto-cart{margin-top:16px}
+  .proto-steps{list-style:none;padding:0;margin:0 0 10px}
+  .proto-steps li{position:relative;padding:0 0 9px 18px;font-size:12.8px;color:var(--ink-soft);line-height:1.5}
+  .proto-steps li::before{content:"";position:absolute;left:2px;top:7px;width:6px;height:6px;border-radius:50%;background:var(--purple)}
+  .proto-tag{font-size:11px;color:var(--ink-faint);padding:0 2px 12px}
+
+  /* oils used at bottom of ailment */
+  .also-divider{display:flex;align-items:center;text-align:center;gap:12px;color:var(--ink-faint);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin:8px 16px 14px}
+  .show-more-oils{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:1px dashed var(--teal-line);background:var(--teal-tint);color:var(--teal-dark);border-radius:14px;padding:13px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;margin-top:2px}
+  .show-more-oils svg{width:16px;height:16px}
+
+  /* ===== OIL → ailments it helps ===== */
+  .ail-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .ail-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--white);border-radius:999px;padding:7px 13px 7px 9px;font-size:12.5px;font-weight:500;color:var(--ink);cursor:pointer}
+  .ail-chip .ac-ic{width:22px;height:22px;border-radius:7px;background:var(--teal-tint);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .ail-chip .ac-ic svg{width:13px;height:13px}
+  .ail-group-h{font-size:12px;font-weight:600;color:var(--ink-soft);margin:14px 0 8px}
+  .ail-empty{font-size:12.5px;color:var(--ink-faint);line-height:1.5}
+
+  /* ===== OILS A–Z search ===== */
+  .oils-search{position:relative;margin:14px 0 6px}
+  .oils-search input{width:100%;border:1px solid var(--line);background:var(--white);border-radius:14px;padding:12px 14px 12px 40px;font:inherit;font-size:14px;color:var(--ink);outline:none}
+  .oils-search input:focus{border-color:var(--purple)}
+  .oils-search .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-faint)}
+
+  /* ===== RECIPES ===== */
+  .rec-wrap{padding:8px 16px 30px}
+  .rec-intro{padding:16px 6px 4px;font-size:13px;color:var(--ink-soft);line-height:1.5}
+  .rec-cats{display:flex;gap:8px;overflow-x:auto;padding:12px 2px 10px;scrollbar-width:none}
+  .rec-cats::-webkit-scrollbar{display:none}
+  .rec-cat{flex:0 0 auto;border:1px solid var(--line);background:var(--white);color:var(--ink-soft);border-radius:999px;padding:8px 15px;font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap}
+  .rec-cat.on{background:var(--teal-dark);color:#fff;border-color:var(--teal-dark)}
+  .recipe-row{display:flex;align-items:center;gap:13px;padding:13px 8px;border-bottom:1px solid var(--line);cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;width:100%;text-align:left}
+  .recipe-row:active{background:var(--teal-tint)}
+  .rr-ic{width:42px;height:42px;border-radius:13px;background:var(--teal-tint);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .rr-ic svg{width:21px;height:21px}
+  .rr-body{flex:1 1 auto;min-width:0}
+  .rr-name{display:block;font-size:14.5px;font-weight:500;color:var(--ink)}
+  .rr-meta{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rr-cat{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--teal-dark);background:var(--teal-tint);border-radius:6px;padding:2px 7px;margin-top:5px}
+  .recipe-row .chev{color:var(--ink-faint);flex:0 0 auto}
+  .recipe-row .chev svg{width:16px;height:16px}
+  /* recipe detail */
+  .recipe-detail{padding:0 18px 30px}
+  .rd-hero{text-align:center;padding:22px 8px 6px}
+  .rd-hero .rd-ic{width:64px;height:64px;border-radius:18px;margin:0 auto 12px;background:var(--teal-tint);color:var(--teal-dark);display:flex;align-items:center;justify-content:center}
+  .rd-hero .rd-ic svg{width:32px;height:32px}
+  .rd-hero h2{font-size:21px;font-weight:600;margin:0}
+  .rd-hero .rd-cat{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-top:6px}
+  .rd-hero .rd-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin:10px auto 0;max-width:330px}
+  .rd-block{margin-top:22px}
+  .rd-block h3{font-size:12.5px;letter-spacing:.4px;text-transform:uppercase;color:var(--teal);font-weight:700;margin:0 0 11px}
+  .rd-ing{list-style:none;padding:0;margin:0}
+  .rd-ing li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink);padding:7px 0;border-bottom:1px dashed var(--line)}
+  .rd-ing li svg{width:16px;height:16px;color:var(--teal-dark);flex:0 0 auto;margin-top:2px}
+  .rd-steps{list-style:none;counter-reset:s;padding:0;margin:0}
+  .rd-steps li{position:relative;counter-increment:s;padding:0 0 13px 34px;font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+  .rd-steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:23px;height:23px;border-radius:50%;background:var(--teal-tint);color:var(--teal-dark);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+  .recipe-oils{display:flex;flex-wrap:wrap;gap:8px}
+
+  /* ===== VIDEOS & CLASSES ===== */
+  .vid-wrap{padding:8px 16px 30px}
+  .vid-hero{text-align:center;padding:18px 10px 4px}
+  .vid-hero .vh-ic{width:58px;height:58px;border-radius:17px;margin:0 auto 12px;background:linear-gradient(135deg,#5f8fae,#4f7f9c);color:#fff;display:flex;align-items:center;justify-content:center}
+  .vid-hero .vh-ic svg{width:30px;height:30px}
+  .vid-hero h2{font-size:21px;font-weight:600;margin:0}
+  .vid-hero p{font-size:13px;color:var(--ink-soft);line-height:1.5;margin:8px auto 0;max-width:300px}
+  .vid-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);margin-top:14px}
+  .vid-thumb{position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;display:block;border:none;padding:0;overflow:hidden}
+  .vid-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
+  .vid-thumb .vt-play{position:absolute;inset:0;margin:auto;width:54px;height:54px;border-radius:50%;background:rgba(20,16,26,.62);color:#fff;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px)}
+  .vid-thumb .vt-play svg{width:26px;height:26px;margin-left:3px}
+  .vid-thumb iframe{width:100%;height:100%;border:0;display:block}
+  .vid-meta{padding:12px 14px 14px}
+  .vid-meta .vm-title{font-size:14px;font-weight:600;color:var(--ink);line-height:1.3}
+  .vid-meta .vm-by{font-size:11.5px;color:var(--ink-soft);margin-top:4px;display:flex;align-items:center;gap:6px}
+  .classes-cta{display:flex;align-items:center;gap:13px;width:100%;border:1px solid var(--teal-line);background:var(--teal-tint);border-radius:16px;padding:15px 16px;margin:6px 0 16px;cursor:pointer;text-align:left}
+  .classes-cta .cc-ic{width:42px;height:42px;border-radius:12px;background:var(--white);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .classes-cta .cc-ic svg{width:21px;height:21px}
+  .classes-cta .cc-text{flex:1 1 auto;min-width:0}
+  .classes-cta .cc-t{display:block;font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.25}
+  .classes-cta .cc-d{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:2px;line-height:1.35}
+  .classes-cta .chev{flex:0 0 auto;color:var(--ink-faint)}
+  .classes-cta .chev svg{width:18px;height:18px}
+
+  /* ============ SLEEK-COZY POLISH ============ */
+  /* serif display headings */
+  .hub-hero h1{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
+  .oil-hero h2,.ail-hero h2,.rd-hero h2,.vid-hero h2,.learn-hero h2{font-family:var(--serif);font-weight:500;letter-spacing:0}
+  .oilcard .oc-name,.orow .oname,.recipe-row .rr-name{font-family:var(--serif);font-weight:600;letter-spacing:-.005em}
+  .oil-hero h2{font-weight:600}
+
+  /* soft warm wash + sprig behind the hub hero */
+  .hub-hero{position:relative}
+  .hub-hero::before{content:"";position:absolute;left:50%;top:-6px;transform:translateX(-50%);width:300px;height:210px;background:radial-gradient(ellipse at center,var(--teal-tint),transparent 68%);opacity:.75;z-index:0;pointer-events:none}
+  .hub-hero>*{position:relative;z-index:1}
+  .hero-sprig{display:flex;justify-content:center;color:var(--gold);opacity:.85;margin-bottom:8px}
+  .hero-sprig svg{width:26px;height:26px}
+  .empty-sprig{display:block;color:var(--gold);opacity:.7;margin-bottom:2px}
+  .empty-sprig svg{width:24px;height:24px}
+
+  /* cozy photo wells behind bottle images */
+  .oilcard .thumb{width:66px;background:var(--sand);border-radius:15px;padding:8px 9px}
+  .oilcard .thumb img{aspect-ratio:1/1.35}
+  .oil-hero .bottle{width:162px;background:radial-gradient(circle at 50% 36%,var(--teal-tint),var(--sand));border-radius:28px;padding:20px 22px 16px;box-shadow:var(--shadow-sm)}
+  .orow .othumb{width:44px;background:var(--sand);border-radius:12px;padding:5px 6px}
+  .cart-item .ci-thumb{width:54px;background:var(--sand);border-radius:13px;padding:7px 8px}
+
+  /* softened, rounded list rows (cards) */
+  .crow{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:12px 13px;margin-bottom:9px;box-shadow:var(--shadow-sm);transition:transform .14s ease,box-shadow .25s ease}
+  .crow:active{transform:scale(.99)}
+  .orow{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:9px 12px;margin-bottom:9px;box-shadow:var(--shadow-sm)}
+  .recipe-row{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:11px 12px;margin-bottom:9px;box-shadow:var(--shadow-sm)}
+  .oils-search,.oils-intro{margin-left:2px;margin-right:2px}
+
+  /* gentle micro-motion */
+  .anim{animation:slide .34s cubic-bezier(.2,.75,.3,1)}
+  @keyframes slide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @keyframes imgfade{from{opacity:0}to{opacity:1}}
+  .pimg{animation:imgfade .55s ease}
+  .hub-box,.crow,.orow,.recipe-row,.hr-row,.ail-chip,.proto-oil{transition:transform .15s ease,box-shadow .25s ease,background .2s ease}
+  /* blend white product-photo backgrounds into the cozy wells */
+  .oil-hero .bottle img,.oilcard .thumb img,.orow .othumb img,.cart-item .ci-thumb img{mix-blend-mode:multiply}
+  [data-theme="dark"] .oil-hero .bottle,[data-theme="dark"] .oilcard .thumb,[data-theme="dark"] .orow .othumb,[data-theme="dark"] .cart-item .ci-thumb{background:#efeaf2}
 </style>
 </head>
 <body>
@@ -384,12 +606,18 @@
   <symbol id="ic-clear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></symbol>
   <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2V5Z"/></symbol>
   <symbol id="ic-chevdown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="ic-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></symbol>
+  <symbol id="ic-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/></symbol>
+  <symbol id="ic-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5V8.5Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></symbol>
+  <symbol id="ic-play-fill" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5v14l11-7L8 5Z"/></symbol>
+  <symbol id="ic-sprig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V8"/><path d="M12 12c0-3 2-5 5-5 0 3-2 5-5 5Z"/><path d="M12 16c0-2.6-1.8-4.4-4.4-4.4C7.6 14.2 9.4 16 12 16Z"/><path d="M12 9C12 6.5 13.6 4.5 16 4"/></symbol>
 </defs></svg>
 
 <div class="phone">
   <header id="header">
     <button class="back-btn" id="backBtn" aria-label="Back"><svg><use href="#ic-back"/></svg></button>
-    <div class="brand-block"><div class="wordmark">HOME <b>ESSENTIAL</b></div><div class="tagline">Oil Finder</div></div>
+    <div class="brand-block"><img class="brand-logo" src="images/CA-logo-desktop.svg" alt="Home Essential Oils"></div>
     <div class="sub-title" id="subTitle"></div>
     <button class="cart-btn" id="cartBtn" aria-label="Cart"><svg><use href="#ic-cart"/></svg><span class="cart-badge" id="cartBadge">0</span></button>
     <button class="settings-btn" id="settingsBtn" aria-label="Settings &amp; account"><svg><use href="#ic-gear"/></svg></button>
@@ -397,21 +625,55 @@
   <div class="accent-rule"></div>
 
   <div class="scroll" id="scroll">
-    <!-- HOME -->
+    <!-- HOME / HUB -->
     <section class="view active" id="homeView">
-      <div class="home-hero">
-        <div class="eyebrow">Personalised Wellness</div>
-        <h1>Find the right <b>oil</b> for how you feel</h1>
+      <div class="hub-hero">
+        <span class="hero-sprig"><svg><use href="#ic-sprig"/></svg></span>
+        <h1>Your natural wellness <b>companion</b></h1>
       </div>
+      <div class="hub-search">
+        <svg class="hs-ic"><use href="#ic-search"/></svg>
+        <input type="text" id="globalSearch" autocomplete="off" placeholder="Search ailments, oils &amp; recipes…" aria-label="Search everything">
+        <button class="hs-clear" id="globalClear" aria-label="Clear"><svg><use href="#ic-clear"/></svg></button>
+      </div>
+      <div class="hub-results" id="hubResults"></div>
+      <div class="hub">
+        <button class="hub-box hb-ailments" data-hub="ailments">
+          <span class="hb-ic"><svg><use href="#ic-pulse"/></svg></span>
+          <span class="hb-arrow"><svg><use href="#ic-fwd"/></svg></span>
+          <span class="hb-title">Ailments</span>
+          <span class="hb-desc">Find oils &amp; protocols for how you feel</span>
+        </button>
+        <button class="hub-box hb-oils" data-hub="oils">
+          <span class="hb-ic"><svg><use href="#ic-leaf"/></svg></span>
+          <span class="hb-arrow"><svg><use href="#ic-fwd"/></svg></span>
+          <span class="hb-title">Oils</span>
+          <span class="hb-desc">Browse every oil, its uses &amp; benefits</span>
+        </button>
+        <button class="hub-box hb-recipes" data-hub="recipes">
+          <span class="hb-ic"><svg><use href="#ic-flask"/></svg></span>
+          <span class="hb-arrow"><svg><use href="#ic-fwd"/></svg></span>
+          <span class="hb-title">Recipes</span>
+          <span class="hb-desc">DIY for food, cleaning, beauty &amp; home</span>
+        </button>
+        <button class="hub-box hb-videos" data-hub="videos">
+          <span class="hb-ic"><svg><use href="#ic-play"/></svg></span>
+          <span class="hb-arrow"><svg><use href="#ic-fwd"/></svg></span>
+          <span class="hb-title">Videos &amp; Classes</span>
+          <span class="hb-desc">Watch &amp; learn from doTERRA educators</span>
+        </button>
+      </div>
+      <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Essential oils are not a substitute for professional medical care. Consult a healthcare provider for any health condition.</div>
+      <div class="footer-brand">dōTERRA · Pure Essential Oils</div>
+    </section>
+
+    <!-- AILMENTS LIST -->
+    <section class="view" id="ailmentsView">
       <div class="searchbar">
         <div class="search-wrap">
           <svg class="search-icon"><use href="#ic-search"/></svg>
           <input type="text" id="search" class="search-box" autocomplete="off" placeholder="Search a symptom, condition or concern" aria-label="Search" />
           <button class="search-clear" id="searchClear" aria-label="Clear search"><svg><use href="#ic-clear"/></svg></button>
-        </div>
-        <div class="home-links">
-          <button class="browse-all" id="browseAll"><svg><use href="#ic-grid"/></svg> Browse all oils</button>
-          <button class="browse-all" id="learnBtn"><svg><use href="#ic-book"/></svg> Learn the basics</button>
         </div>
       </div>
       <div class="recent-head" id="recentHead">Recently viewed</div>
@@ -423,7 +685,6 @@
       <div class="clist" id="clist"></div>
       <p class="no-match" id="noMatch">No match found — try another word.</p>
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Essential oils are not a substitute for professional medical care. Consult a healthcare provider for any health condition.</div>
-      <div class="footer-brand">dōTERRA · Pure Essential Oils</div>
     </section>
 
     <!-- CONDITION -->
@@ -436,6 +697,12 @@
     <section class="view" id="cartView"></section>
     <!-- ALL OILS -->
     <section class="view" id="oilsView"></section>
+    <!-- RECIPES -->
+    <section class="view" id="recipesView"></section>
+    <!-- RECIPE DETAIL -->
+    <section class="view" id="recipeView"></section>
+    <!-- VIDEOS & CLASSES -->
+    <section class="view" id="videosView"></section>
     <!-- LEARN -->
     <section class="view" id="learnView"></section>
   </div>
@@ -1431,6 +1698,270 @@ function directionsFor(id,condKey){
   </div>`;
 }
 
+/* ===== Link the newer oils & blends into ailments (appended as alternates) =====
+   General, commonly-cited aromatherapy associations — not medical claims. */
+const NEW_LINKS={
+  acne:["manuka","rosalina","niaouli","palmarosa"],
+  oilyskin:["juniperberry","litsea","cistus"],
+  agingskin:["rose","jasmine","sandalwoodhawaiian","patchouli","cistus","bluetansy"],
+  dryskin:["rose","palmarosa","madagascarvanilla"],
+  dermatitis:["bluetansy","kanuka","rosalina"],
+  eczema:["kanuka","manuka","bluetansy"],
+  rash:["bluetansy","kanuka"],
+  itching:["bluetansy"],
+  athletesfoot:["manuka","niaouli"],
+  nailfungus:["manuka","niaouli"],
+  ringworm:["manuka","niaouli"],
+  anxiety:["ylangylang","cananga","petitgrain","patchouli","peacereassuringblend","hyggecozyblend","shinrinyokublend","kidsbraveblend"],
+  nervoustension:["guaiacwood","naiowood","breubranco","cistus","galbanum","consolecomfortingblend"],
+  restlessness:["spikenard","valerian","desertsandblend","nativebushblend","northernescapeblend","yogaanchorblend"],
+  insomnia:["valerian","spikenard","sandalwoodhawaiian","balsamfir","kidscalmerblend","midnightforestnatureblend"],
+  depression:["greenmandarin","clementine","redmandarin","tangerine","kumquat","elevationblend","citrusblissblend","sunnycitrusblend","citrustwistblend","passionblend"],
+  grief:["consolecomfortingblend","forgiverenewingblend","rose"],
+  moodswings:["ylangylang","citrusbloomblend","beautifulblend","holidayloveblend"],
+  irritability:["kidssteadyblend","coastblend"],
+  energy:["grapefruit","whitegrapefruit","lime","islandmintblend","motivateencouragingblend","supermintoilblend","yogaariseblend"],
+  fatigue:["grapefruit","pinkpepper","blackpepper"],
+  jetlag:["tangerine","grapefruit"],
+  focus:["spearmint","bergamotmint","kidsthinkerblend","yogaalignblend"],
+  memory:["tulsiholybasil","laurelleaf"],
+  indigestion:["caraway","coriander","cardamom","celeryseed","cilantro","kidstamerblend"],
+  bloating:["caraway","coriander","cardamom"],
+  gas:["caraway","celeryseed","coriander"],
+  nausea:["spearmint","cardamom"],
+  morningsickness:["spearmint","cardamom"],
+  motionsickness:["spearmint"],
+  heartburn:["cardamom"],
+  constipation:["celeryseed"],
+  musclepain:["wintergreen","birch","aromatouch","blackpepper","siberianfir","kidsrescuerblend"],
+  backpain:["aromatouch","wintergreen","birch"],
+  jointpain:["wintergreen","birch","pinkpepper"],
+  arthritis:["wintergreen","turmeric"],
+  inflammation:["turmeric","blackpepper"],
+  legcramps:["aromatouch"],
+  sciatica:["aromatouch","blackpepper"],
+  pain:["wintergreen","birch"],
+  immune:["lime","grapefruit","cinnamonbark","cassia","arborvitae","kidsstrongerblend","purifycleansingblend","bakingspiceblend"],
+  colds:["cinnamonbark","ravintsara"],
+  flu:["cinnamonbark","ravintsara"],
+  congestion:["siberianfir","blackspruce","douglasfir","himalayanfir","ravintsara","niaouli","commonmyrtle","hyssop"],
+  cough:["siberianfir","balsamfir","laurelleaf"],
+  bronchitis:["ravintsara","niaouli","commonmyrtle"],
+  asthma:["commonmyrtle","hyssop","balsamfir"],
+  sinusitis:["ravintsara","niaouli","hyssop"],
+  hayfever:["lemonmyrtle"],
+  allergies:["lemonmyrtle"],
+  insectbites:["citronella","lemoneucalyptus","terrashieldrepellentblend"],
+  pms:["whisperblendforwomen","ylangylang"],
+  menstrual:["whisperblendforwomen"],
+  hotflashes:["ylangylang"],
+  hairloss:["nootka"],
+  dandruff:["nootka"]
+};
+Object.keys(NEW_LINKS).forEach(k=>{
+  if(!COND[k])return;
+  const arr=COND[k][2]||(COND[k][2]=[]);
+  const have=new Set([COND[k][1],...arr]);
+  NEW_LINKS[k].forEach(id=>{ if(OILS[id]&&!have.has(id)){arr.push(id);have.add(id);} });
+});
+
+/* ===== Reverse index: which ailments each oil helps with ===== */
+const AIL_BY_OIL={};
+Object.keys(COND).forEach(k=>{const c=COND[k];[c[1],...(c[2]||[])].forEach((id,idx)=>{(AIL_BY_OIL[id]=AIL_BY_OIL[id]||[]).push({k,primary:idx===0});});});
+
+/* ===== Protocols for an ailment (built from its oils + body-system) ===== */
+function bestMethodsFor(oilId,icon){const o=OILS[oilId];const pri=METHOD_PRI[icon]||["Topical","Aromatic","Internal"];return pri.filter(m=>o[methodFlag[m]]);}
+function protoSteps(method,oilIds,site){
+  const names=oilIds.map(id=>OILS[id].name);
+  if(method==="Aromatic")return[
+    `Add ${oilIds.length>1?"a drop or two of each":"3–4 drops"} of ${names.join(" and ")} to your diffuser with water.`,
+    `Diffuse for 30–60 minutes and breathe slowly — or add a drop to cupped hands and inhale for a faster lift.`];
+  if(method==="Internal")return[
+    `Where the label allows, add 1 drop of ${names[0]} to a large glass of water or a veggie capsule.`,
+    `Use once daily to start and never exceed the label's guidance.`];
+  return[
+    `Combine 1–2 drops of ${names.join(" and ")} with a teaspoon of carrier oil (such as fractionated coconut).`,
+    `Massage gently into ${site.area}. Repeat 2–3 times a day as needed.`];
+}
+function protocolsFor(k){
+  const c=COND[k],icon=c[3],site=SITE[icon]||SITE["ic-drop"];
+  const pid=c[1],alts=c[2]||[];const out=[];
+  const m1=bestMethodsFor(pid,icon)[0]||"Topical";
+  out.push({title:"Target it directly",sub:`Start here with ${OILS[pid].name}`,oils:[pid],steps:protoSteps(m1,[pid],site)});
+  if(alts[0]){
+    const combo=[pid,alts[0]];const pri=METHOD_PRI[icon]||["Topical","Aromatic","Internal"];
+    const m2=pri.find(m=>combo.every(id=>OILS[id][methodFlag[m]]))||m1;
+    out.push({title:"Combine & soothe",sub:`Pair with ${OILS[alts[0]].name}`,oils:combo,steps:protoSteps(m2,combo,site)});
+  }
+  const sid=alts[1]||alts[0];
+  if(sid && (!alts[0]||sid!==alts[0]||alts.length===1)){
+    const bm=bestMethodsFor(sid,icon);const m3=bm.includes("Aromatic")?"Aromatic":(bm[0]||"Topical");
+    out.push({title:"Ongoing daily support",sub:`Keep it up with ${OILS[sid].name}`,oils:[sid],steps:protoSteps(m3,[sid],site)});
+  }
+  return out.slice(0,3);
+}
+
+/* ===== Body-system diagrams (where to apply) for the ailment hero =====
+   Coordinates land on the body figure below (viewBox 120×165). */
+const DIAG={
+  "ic-headache":{p:[[52,16],[68,16]],cap:"Apply to the temples, forehead & back of the neck"},
+  "ic-focus":{p:[[60,17]],aroma:1,cap:"Diffuse to focus, or apply to the neck & temples"},
+  "ic-lungs":{p:[[60,52]],aroma:1,cap:"Diffuse, and rub onto the chest & upper back"},
+  "ic-leaf":{p:[[60,52]],aroma:1,cap:"Diffuse, and apply (diluted) to the chest"},
+  "ic-digest":{p:[[60,74]],cap:"Massage over the abdomen in a slow clockwise circle"},
+  "ic-muscle":{p:[[53,118],[67,118]],cap:"Massage into the affected muscles or joints"},
+  "ic-skin":{p:[[38,74]],cap:"Apply (diluted) to the affected patch of skin"},
+  "ic-drop":{p:[[60,72]],cap:"Apply gently to the area of concern"},
+  "ic-sleep":{p:[[49,150],[71,150]],aroma:1,cap:"Rub onto the soles of the feet; diffuse overnight"},
+  "ic-stress":{p:[[39,88],[81,88]],aroma:1,cap:"Roll onto the wrists, then cup hands & breathe in"},
+  "ic-mood":{p:[[57,52]],aroma:1,cap:"Apply over the heart, then breathe it in"},
+  "ic-energy":{p:[[49,44],[71,44]],aroma:1,cap:"Inhale from cupped hands; rub onto neck & shoulders"},
+  "ic-shield":{p:[[49,150],[71,150]],aura:1,cap:"Apply to the soles of the feet & along the spine"},
+  "ic-heart":{p:[[57,52]],aroma:1,cap:"Apply over the heart and breathe slowly"}
+};
+function diagramFor(icon){
+  const d=DIAG[icon]||DIAG["ic-drop"];
+  const rings=d.p.map(([x,y])=>`<g class="diag-hot"><circle cx="${x}" cy="${y}" r="12" class="dh-glow"/><circle cx="${x}" cy="${y}" r="12" class="dh-ring"/><circle cx="${x}" cy="${y}" r="3" class="dh-dot"/></g>`).join("");
+  const aura=d.aura?`<ellipse cx="60" cy="94" rx="43" ry="74" class="diag-aura"/>`:"";
+  const aroma=d.aroma?`<g class="diag-aroma"><path d="M74 10 q3.5 -3.5 0 -7"/><path d="M79 11.5 q4 -4 0 -8"/><path d="M84 10 q3.5 -3.5 0 -7"/></g>`:"";
+  return `<div class="ail-diagram"><svg viewBox="0 0 120 165" aria-hidden="true">
+    ${aura}
+    <g class="diag-body">
+      <circle cx="60" cy="18" r="10"/>
+      <path d="M60 28 V92"/>
+      <path d="M49 44 H71"/>
+      <path d="M49 44 C40 56 37 73 39 88"/>
+      <path d="M71 44 C80 56 83 73 81 88"/>
+      <path d="M60 92 L51 126 L49 150"/>
+      <path d="M60 92 L69 126 L71 150"/>
+    </g>
+    ${aroma}
+    ${rings}
+  </svg>${d.cap?`<div class="ail-diag-cap"><svg class="adc-ic"><use href="#ic-drop"/></svg> ${d.cap}</div>`:""}</div>`;
+}
+
+/* ===== Recipes (general DIY — food, cleaning, beauty, wellness, diffuser) ===== */
+const RECIPE_CAT_IC={Cleaning:"ic-shield",Cooking:"ic-flask",Beauty:"ic-skin",Wellness:"ic-heart",Diffuser:"ic-aromatic"};
+const RECIPES=[
+  {id:"allpurpose",name:"All-Purpose Surface Spray",cat:"Cleaning",oils:["lemon","onguard"],desc:"A fresh, naturally cleansing spray for kitchen and bathroom surfaces.",
+   ing:["2 cups water","½ cup white vinegar","10 drops Lemon","5 drops On Guard","16 oz glass spray bottle"],
+   steps:["Add the water and vinegar to the spray bottle.","Add the essential oils and cap tightly.","Shake well before each use, spray onto the surface and wipe clean."]},
+  {id:"glasscleaner",name:"Streak-Free Glass Cleaner",cat:"Cleaning",oils:["lemon"],desc:"Leaves windows and mirrors sparkling without harsh chemicals.",
+   ing:["2 cups water","¼ cup white vinegar","8 drops Lemon","Spray bottle"],
+   steps:["Combine all ingredients in the spray bottle.","Shake gently.","Spray onto glass and buff with a microfibre cloth or newspaper."]},
+  {id:"bathroomscrub",name:"Soft Scrub for Bathrooms",cat:"Cleaning",oils:["onguard","lemon"],desc:"A gentle paste that lifts grime from sinks, tubs and tiles.",
+   ing:["½ cup baking soda","2–3 tbsp liquid castile soap","5 drops On Guard","5 drops Lemon"],
+   steps:["Mix the baking soda and soap into a paste.","Stir in the oils.","Apply with a sponge, scrub, then rinse well."]},
+  {id:"floorcleaner",name:"Fresh Floor Cleaner",cat:"Cleaning",oils:["lemon","wildorange"],desc:"A bright, citrusy mop solution for sealed floors.",
+   ing:["1 gallon warm water","¼ cup white vinegar","5 drops Lemon","5 drops Wild Orange"],
+   steps:["Add everything to a bucket of warm water.","Mop as usual — no rinsing needed on most sealed floors."]},
+  {id:"laundryboost",name:"Laundry Freshening Boost",cat:"Cleaning",oils:["onguard","lavender"],desc:"Adds a clean, fresh scent to every load.",
+   ing:["5 drops On Guard","5 drops Lavender","A wool dryer ball or a damp cloth"],
+   steps:["Add the oils to a wool dryer ball (or a damp cloth).","Toss into the dryer with your load.","Refresh the drops each time."]},
+  {id:"handsoap",name:"Foaming Hand Soap",cat:"Cleaning",oils:["onguard","wildorange"],desc:"A nourishing, naturally cleansing foaming soap.",
+   ing:["1 tbsp liquid castile soap","1 tsp fractionated coconut oil","10 drops On Guard","5 drops Wild Orange","Foaming pump bottle, topped with water"],
+   steps:["Add the soap, carrier oil and essential oils to the pump bottle.","Top up slowly with water, leaving room for the pump.","Swirl gently to combine."]},
+  {id:"airfreshener",name:"Linen & Room Spray",cat:"Cleaning",oils:["lavender","wildorange"],desc:"A calming spritz for pillows, linens and tired rooms.",
+   ing:["¾ cup water","2 tbsp witch hazel","8 drops Lavender","6 drops Wild Orange","Small spray bottle"],
+   steps:["Combine the witch hazel and oils first, then add water.","Shake before each use.","Mist over linens, curtains or the air."]},
+  {id:"lemonwater",name:"Morning Lemon Water",cat:"Cooking",oils:["lemon"],desc:"A bright, refreshing way to start the day.",
+   ing:["1 large glass of water","1 drop Lemon (label-approved for internal use)"],
+   steps:["Add a single drop of Lemon to a large glass of water (use glass or stainless steel, not plastic).","Stir and enjoy first thing in the morning."]},
+  {id:"peppermintcocoa",name:"Peppermint Hot Cocoa",cat:"Cooking",oils:["peppermint"],desc:"A cosy, minty twist on a classic.",
+   ing:["1 mug of your favourite hot cocoa","1 toothpick of Peppermint, or 1 drop in the pot for 4 servings"],
+   steps:["Make your hot cocoa as usual.","Add Peppermint sparingly — it's potent — using a toothpick swirl or a single drop shared across servings.","Stir and sip."]},
+  {id:"limeguac",name:"Zesty Lime Guacamole",cat:"Cooking",oils:["lime"],desc:"Fresh guacamole with a bright citrus lift.",
+   ing:["2 ripe avocados","¼ red onion, diced","1 tomato, diced","1–2 drops Lime","Salt and coriander to taste"],
+   steps:["Mash the avocados.","Fold in the onion, tomato and seasoning.","Add Lime a drop at a time, taste, and serve."]},
+  {id:"gingertea",name:"Soothing Ginger Tea",cat:"Cooking",oils:["ginger"],desc:"A warming cup that's gentle on the stomach.",
+   ing:["1 mug hot water","1 toothpick of Ginger","Honey and lemon to taste"],
+   steps:["Add a toothpick swirl of Ginger to hot water.","Stir in honey and lemon.","Sip slowly while warm."]},
+  {id:"rosemarypotatoes",name:"Rosemary Roast Potatoes",cat:"Cooking",oils:["rosemary"],desc:"Crispy roast potatoes with savoury herb flavour.",
+   ing:["1kg potatoes, chopped","3 tbsp olive oil","1–2 toothpicks of Rosemary in the oil","Salt and pepper"],
+   steps:["Swirl Rosemary into the olive oil.","Toss the potatoes to coat and season.","Roast at 200°C until golden and crisp."]},
+  {id:"basilpesto",name:"Fresh Basil Pesto",cat:"Cooking",oils:["basil"],desc:"A quick pesto with a vibrant basil punch.",
+   ing:["2 cups fresh basil","⅓ cup pine nuts","½ cup parmesan","½ cup olive oil","1 toothpick of Basil","1 clove garlic"],
+   steps:["Blend the basil, nuts, cheese and garlic.","Drizzle in the oil.","Add Basil sparingly to taste and blend smooth."]},
+  {id:"cinnamonoatmeal",name:"Cinnamon Spice Oatmeal",cat:"Cooking",oils:["cinnamonbark"],desc:"Warm, comforting oats with cosy spice.",
+   ing:["1 bowl cooked oatmeal","1 toothpick of Cinnamon Bark","Maple syrup and apple to taste"],
+   steps:["Cook your oatmeal as usual.","Stir in a toothpick swirl of Cinnamon Bark.","Top with apple and a drizzle of maple syrup."]},
+  {id:"facialserum",name:"Glow Facial Serum",cat:"Beauty",oils:["frankincense","lavender"],desc:"A light nightly serum to support smooth, radiant skin.",
+   ing:["2 tbsp jojoba or fractionated coconut oil","4 drops Frankincense","3 drops Lavender","Small dropper bottle"],
+   steps:["Combine the carrier oil and essential oils in the bottle.","Roll to mix.","Smooth 3–4 drops over cleansed skin at night. Patch-test first."]},
+  {id:"sugarscrub",name:"Citrus Sugar Scrub",cat:"Beauty",oils:["wildorange","lemon"],desc:"An exfoliating scrub that leaves skin soft and bright.",
+   ing:["1 cup sugar","½ cup melted coconut oil","8 drops Wild Orange","4 drops Lemon","Jar"],
+   steps:["Mix the sugar and coconut oil.","Stir in the oils.","Massage onto damp skin in the shower, then rinse. Avoid sun on scrubbed skin (citrus)."]},
+  {id:"lipbalm",name:"DIY Peppermint Lip Balm",cat:"Beauty",oils:["peppermint"],desc:"A cooling, moisturising balm for soft lips.",
+   ing:["2 tbsp beeswax pellets","2 tbsp coconut oil","1 tbsp shea butter","4 drops Peppermint","Lip balm tubes or tin"],
+   steps:["Melt the beeswax, coconut oil and shea butter together.","Remove from heat and stir in Peppermint.","Pour into tubes and let set."]},
+  {id:"hairmask",name:"Rosemary Scalp Mask",cat:"Beauty",oils:["rosemary","cedarwood"],desc:"A nourishing pre-wash treatment for scalp and roots.",
+   ing:["2 tbsp warmed coconut oil","3 drops Rosemary","2 drops Cedarwood"],
+   steps:["Mix the oils into the warmed coconut oil.","Massage into the scalp and roots.","Leave 20–30 minutes, then shampoo out."]},
+  {id:"claymask",name:"Clarifying Clay Mask",cat:"Beauty",oils:["teatree","lavender"],desc:"A weekly mask to purify and calm blemish-prone skin.",
+   ing:["1 tbsp bentonite clay","1 tbsp water or apple cider vinegar","1 drop Tea Tree","1 drop Lavender"],
+   steps:["Mix the clay and liquid into a smooth paste (avoid metal bowls).","Stir in the oils.","Apply to the face, leave 10 minutes, then rinse."]},
+  {id:"bodybutter",name:"Whipped Body Butter",cat:"Beauty",oils:["geranium","lavender"],desc:"A luxurious whipped moisturiser for soft skin.",
+   ing:["1 cup shea butter","¼ cup coconut oil","2 tbsp jojoba oil","8 drops Geranium","6 drops Lavender"],
+   steps:["Melt the shea butter and coconut oil, then chill until semi-solid.","Whip with a mixer until fluffy.","Fold in the oils and store in a jar."]},
+  {id:"roller_calm",name:"Calm Roller",cat:"Wellness",oils:["lavender","adaptiv"],desc:"A soothing roller for stressful, overwhelming moments.",
+   ing:["10ml roller bottle","5 drops Lavender","5 drops Adaptiv","Top with fractionated coconut oil"],
+   steps:["Add the oils to the roller bottle.","Top up with carrier oil and cap with the roller ball.","Roll onto wrists and the back of the neck, then breathe slowly."]},
+  {id:"roller_focus",name:"Focus Roller",cat:"Wellness",oils:["peppermint","intune"],desc:"A bright roller for study, work and busy days.",
+   ing:["10ml roller bottle","4 drops Peppermint","5 drops InTune","Top with fractionated coconut oil"],
+   steps:["Combine the oils in the roller bottle.","Top with carrier oil.","Roll onto the back of the neck and temples (keep clear of eyes)."]},
+  {id:"roller_headease",name:"Head-Ease Roller",cat:"Wellness",oils:["peppermint","pasttense"],desc:"A cooling roller for everyday head and neck tension.",
+   ing:["10ml roller bottle","4 drops Peppermint","5 drops PastTense","Top with fractionated coconut oil"],
+   steps:["Add the oils and top with carrier oil.","Roll onto temples, forehead and the back of the neck.","Avoid the eye area and reapply as needed."]},
+  {id:"roller_tummy",name:"Tummy Soothe Roller",cat:"Wellness",oils:["digestzen","ginger"],desc:"A gentle roller to massage over the stomach after meals.",
+   ing:["10ml roller bottle","5 drops DigestZen","3 drops Ginger","Top with fractionated coconut oil"],
+   steps:["Combine the oils and top with carrier oil.","Roll over the stomach in a slow, clockwise circle.","A warm compress afterwards adds extra comfort."]},
+  {id:"roller_sleep",name:"Bedtime Roller",cat:"Wellness",oils:["serenity","cedarwood"],desc:"A calming roller for an easy wind-down.",
+   ing:["10ml roller bottle","5 drops Serenity","4 drops Cedarwood","Top with fractionated coconut oil"],
+   steps:["Add the oils and top with carrier oil.","Roll onto the soles of the feet and the back of the neck ~30 minutes before bed.","Diffuse the same oils beside you overnight."]},
+  {id:"muscle_rub",name:"Muscle Relief Rub",cat:"Wellness",oils:["deepblue","copaiba"],desc:"A warming massage blend for tired, hard-working muscles.",
+   ing:["2 tbsp carrier oil or unscented lotion","6 drops Deep Blue","4 drops Copaiba"],
+   steps:["Mix the oils into the carrier.","Massage into the affected muscles.","Wash hands after, and keep away from eyes."]},
+  {id:"immune_boost",name:"Daily Immune Roller",cat:"Wellness",oils:["onguard","frankincense"],desc:"A grounding roller for everyday wellness support.",
+   ing:["10ml roller bottle","5 drops On Guard","5 drops Frankincense","Top with fractionated coconut oil"],
+   steps:["Combine the oils and top with carrier oil.","Roll onto the soles of the feet and along the spine.","Use daily, especially during seasonal changes."]},
+  {id:"bath_soak",name:"Relaxing Bath Soak",cat:"Wellness",oils:["lavender","frankincense"],desc:"A restorative soak to unwind body and mind.",
+   ing:["1 cup Epsom salts","1 tbsp carrier oil","4 drops Lavender","3 drops Frankincense"],
+   steps:["Stir the oils into the carrier oil, then mix through the Epsom salts.","Add to a warm bath and swirl to dissolve.","Soak for 20 minutes."]},
+  {id:"diff_focus",name:"\"Focus & Study\" Diffuser",cat:"Diffuser",oils:["peppermint","wildorange","rosemary"],desc:"A bright, clarifying blend for getting things done.",
+   ing:["2 drops Peppermint","2 drops Wild Orange","1 drop Rosemary","Diffuser with water"],
+   steps:["Fill your diffuser with water to the line.","Add the drops.","Diffuse while you work or study."]},
+  {id:"diff_sleep",name:"\"Sweet Dreams\" Diffuser",cat:"Diffuser",oils:["lavender","cedarwood","serenity"],desc:"A calming bedroom blend for restful nights.",
+   ing:["3 drops Lavender","2 drops Cedarwood","2 drops Serenity","Diffuser with water"],
+   steps:["Add water and the drops to your diffuser.","Run it beside the bed as you wind down.","Use a timed setting overnight if available."]},
+  {id:"diff_fresh",name:"\"Fresh & Clean\" Diffuser",cat:"Diffuser",oils:["lemon","purifycleansingblend"],desc:"A crisp blend to freshen and brighten any room.",
+   ing:["3 drops Lemon","3 drops Purify","Diffuser with water"],
+   steps:["Fill the diffuser with water.","Add the drops.","Diffuse to clear stale air and lift the mood."]},
+  {id:"diff_uplift",name:"\"Sunshine\" Diffuser",cat:"Diffuser",oils:["wildorange","bergamot","cheer"],desc:"A cheerful citrus blend to brighten the day.",
+   ing:["3 drops Wild Orange","2 drops Bergamot","2 drops Cheer","Diffuser with water"],
+   steps:["Add water and the drops.","Diffuse in the morning or any time you need a lift."]},
+  {id:"diff_breathe",name:"\"Easy Breathing\" Diffuser",cat:"Diffuser",oils:["breathe","eucalyptus","lemon"],desc:"A fresh, clearing blend for stuffy days.",
+   ing:["3 drops Breathe","2 drops Eucalyptus","1 drop Lemon","Diffuser with water"],
+   steps:["Fill the diffuser with water.","Add the drops.","Diffuse to support a feeling of clear, easy breathing."]},
+  {id:"diff_cozy",name:"\"Cozy Night In\" Diffuser",cat:"Diffuser",oils:["hyggecozyblend","wildorange","cinnamonbark"],desc:"A warm, comforting blend for relaxing evenings.",
+   ing:["3 drops Hygge","2 drops Wild Orange","1 drop Cinnamon Bark","Diffuser with water"],
+   steps:["Add water and the drops to your diffuser.","Diffuse while you relax for a cosy, grounded feeling."]}
+];
+const RECIPE_BY_ID={};RECIPES.forEach(r=>RECIPE_BY_ID[r.id]=r);
+
+/* ===== Videos & Classes (doTERRA educational videos, embedded) ===== */
+const VIDEOS=[
+  {id:"PHyc4j6-Krg",title:"Essential Oils 101: A Complete Introduction",by:"doTERRA"},
+  {id:"KPhP1ZxaOAI",title:"Top 10 Essential Oils for Beginners",by:"doTERRA Basics"},
+  {id:"vxtS43hLwnE",title:"30 Uses for the Top 10 doTERRA Oils",by:"doTERRA"},
+  {id:"wjbHnTrTeKc",title:"Lavender — Uses & Benefits",by:"doTERRA"},
+  {id:"DILz_VNQWlU",title:"Peppermint — Uses & Benefits",by:"doTERRA"},
+  {id:"U0aTgaDE5Vk",title:"Essential Oils for Better Sleep",by:"doTERRA"},
+  {id:"-GECs2iXZ00",title:"Essential Oils for Digestion",by:"doTERRA"},
+  {id:"TVgx0wyBurc",title:"Essential Oils for Natural Skincare",by:"doTERRA"},
+  {id:"ZxpvS6A9kYY",title:"Adaptiv — Calming Essential Oils",by:"doTERRA"},
+  {id:"YYUXmhFnsnY",title:"Copaiba — Stress, Sleep & More",by:"doTERRA"}
+];
+
 /* ---- Saved concerns + dark mode (stored on the device) ---- */
 let favs = []; try{favs = JSON.parse(localStorage.getItem("he_favs")||"[]")||[];}catch(e){favs=[];}
 const isFav = k => favs.includes(k);
@@ -1490,7 +2021,8 @@ async function shareThis(title,text,url){
 }
 
 const $=id=>document.getElementById(id);
-const homeView=$("homeView"),condView=$("condView"),oilView=$("oilView"),setView=$("setView"),cartView=$("cartView"),oilsView=$("oilsView"),learnView=$("learnView"),header=$("header"),subTitle=$("subTitle"),scroll=$("scroll"),search=$("search"),clist=$("clist"),count=$("count"),noMatch=$("noMatch");
+const homeView=$("homeView"),ailmentsView=$("ailmentsView"),condView=$("condView"),oilView=$("oilView"),setView=$("setView"),cartView=$("cartView"),oilsView=$("oilsView"),recipesView=$("recipesView"),recipeView=$("recipeView"),videosView=$("videosView"),learnView=$("learnView"),header=$("header"),subTitle=$("subTitle"),scroll=$("scroll"),search=$("search"),clist=$("clist"),count=$("count"),noMatch=$("noMatch");
+const VIEWS={home:homeView,ailments:ailmentsView,cond:condView,oil:oilView,settings:setView,cart:cartView,oils:oilsView,recipes:recipesView,recipe:recipeView,videos:videosView,learn:learnView};
 
 let navStack=[]; // {type:'home'|'cond'|'oil', key}
 
@@ -1511,46 +2043,43 @@ function renderList(keys){
 
 function renderCond(k){
   pushRecent(k);
-  const c=COND[k], pid=c[1], alts=c[2];
-  const allOils=[pid,...alts];
-  const ownedHere=allOils.filter(isOwned);
-  const card=(id,isPrimary)=>{const o=OILS[id];return `
-    <div class="oilcard ${isPrimary?'primary':''}">
-      <div class="thumb">${oilImage(id)}</div>
-      <div class="oc-body">
-        ${isPrimary?'<span class="pill best">Best Match</span>':''}
-        ${isOwned(id)?'<span class="owned-badge"><svg><use href="#ic-check"/></svg> In your collection</span>':''}
-        <div class="oc-name">${o.name}</div>
-        <div class="oc-tag">${o.tag}</div>
-        ${usageTags(o)}
-        <div class="oc-actions">
-          <button class="moreinfo" data-oil="${id}"><svg><use href="#ic-info"/></svg> More information</button>
-          <button class="oc-add ${inCart(id)?'in':''}" data-add="${id}"><svg><use href="#${inCart(id)?'ic-check':'ic-cart'}"/></svg> ${inCart(id)?'Added':'Add'}</button>
-        </div>
-      </div>
-    </div>`;};
+  const c=COND[k], pid=c[1], alts=c[2]||[];
+  const ownedHere=[pid,...alts].filter(isOwned);
   const fav=isFav(k);
+  const protocols=protocolsFor(k);
+  const protoOilIds=[...new Set(protocols.flatMap(p=>p.oils))];
+  const protoHtml=protocols.map((p,i)=>`
+    <div class="protocol">
+      <div class="proto-head">
+        <span class="proto-num">${i+1}</span>
+        <span class="proto-title">${p.title}<span>${p.sub}</span></span>
+      </div>
+      <div class="proto-oils">${p.oils.map(id=>`<button class="proto-oil" data-oil="${id}">${oilImage(id)} <span>${OILS[id].name}</span> <svg class="po-go"><use href="#ic-fwd"/></svg></button>`).join("")}</div>
+      <ul class="proto-steps">${p.steps.map(s=>`<li>${s}</li>`).join("")}</ul>
+    </div>`).join("");
   const hint = ownedHere.length
-    ? `<div class="collection-hint"><svg><use href="#ic-check"/></svg> <span>You already own <b>${ownedHere.map(id=>OILS[id].name).join(", ")}</b> — great for this concern.</span></div>` : "";
+    ? `<div class="collection-hint"><svg><use href="#ic-check"/></svg> <span>You already own <b>${ownedHere.map(id=>OILS[id].name).join(", ")}</b> — perfect for this.</span></div>` : "";
   condView.innerHTML=`
-    <div class="detail-wrap">
-      <div class="detail-top">
+    <div class="cond-page">
+      <div class="ail-hero">
         <button class="sharebtn" id="shareBtn" aria-label="Share"><svg><use href="#ic-share"/></svg></button>
-        <div class="ic"><svg><use href="#${c[3]}"/></svg></div>
+        ${diagramFor(c[3])}
         <h2>${c[0]}</h2>
         <div class="desc">${condDesc(k)}</div>
         <button class="flagbtn ${fav?'on':''}" id="flagBtn"><svg><use href="#${fav?'ic-bookmark-fill':'ic-bookmark'}"/></svg> <span>${fav?'Saved':'Save this concern'}</span></button>
       </div>
       ${hint}
-      ${card(pid,true)}
-      <div class="also-divider"><span>Also Great</span></div>
-      ${alts.map(id=>card(id,false)).join("")}
+      <div class="proto-section">
+        <div class="section-label">Protocols — how to use it</div>
+        ${protoHtml}
+        <div class="proto-tag">Suggested routines only. Start with the smallest amount, patch-test new oils, and dilute for sensitive skin. Tap any oil for full details.</div>
+        <button class="checkout-btn proto-cart" id="addProtoOils"><svg><use href="#ic-cart"/></svg> Add ${protoOilIds.length===1?'this oil':'these oils'} to cart</button>
+      </div>
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Essential oils are not a substitute for professional medical care. Consult a healthcare provider for any health condition. Not affiliated with or endorsed by doTERRA.</div>
     </div>`;
-  condView.querySelectorAll(".moreinfo").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil,cond:k}));
-  condView.querySelectorAll(".oc-add").forEach(b=>b.onclick=()=>{ const id=b.dataset.add; addToCart(id,1);
-    b.classList.add("in"); b.querySelector("use").setAttribute("href","#ic-check"); b.lastChild.textContent=" Added";
-    showToast(`Added ${OILS[id].name} to cart`,"View cart",()=>go({type:'cart'})); });
+  condView.querySelectorAll(".proto-oil").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil,cond:k}));
+  $("addProtoOils").onclick=()=>{ protoOilIds.forEach(id=>addToCart(id,1));
+    showToast(`Added ${protoOilIds.length} oil${protoOilIds.length===1?'':'s'} to cart`,"View cart",()=>go({type:'cart'})); };
   const fb=$("flagBtn");
   fb.onclick=()=>{ toggleFav(k); const on=isFav(k); fb.classList.toggle("on",on);
     fb.querySelector("span").textContent=on?'Saved':'Save this concern';
@@ -1559,6 +2088,17 @@ function renderCond(k){
     `${OILS[pid].name} is a great essential oil for ${c[0].toLowerCase()}.`, buyUrl(pid));
 }
 
+function ailmentsBlock(id){
+  const list=AIL_BY_OIL[id]||[];
+  const chip=k=>`<button class="ail-chip" data-k="${k}"><span class="ac-ic"><svg><use href="#${COND[k][3]}"/></svg></span>${COND[k][0]}</button>`;
+  if(!list.length)return `<div class="oblock"><h3>Best for these ailments</h3>
+    <div class="ail-empty">This oil isn't linked to specific concerns yet. Explore its uses above, or browse the <b>Ailments</b> section to match concerns to oils.</div></div>`;
+  const prim=list.filter(x=>x.primary), also=list.filter(x=>!x.primary);
+  return `<div class="oblock"><h3>Best for these ailments</h3>
+    ${prim.length?`<div class="ail-group-h">Top recommended for</div><div class="ail-chips">${prim.map(x=>chip(x.k)).join("")}</div>`:""}
+    ${also.length?`<div class="ail-group-h">Also helps with</div><div class="ail-chips">${also.map(x=>chip(x.k)).join("")}</div>`:""}
+  </div>`;
+}
 function renderOil(state){
   const id=state.key, condKey=state.cond, o=OILS[id];
   const dirHtml = (condKey && COND[condKey]) ? directionsFor(id,condKey) : "";
@@ -1583,13 +2123,13 @@ function renderOil(state){
       ${dirHtml}
       <div class="oblock"><h3>About</h3><p>${o.desc}</p></div>
       <div class="oblock"><h3>Primary Uses</h3><ul class="uses-list">${o.uses.map(u=>`<li>${u}</li>`).join("")}</ul></div>
+      ${ailmentsBlock(id)}
       <div class="oblock"><h3>How to Use</h3><div class="methods">${methodHtml}</div></div>
       <div class="oblock"><h3>Safety</h3><div class="safety"><b>Caution:</b> ${o.safety}</div></div>
-      <div class="oblock"><h3>Pairs Well With</h3><div class="pairs">${o.pairs.filter(p=>OILS[p]).map(p=>`<span class="pair" data-oil="${p}">${OILS[p].name}</span>`).join("")}</div></div>
       <button class="learn-cta" id="oilLearn"><svg><use href="#ic-book"/></svg> New to oils? Learn the basics</button>
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Always read product labels and consult a healthcare provider. Not affiliated with or endorsed by doTERRA.</div>
     </div>`;
-  oilView.querySelectorAll(".pair").forEach(p=>p.onclick=()=>go({type:'oil',key:p.dataset.oil,cond:condKey}));
+  oilView.querySelectorAll(".ail-chip").forEach(b=>b.onclick=()=>go({type:'cond',key:b.dataset.k}));
   const acb=$("addCartBtn");
   acb.onclick=()=>{ addToCart(id,1); acb.classList.add("in");
     acb.querySelector("use").setAttribute("href","#ic-check");
@@ -1605,6 +2145,7 @@ function renderOil(state){
   $("oilLearn").onclick=()=>go({type:'learn'});
 }
 
+let collAddOpen=false, collQuery="";
 function renderSettings(){
   const nm=getName(), initial=(nm.trim()[0]||"H").toUpperCase();
   const savedHtml = favs.length
@@ -1615,6 +2156,14 @@ function renderSettings(){
           <button class="sv-del" data-del="${k}" aria-label="Remove"><svg><use href="#ic-trash"/></svg></button>
         </div>`;}).join("")
     : `<div class="saved-empty">No saved concerns yet. Tap <b>Save this concern</b> on any concern to keep it here.</div>`;
+  const ownedRows=()=>owned.length
+    ? owned.slice().sort((a,b)=>OILS[a].name.localeCompare(OILS[b].name)).map(id=>`
+        <div class="coll-row">
+          <span class="coll-thumb">${oilImage(id)}</span>
+          <span class="coll-name" data-open="${id}">${OILS[id].name}</span>
+          <button class="sv-del" data-rm="${id}" aria-label="Remove"><svg><use href="#ic-trash"/></svg></button>
+        </div>`).join("")
+    : `<div class="saved-empty">No oils saved yet. Tap <b>Add oils you own</b> below, or <b>I own this oil</b> on any oil page.</div>`;
   setView.innerHTML=`
     <div class="set-wrap">
       <div class="set-section">
@@ -1623,7 +2172,7 @@ function renderSettings(){
           <div class="avatar" id="avatar">${initial}</div>
           <div class="ac-body">
             <input class="name-input" id="nameInput" type="text" placeholder="Your name" value="${nm.replace(/"/g,'&quot;')}" maxlength="24" autocomplete="off">
-            <div class="ac-note">Your profile and saved concerns are stored only on this device.</div>
+            <div class="ac-note">Your profile, collection and saved concerns are stored only on this device.</div>
           </div>
         </div>
       </div>
@@ -1636,6 +2185,15 @@ function renderSettings(){
         </div>
       </div>
       <div class="set-section">
+        <div class="set-head">My collection (<span id="collCount">${owned.length}</span>)</div>
+        <div id="collOwned">${ownedRows()}</div>
+        <button class="coll-add-btn ${collAddOpen?'on':''}" id="collAddBtn"><svg><use href="#${collAddOpen?'ic-check':'ic-leaf'}"/></svg> ${collAddOpen?'Done adding':'Add oils you own'}</button>
+        ${collAddOpen?`<div class="coll-add">
+          <div class="oils-search" style="margin:12px 0 6px"><svg class="si"><use href="#ic-search"/></svg><input id="collSearch" autocomplete="off" placeholder="Search oils to add…" value="${collQuery.replace(/"/g,'&quot;')}"></div>
+          <div id="collResults"></div>
+        </div>`:""}
+      </div>
+      <div class="set-section">
         <div class="set-head">Saved concerns</div>
         ${savedHtml}
       </div>
@@ -1645,18 +2203,42 @@ function renderSettings(){
   ni.oninput=()=>{ setName(ni.value); $("avatar").textContent=(ni.value.trim()[0]||"H").toUpperCase(); };
   $("darkSwitch").onchange=e=>setDark(e.target.checked);
   setView.querySelectorAll(".sv-body").forEach(b=>b.onclick=()=>go({type:'cond',key:b.dataset.open}));
-  setView.querySelectorAll(".sv-del").forEach(b=>b.onclick=()=>{ toggleFav(b.dataset.del); renderSettings(); });
+  setView.querySelectorAll(".sv-del[data-del]").forEach(b=>b.onclick=()=>{ toggleFav(b.dataset.del); renderSettings(); });
+  // ---- collection ----
+  function refreshOwned(){ $("collCount").textContent=owned.length; $("collOwned").innerHTML=ownedRows(); bindOwned(); }
+  function bindOwned(){
+    setView.querySelectorAll(".coll-name[data-open]").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.open}));
+    setView.querySelectorAll(".sv-del[data-rm]").forEach(b=>b.onclick=()=>{ toggleOwned(b.dataset.rm); refreshOwned(); renderCollResults(); });
+  }
+  function renderCollResults(){
+    const box=$("collResults"); if(!box)return;
+    const q=collQuery.toLowerCase().trim();
+    const pool=Object.keys(OILS).filter(id=>!isOwned(id)).sort((a,b)=>OILS[a].name.localeCompare(OILS[b].name));
+    const res=(q?pool.filter(id=>OILS[id].name.toLowerCase().includes(q)||(OILS[id].latin||"").toLowerCase().includes(q)):pool).slice(0,40);
+    box.innerHTML=res.length?res.map(id=>`<button class="coll-pick" data-add="${id}"><span class="coll-thumb">${oilImage(id)}</span><span class="coll-name">${OILS[id].name}</span><span class="coll-plus">Add</span></button>`).join("")
+      :`<div class="saved-empty" style="margin:4px 0 0">No oils match “${q.replace(/</g,'&lt;')}”.</div>`;
+    box.querySelectorAll(".coll-pick").forEach(b=>b.onclick=()=>{ const id=b.dataset.add; toggleOwned(id); refreshOwned(); renderCollResults();
+      showToast(`Added ${OILS[id].name} to your collection`); });
+  }
+  bindOwned();
+  $("collAddBtn").onclick=()=>{ collAddOpen=!collAddOpen; if(!collAddOpen)collQuery=""; renderSettings(); };
+  if(collAddOpen){
+    const cs=$("collSearch");
+    cs.oninput=()=>{ collQuery=cs.value; renderCollResults(); };
+    renderCollResults();
+    cs.focus();
+  }
 }
 
 function renderCart(){
   const ids=Object.keys(cart).filter(id=>cart[id]>0 && OILS[id]);
   if(!ids.length){
-    cartView.innerHTML=`<div class="cart-wrap"><div class="cart-empty"><svg><use href="#ic-cart"/></svg>
+    cartView.innerHTML=`<div class="cart-wrap"><div class="cart-empty"><span class="empty-sprig"><svg><use href="#ic-sprig"/></svg></span><svg><use href="#ic-cart"/></svg>
       <div>Your cart is empty.</div>
-      <div style="font-size:12px;margin-top:8px 0">Open any concern and tap <b>Add</b> on an oil to start building your order.</div>
-      <button class="checkout-btn" id="cartBrowse" style="max-width:240px;margin:22px auto 0"><svg><use href="#ic-search"/></svg> Browse concerns</button>
+      <div style="font-size:12px;margin-top:8px 0">Open any ailment or oil and tap <b>Add</b> to start building your order.</div>
+      <button class="checkout-btn" id="cartBrowse" style="max-width:240px;margin:22px auto 0"><svg><use href="#ic-search"/></svg> Browse ailments</button>
       </div></div>`;
-    $("cartBrowse").onclick=()=>go({type:'home'});
+    $("cartBrowse").onclick=()=>go({type:'ailments'});
     return;
   }
   const rows=ids.map(id=>{const o=OILS[id];const line=priceOf(id)*cart[id];return `
@@ -1688,21 +2270,37 @@ function renderCart(){
   $("checkoutBtn").onclick=()=>{const u=checkoutUrl();if(u)window.open(u,"_blank","noopener");};
 }
 
-function renderOils(){
-  const ids=Object.keys(OILS).sort((a,b)=>OILS[a].name.localeCompare(OILS[b].name));
-  const rows=ids.map(id=>{const o=OILS[id];return `
+const allOilIds=()=>Object.keys(OILS).sort((a,b)=>OILS[a].name.localeCompare(OILS[b].name));
+function oilRowsHtml(ids){
+  return ids.map(id=>{const o=OILS[id];return `
     <button class="orow" data-oil="${id}">
       <span class="othumb">${oilImage(id)}</span>
       <span class="otext"><span class="oname">${o.name}</span><span class="otag">${o.tag}</span></span>
       ${PRICES[id]?`<span class="oprice">${fmt(priceOf(id))}</span>`:""}
       <span class="chev"><svg><use href="#ic-fwd"/></svg></span>
     </button>`;}).join("");
+}
+function bindOilRows(){ oilsView.querySelectorAll(".orow").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil})); }
+function renderOils(){
+  const ids=allOilIds();
   oilsView.innerHTML=`<div class="oils-wrap">
-    <div class="oils-intro">All ${ids.length} oils, A–Z. Tap any oil for full details, uses and safety.</div>
-    ${rows}
+    <div class="oils-search">
+      <svg class="si"><use href="#ic-search"/></svg>
+      <input type="text" id="oilSearch" autocomplete="off" placeholder="Search ${ids.length} oils by name…" aria-label="Search oils">
+    </div>
+    <div class="oils-intro" id="oilsIntro">All ${ids.length} oils, A–Z. Tap any oil for full details, uses and safety.</div>
+    <div id="oilRows">${oilRowsHtml(ids)}</div>
+    <p class="no-match" id="oilNoMatch" style="display:none">No oil by that name — try another spelling.</p>
     <div class="disclaimer" style="margin:20px 0 0"><b>For educational purposes only — not medical advice.</b> Not affiliated with or endorsed by doTERRA.</div>
   </div>`;
-  oilsView.querySelectorAll(".orow").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil}));
+  bindOilRows();
+  const si=$("oilSearch"), rowsBox=$("oilRows"), intro=$("oilsIntro"), nm=$("oilNoMatch");
+  si.oninput=()=>{ const q=si.value.toLowerCase().trim();
+    const f=q?ids.filter(id=>OILS[id].name.toLowerCase().includes(q)||(OILS[id].latin||"").toLowerCase().includes(q)):ids;
+    rowsBox.innerHTML=oilRowsHtml(f); bindOilRows();
+    intro.textContent=q?`${f.length} match${f.length===1?'':'es'}`:`All ${ids.length} oils, A–Z. Tap any oil for full details, uses and safety.`;
+    nm.style.display=f.length?"none":"block";
+  };
 }
 
 function renderRecent(){
@@ -1714,6 +2312,85 @@ function renderRecent(){
   if(!showIt){strip.innerHTML="";return;}
   strip.innerHTML=ks.map(k=>`<button class="recent-chip" data-k="${k}"><svg><use href="#${COND[k][3]}"/></svg> ${COND[k][0]}</button>`).join("");
   strip.querySelectorAll(".recent-chip").forEach(b=>b.onclick=()=>go({type:'cond',key:b.dataset.k}));
+}
+
+/* ===== Recipes ===== */
+let recipeCat="All";
+function renderRecipes(){
+  const cats=["All","Cleaning","Cooking","Beauty","Wellness","Diffuser"];
+  const list=RECIPES.filter(r=>recipeCat==="All"||r.cat===recipeCat);
+  const rows=list.map(r=>`
+    <button class="recipe-row" data-r="${r.id}">
+      <span class="rr-ic"><svg><use href="#${RECIPE_CAT_IC[r.cat]||'ic-flask'}"/></svg></span>
+      <span class="rr-body"><span class="rr-name">${r.name}</span><span class="rr-meta">${r.oils.map(id=>OILS[id].name).join(" · ")}</span><span class="rr-cat">${r.cat}</span></span>
+      <span class="chev"><svg><use href="#ic-fwd"/></svg></span>
+    </button>`).join("");
+  recipesView.innerHTML=`<div class="rec-wrap">
+    <div class="rec-intro">Simple, natural recipes for everyday life — cooking, cleaning, beauty, wellness and diffuser blends.</div>
+    <div class="rec-cats">${cats.map(c=>`<button class="rec-cat ${c===recipeCat?'on':''}" data-c="${c}">${c}</button>`).join("")}</div>
+    <div id="recipeRows">${rows||`<div class="ail-empty" style="padding:30px 6px">No recipes in this category yet.</div>`}</div>
+    <div class="disclaimer" style="margin:20px 0 0"><b>For educational purposes only.</b> Use only oils labelled safe for the intended use, and keep out of reach of children. Not affiliated with or endorsed by doTERRA.</div>
+  </div>`;
+  recipesView.querySelectorAll(".rec-cat").forEach(b=>b.onclick=()=>{ recipeCat=b.dataset.c; renderRecipes(); });
+  recipesView.querySelectorAll(".recipe-row").forEach(b=>b.onclick=()=>go({type:'recipe',key:b.dataset.r}));
+}
+function renderRecipe(id){
+  const r=RECIPE_BY_ID[id]; if(!r){recipeView.innerHTML="";return;}
+  recipeView.innerHTML=`<div class="recipe-detail">
+    <div class="rd-hero">
+      <button class="sharebtn" id="shareBtn" aria-label="Share"><svg><use href="#ic-share"/></svg></button>
+      <div class="rd-ic"><svg><use href="#${RECIPE_CAT_IC[r.cat]||'ic-flask'}"/></svg></div>
+      <h2>${r.name}</h2>
+      <div class="rd-cat">${r.cat}</div>
+      <div class="rd-desc">${r.desc}</div>
+    </div>
+    <div class="rd-block"><h3>Oils you'll need</h3>
+      <div class="recipe-oils">${r.oils.map(oid=>`<button class="proto-oil" data-oil="${oid}">${oilImage(oid)} ${OILS[oid].name}</button>`).join("")}</div>
+      <button class="checkout-btn" id="recAddAll" style="margin-top:14px"><svg><use href="#ic-cart"/></svg> Add these oils to cart</button>
+    </div>
+    <div class="rd-block"><h3>Ingredients</h3>
+      <ul class="rd-ing">${r.ing.map(i=>`<li><svg><use href="#ic-check"/></svg><span>${i}</span></li>`).join("")}</ul>
+    </div>
+    <div class="rd-block"><h3>Method</h3>
+      <ol class="rd-steps">${r.steps.map(s=>`<li>${s}</li>`).join("")}</ol>
+    </div>
+    <div class="disclaimer" style="margin:20px 0 0"><b>For educational purposes only.</b> Only ingest oils labelled for internal use. Patch-test topical blends and keep out of reach of children. Not affiliated with or endorsed by doTERRA.</div>
+  </div>`;
+  recipeView.querySelectorAll(".proto-oil").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil}));
+  $("recAddAll").onclick=()=>{ r.oils.forEach(oid=>addToCart(oid,1));
+    showToast(`Added ${r.oils.length} oil${r.oils.length===1?'':'s'} to cart`,"View cart",()=>go({type:'cart'})); };
+  $("shareBtn").onclick=()=>shareThis(`${r.name} — Home Essential Oils`,`Try this ${r.cat.toLowerCase()} recipe: ${r.name}.`,location.href);
+}
+
+/* ===== Videos & Classes ===== */
+function renderVideos(){
+  const cards=VIDEOS.map(v=>`
+    <div class="vid-card">
+      <button class="vid-thumb" data-vid="${v.id}" aria-label="Play ${v.title.replace(/"/g,'&quot;')}">
+        <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" loading="lazy" alt="">
+        <span class="vt-play"><svg><use href="#ic-play-fill"/></svg></span>
+      </button>
+      <div class="vid-meta"><div class="vm-title">${v.title}</div><div class="vm-by"><svg style="width:13px;height:13px"><use href="#ic-video"/></svg> ${v.by}</div></div>
+    </div>`).join("");
+  videosView.innerHTML=`<div class="vid-wrap">
+    <div class="vid-hero">
+      <div class="vh-ic"><svg><use href="#ic-play"/></svg></div>
+      <h2>Videos &amp; Classes</h2>
+      <p>Short lessons from doTERRA educators — tap any video to watch.</p>
+    </div>
+    <button class="classes-cta" id="basicsCta">
+      <span class="cc-ic"><svg><use href="#ic-book"/></svg></span>
+      <span class="cc-text"><span class="cc-t">Prefer to read?</span><span class="cc-d">Open the written “Learn the basics” guide</span></span>
+      <span class="chev"><svg><use href="#ic-fwd"/></svg></span>
+    </button>
+    ${cards}
+    <div class="disclaimer" style="margin:18px 0 0"><b>Educational videos by doTERRA, embedded from YouTube.</b> Home Essential · Oil Finder is not affiliated with or endorsed by doTERRA or YouTube.</div>
+  </div>`;
+  videosView.querySelectorAll(".vid-thumb").forEach(b=>b.onclick=()=>{
+    const vid=b.dataset.vid;
+    b.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&rel=0" title="doTERRA video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  });
+  $("basicsCta").onclick=()=>go({type:'learn'});
 }
 
 const LEARN=[
@@ -1770,14 +2447,17 @@ function renderLearn(){
 }
 
 function showView(type){
-  [homeView,condView,oilView,setView,cartView,oilsView,learnView].forEach(v=>v.classList.remove("active"));
-  ({home:homeView,cond:condView,oil:oilView,settings:setView,cart:cartView,oils:oilsView,learn:learnView})[type].classList.add("active");
+  Object.values(VIEWS).forEach(v=>v.classList.remove("active"));
+  (VIEWS[type]||homeView).classList.add("active");
 }
-const subTitles={settings:"Settings",cart:"Your Cart",oils:"All Oils",learn:"Learn"};
+const subTitles={ailments:"Ailments",settings:"Settings",cart:"Your Cart",oils:"All Oils",recipes:"Recipes",videos:"Videos & Classes",learn:"Learn"};
 function setHeader(state){
   if(state.type==='home'){header.classList.remove("sub");}
   else{header.classList.add("sub");
-    subTitle.textContent = state.type==='cond'?COND[state.key][0]:(state.type==='oil'?OILS[state.key].name:(subTitles[state.type]||""));}
+    subTitle.textContent = state.type==='cond'?COND[state.key][0]
+      :(state.type==='oil'?OILS[state.key].name
+      :(state.type==='recipe'?(RECIPE_BY_ID[state.key]?RECIPE_BY_ID[state.key].name:"Recipe")
+      :(subTitles[state.type]||"")));}
 }
 function render(state){
   if(state.type==='cond')renderCond(state.key);
@@ -1785,12 +2465,17 @@ function render(state){
   if(state.type==='settings')renderSettings();
   if(state.type==='cart')renderCart();
   if(state.type==='oils')renderOils();
+  if(state.type==='recipes')renderRecipes();
+  if(state.type==='recipe')renderRecipe(state.key);
+  if(state.type==='videos')renderVideos();
   if(state.type==='learn')renderLearn();
-  if(state.type==='home'){updateSavedLabel();if(typeof refresh==='function')refresh();if(typeof renderRecent==='function')renderRecent();}
+  if(state.type==='ailments'){updateSavedLabel();refresh();renderRecent();}
+  if(state.type==='home'){setHubGreeting();if(typeof resetGlobalSearch==='function')resetGlobalSearch();}
   showView(state.type); setHeader(state); scroll.scrollTop=0;
-  const v=({home:homeView,cond:condView,oil:oilView,settings:setView,cart:cartView,oils:oilsView,learn:learnView})[state.type];
+  const v=VIEWS[state.type]||homeView;
   v.classList.remove("anim"); void v.offsetWidth; if(state.type!=='home')v.classList.add("anim");
 }
+function setHubGreeting(){ const e=$("hubEyebrow"); if(!e)return; const n=getName().trim(); e.textContent=n?`Welcome back, ${n}`:"Welcome"; }
 function go(state){ navStack.push(state); render(state); }
 function back(){ navStack.pop(); render(navStack[navStack.length-1]||{type:'home'}); }
 
@@ -1821,8 +2506,34 @@ function refresh(){
 search.addEventListener("input",refresh);
 search.addEventListener("keydown",e=>{if(e.key==="Enter"){let k=matchKeys(search.value);if(showFavsOnly)k=k.filter(isFav);if(k.length)go({type:'cond',key:k[0]});}});
 $("searchClear").onclick=()=>{ search.value=""; search.focus(); refresh(); };
-$("browseAll").onclick=()=>go({type:'oils'});
-$("learnBtn").onclick=()=>go({type:'learn'});
+
+// hub navigation
+homeView.querySelectorAll(".hub-box").forEach(b=>b.onclick=()=>go({type:b.dataset.hub}));
+
+// global search (ailments + oils + recipes)
+const gsEl=$("globalSearch"), hubResults=$("hubResults"), hubSearchWrap=document.querySelector(".hub-search");
+const hubGrid=homeView.querySelector(".hub"), homeDisc=homeView.querySelector(".disclaimer"), homeFoot=homeView.querySelector(".footer-brand");
+function globalSearchRun(){
+  const q=gsEl.value.toLowerCase().trim();
+  hubSearchWrap.classList.toggle("has-text",!!gsEl.value);
+  if(!q){ hubResults.classList.remove("show"); hubResults.innerHTML="";
+    hubGrid.style.display=""; if(homeDisc)homeDisc.style.display=""; if(homeFoot)homeFoot.style.display=""; return; }
+  hubGrid.style.display="none"; if(homeDisc)homeDisc.style.display="none"; if(homeFoot)homeFoot.style.display="none";
+  hubResults.classList.add("show");
+  const ail=Object.keys(COND).filter(k=>COND[k][0].toLowerCase().includes(q)||(COND[k][4]||"").toLowerCase().includes(q)).slice(0,8);
+  const oilm=Object.keys(OILS).filter(id=>OILS[id].name.toLowerCase().includes(q)||(OILS[id].latin||"").toLowerCase().includes(q)).slice(0,8);
+  const recm=RECIPES.filter(r=>r.name.toLowerCase().includes(q)||r.cat.toLowerCase().includes(q)||r.oils.some(o=>OILS[o].name.toLowerCase().includes(q))).slice(0,8);
+  let html="";
+  if(ail.length)html+=`<div class="hr-group"><div class="hr-head"><svg style="width:13px;height:13px"><use href="#ic-pulse"/></svg> Ailments</div>${ail.map(k=>`<button class="hr-row" data-go="cond" data-k="${k}"><span class="hr-ic"><svg><use href="#${COND[k][3]}"/></svg></span><span class="hr-body"><span class="hr-name">${COND[k][0]}</span><span class="hr-sub">Best: ${OILS[COND[k][1]].name}</span></span><span class="hr-chev"><svg><use href="#ic-fwd"/></svg></span></button>`).join("")}</div>`;
+  if(oilm.length)html+=`<div class="hr-group"><div class="hr-head"><svg style="width:13px;height:13px"><use href="#ic-leaf"/></svg> Oils</div>${oilm.map(id=>`<button class="hr-row" data-go="oil" data-k="${id}"><span class="hr-ic">${oilImage(id)}</span><span class="hr-body"><span class="hr-name">${OILS[id].name}</span><span class="hr-sub">${OILS[id].latin||""}</span></span><span class="hr-chev"><svg><use href="#ic-fwd"/></svg></span></button>`).join("")}</div>`;
+  if(recm.length)html+=`<div class="hr-group"><div class="hr-head"><svg style="width:13px;height:13px"><use href="#ic-flask"/></svg> Recipes</div>${recm.map(r=>`<button class="hr-row" data-go="recipe" data-k="${r.id}"><span class="hr-ic"><svg><use href="#${RECIPE_CAT_IC[r.cat]||'ic-flask'}"/></svg></span><span class="hr-body"><span class="hr-name">${r.name}</span><span class="hr-sub">${r.cat}</span></span><span class="hr-chev"><svg><use href="#ic-fwd"/></svg></span></button>`).join("")}</div>`;
+  if(!html)html=`<div class="hr-empty">No matches for "<b>${gsEl.value.replace(/</g,'&lt;')}</b>". Try another word.</div>`;
+  hubResults.innerHTML=html;
+  hubResults.querySelectorAll(".hr-row").forEach(b=>b.onclick=()=>go({type:b.dataset.go,key:b.dataset.k}));
+}
+function resetGlobalSearch(){ if(gsEl){gsEl.value=""; globalSearchRun();} }
+gsEl.addEventListener("input",globalSearchRun);
+$("globalClear").onclick=()=>{ resetGlobalSearch(); gsEl.focus(); };
 
 const savedToggle=$("savedToggle");
 savedToggle.onclick=()=>{ showFavsOnly=!showFavsOnly; savedToggle.classList.toggle("on",showFavsOnly); refresh(); };
@@ -1833,6 +2544,7 @@ $("cartBtn").onclick=()=>go({type:'cart'});
 applyTheme(darkOn);
 updateSavedLabel();
 updateCartBadge();
+setHubGreeting();
 navStack=[{type:'home'}];
 refresh();
 </script>
