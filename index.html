@@ -47,7 +47,7 @@
   .brand-block{flex:1 1 auto;text-align:center;line-height:1}
   .wordmark{font-size:18px;font-weight:300;letter-spacing:3.5px;text-transform:uppercase}
   .wordmark b{font-weight:600;color:var(--teal-dark)}
-  .brand-logo{height:40px;width:auto;display:block;margin:0 auto}
+  .brand-logo{height:54px;width:auto;display:block;margin:0 auto}
   [data-theme="dark"] .brand-logo{filter:brightness(0) invert(.85)}
   .sub-title{display:none;position:absolute;left:48px;right:48px;text-align:center;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   header.sub .sub-title{display:block}
@@ -419,8 +419,9 @@
   .ail-hero .ail-pic{width:96px;height:96px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,var(--teal-tint),var(--teal-line));color:var(--teal-dark);border:1px solid var(--teal-line)}
   .ail-hero .ail-pic svg{width:46px;height:46px}
   .ail-diagram{margin:2px auto 12px;max-width:300px}
-  .ail-diagram svg{width:104px;height:138px;display:block;margin:0 auto;color:var(--teal-dark)}
-  .diag-body{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
+  .ail-diagram svg{width:100px;height:138px;display:block;margin:0 auto;color:var(--teal-dark)}
+  .diag-body{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;opacity:.5}
+  .diag-aroma{fill:none;stroke:var(--purple);stroke-width:1.6;stroke-linecap:round;opacity:.5}
   .diag-hot .dh-glow{fill:var(--purple);opacity:.16}
   .diag-hot .dh-ring{fill:none;stroke:var(--purple);stroke-width:2;stroke-dasharray:3 3}
   .diag-hot .dh-dot{fill:var(--purple)}
@@ -452,6 +453,19 @@
   .show-more-oils{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:1px dashed var(--teal-line);background:var(--teal-tint);color:var(--teal-dark);border-radius:14px;padding:13px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;margin-top:2px}
   .show-more-oils svg{width:16px;height:16px}
 
+  /* ===== doTERRA membership promo ===== */
+  .membership{border:1px solid var(--teal-line);background:linear-gradient(160deg,var(--teal-tint),var(--sand));border-radius:18px;padding:6px 16px 16px;margin:0 0 22px;box-shadow:var(--shadow-sm)}
+  .membership .mb-main{display:flex;align-items:center;gap:10px;text-decoration:none;padding:14px 0 12px;border-bottom:1px solid var(--teal-line)}
+  .membership .mb-head{flex:1 1 auto;font-family:var(--serif);font-size:17px;font-weight:600;color:var(--teal-dark);line-height:1.2}
+  .membership .mb-go{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center}
+  .membership .mb-go svg{width:15px;height:15px}
+  .membership .mb-list{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:9px}
+  .membership .mb-list li{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:500;color:var(--ink)}
+  .membership .mb-list li svg{width:15px;height:15px;color:var(--teal-dark);flex:0 0 auto}
+  .cart-wrap .membership{margin:18px 0 0}
+  .ci-open{cursor:pointer}
+  .ci-name.ci-open:active{color:var(--teal-dark)}
+
   /* ===== OIL → ailments it helps ===== */
   .ail-chips{display:flex;flex-wrap:wrap;gap:8px}
   .ail-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--white);border-radius:999px;padding:7px 13px 7px 9px;font-size:12.5px;font-weight:500;color:var(--ink);cursor:pointer}
@@ -465,6 +479,12 @@
   .oils-search input{width:100%;border:1px solid var(--line);background:var(--white);border-radius:14px;padding:12px 14px 12px 40px;font:inherit;font-size:14px;color:var(--ink);outline:none}
   .oils-search input:focus{border-color:var(--purple)}
   .oils-search .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-faint)}
+  .appnote-plain{font-size:14px;line-height:1.7;color:var(--ink-soft)}
+  .prod-cats{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+  .prod-cats::-webkit-scrollbar{display:none}
+  .prod-cat{flex:0 0 auto;border:1px solid var(--line);background:var(--white);color:var(--ink-soft);border-radius:999px;padding:8px 15px;font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap}
+  .prod-cat.on{background:var(--teal-dark);color:#fff;border-color:var(--teal-dark)}
+  .orow .ocat{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--teal-dark);background:var(--teal-tint);border:1px solid var(--teal-line);border-radius:6px;padding:1px 6px;margin-top:4px}
 
   /* ===== RECIPES ===== */
   .rec-wrap{padding:8px 16px 30px}
@@ -628,7 +648,6 @@
     <!-- HOME / HUB -->
     <section class="view active" id="homeView">
       <div class="hub-hero">
-        <span class="hero-sprig"><svg><use href="#ic-sprig"/></svg></span>
         <h1>Your natural wellness <b>companion</b></h1>
       </div>
       <div class="hub-search">
@@ -642,13 +661,13 @@
           <span class="hb-ic"><svg><use href="#ic-pulse"/></svg></span>
           <span class="hb-arrow"><svg><use href="#ic-fwd"/></svg></span>
           <span class="hb-title">Ailments</span>
-          <span class="hb-desc">Find oils &amp; protocols for how you feel</span>
+          <span class="hb-desc">Find the products &amp; protocols to support your health</span>
         </button>
         <button class="hub-box hb-oils" data-hub="oils">
           <span class="hb-ic"><svg><use href="#ic-leaf"/></svg></span>
           <span class="hb-arrow"><svg><use href="#ic-fwd"/></svg></span>
-          <span class="hb-title">Oils</span>
-          <span class="hb-desc">Browse every oil, its uses &amp; benefits</span>
+          <span class="hb-title">Products</span>
+          <span class="hb-desc">Browse oils, supplements &amp; personal care products</span>
         </button>
         <button class="hub-box hb-recipes" data-hub="recipes">
           <span class="hb-ic"><svg><use href="#ic-flask"/></svg></span>
@@ -1384,7 +1403,227 @@ const OILS = {
     desc:"Peace blends florals and mint to quiet anxious feelings and restore a sense of calm contentment.",
     uses:["Eases anxious feelings","Promotes calm and contentment","Soft, sweet diffuser note"],
     a:1,t:1,i:0,appNote:"Diffuse, apply diluted to the skin.",
-    safety:"Dilute for sensitive skin. Not for internal use.",pairs:["vetiver","ylangylang","frankincense"]}
+    safety:"Dilute for sensitive skin. Not for internal use.",pairs:["vetiver","ylangylang","frankincense"]},
+  llv:{name:"Lifelong Vitality Pack",latin:"Dietary Supplement",cap:"#5f9b6a",cat:"Supplement",tag:"doTERRA's flagship daily supplement trio for energy and whole-body wellness.",
+    desc:"The Lifelong Vitality Pack bundles a whole-food nutrient complex, a cellular vitality complex and an omega complex to support energy, vitality and overall health.",
+    uses:["Supports energy and stamina","Provides antioxidants and essential nutrients","A daily foundation for wellness"],
+    a:0,t:0,i:0,appNote:"Take as directed each day with food.",
+    safety:"Dietary supplement. Consult your provider if pregnant, nursing or on medication.",pairs:[]},
+  microplexvmz:{name:"Microplex VMz",latin:"Dietary Supplement",cap:"#6aa07a",cat:"Supplement",tag:"Food-based vitamin and mineral complex for daily nutrition.",
+    desc:"A balanced blend of bioavailable vitamins and minerals in a whole-food base, with a botanical blend to aid absorption.",
+    uses:["Fills everyday nutrient gaps","Supports bone, immune and metabolic health"],
+    a:0,t:0,i:0,appNote:"Take with food as directed.",
+    safety:"Dietary supplement. Keep out of reach of children.",pairs:[]},
+  eomega:{name:"EO Mega Omega Complex",latin:"Dietary Supplement",cap:"#cf9a45",cat:"Supplement",tag:"Omega-3 fatty acids with essential oils for heart and joint support.",
+    desc:"A blend of marine and plant omega-3s plus CPTG essential oils to support cardiovascular, joint and brain health.",
+    uses:["Supports heart and joint health","Provides essential omega fatty acids"],
+    a:0,t:0,i:0,appNote:"Take with food as directed.",
+    safety:"Dietary supplement. Consult your provider if on blood thinners.",pairs:[]},
+  pbassist:{name:"PB Assist+ ProBiome",latin:"Dietary Supplement",cap:"#8a6aad",cat:"Supplement",tag:"Pre- and probiotic complex for digestive and gut balance.",
+    desc:"A dual-chamber capsule delivering probiotics and prebiotic fiber to support a healthy gut microbiome.",
+    uses:["Supports digestive and immune health","Encourages friendly gut flora"],
+    a:0,t:0,i:0,appNote:"Take daily with water.",
+    safety:"Dietary supplement.",pairs:[]},
+  pbrestore:{name:"PB Restore ProBiome",latin:"Dietary Supplement",cap:"#7a5a9c",cat:"Supplement",tag:"Advanced multi-strain probiome complex for deep gut support.",
+    desc:"A comprehensive probiome complex with diverse probiotic strains, prebiotics and postbiotics for the gut microbiome.",
+    uses:["Restores microbiome diversity","Supports digestion and immunity"],
+    a:0,t:0,i:0,appNote:"Take daily as directed.",
+    safety:"Dietary supplement.",pairs:[]},
+  terrazyme:{name:"TerraZyme",latin:"Dietary Supplement",cap:"#5f8a4a",cat:"Supplement",tag:"Digestive enzyme complex that helps you break down food.",
+    desc:"A blend of active enzymes and supporting cofactors to aid the digestion of proteins, fats, carbs, fiber and sugars.",
+    uses:["Aids healthy digestion","Eases occasional fullness after meals"],
+    a:0,t:0,i:0,appNote:"Take with meals.",
+    safety:"Dietary supplement.",pairs:[]},
+  digestzensoftgels:{name:"DigestZen Softgels",latin:"Dietary Supplement",cap:"#5f8a4a",cat:"Supplement",tag:"The DigestZen blend in a convenient softgel for tummy comfort.",
+    desc:"Convenient softgels of the DigestZen digestive blend to soothe the stomach and support comfortable digestion on the go.",
+    uses:["Soothes occasional stomach upset","Supports comfortable digestion"],
+    a:0,t:0,i:0,appNote:"Take a softgel with water as needed.",
+    safety:"Dietary supplement.",pairs:[]},
+  onguardsoftgels:{name:"On Guard Softgels",latin:"Dietary Supplement",cap:"#9c5f2a",cat:"Supplement",tag:"The On Guard protective blend in a daily immune softgel.",
+    desc:"Softgels of the On Guard blend (wild orange, clove, cinnamon, eucalyptus, rosemary) for daily immune support.",
+    uses:["Supports immune function","Convenient seasonal support"],
+    a:0,t:0,i:0,appNote:"Take a softgel daily with food.",
+    safety:"Dietary supplement.",pairs:[]},
+  copaibasoftgels:{name:"Copaiba Softgels",latin:"Dietary Supplement",cap:"#9c7b4a",cat:"Supplement",tag:"Copaiba in softgel form for soothing internal support.",
+    desc:"Softgels delivering Copaiba essential oil to support the nervous, cardiovascular and immune systems.",
+    uses:["Soothing internal support","Promotes a calm feeling"],
+    a:0,t:0,i:0,appNote:"Take a softgel daily with water.",
+    safety:"Dietary supplement.",pairs:[]},
+  deepbluepoly:{name:"Deep Blue Polyphenol Complex",latin:"Dietary Supplement",cap:"#2f5f8a",cat:"Supplement",tag:"Plant polyphenols that soothe aches from the inside.",
+    desc:"A blend of standardized plant polyphenols (frankincense, ginger, curcumin and more) to support a healthy inflammatory response.",
+    uses:["Soothes occasional aches","Supports a healthy inflammatory response"],
+    a:0,t:0,i:0,appNote:"Take with food as directed.",
+    safety:"Dietary supplement.",pairs:[]},
+  adaptivcaps:{name:"Adaptiv Capsules",latin:"Dietary Supplement",cap:"#6a8aa0",cat:"Supplement",tag:"Calming botanicals to help you manage everyday stress.",
+    desc:"Capsules combining the Adaptiv blend with clinically-studied botanicals to help the body adapt to stress and ease tension.",
+    uses:["Helps manage everyday stress","Promotes a calm, balanced mood"],
+    a:0,t:0,i:0,appNote:"Take a capsule daily.",
+    safety:"Dietary supplement.",pairs:[]},
+  triease:{name:"TriEase Seasonal Softgels",latin:"Dietary Supplement",cap:"#7a8f3a",cat:"Supplement",tag:"Lemon, lavender and peppermint softgels for seasonal comfort.",
+    desc:"Equal parts Lemon, Lavender and Peppermint in a softgel to ease the effects of seasonal threats.",
+    uses:["Eases seasonal discomfort","Supports clear breathing"],
+    a:0,t:0,i:0,appNote:"Take a softgel as needed during seasonal changes.",
+    safety:"Dietary supplement.",pairs:[]},
+  mito2max:{name:"Mito2Max",latin:"Dietary Supplement",cap:"#cf8a45",cat:"Supplement",tag:"A caffeine-free energy and stamina complex.",
+    desc:"A blend of botanicals and B-vitamins that supports cellular energy, stamina and mental focus without the crash of stimulants.",
+    uses:["Supports natural energy & stamina","Promotes mental clarity"],
+    a:0,t:0,i:0,appNote:"Take daily with food.",
+    safety:"Dietary supplement.",pairs:[]},
+  alphacrs:{name:"Alpha CRS+",latin:"Dietary Supplement",cap:"#9a78b5",cat:"Supplement",tag:"Cellular vitality complex with antioxidants and botanicals.",
+    desc:"A blend of polyphenols, antioxidants and cellular-energy nutrients that support healthy cell function and longevity.",
+    uses:["Supports cellular health & energy","Provides antioxidant protection"],
+    a:0,t:0,i:0,appNote:"Take with food as directed.",
+    safety:"Dietary supplement.",pairs:[]},
+  ddrprimesoftgels:{name:"DDR Prime Softgels",latin:"Dietary Supplement",cap:"#5f6fa0",cat:"Supplement",tag:"A cellular-complex blend of oils in softgel form.",
+    desc:"Softgels of the DDR Prime blend of CPTG oils that support cellular health and a healthy response to oxidative stress.",
+    uses:["Supports healthy cellular function","Antioxidant support"],
+    a:0,t:0,i:0,appNote:"Take a softgel daily.",
+    safety:"Dietary supplement.",pairs:[]},
+  turmericcaps:{name:"Turmeric Capsules",latin:"Dietary Supplement",cap:"#e0a83c",cat:"Supplement",tag:"Turmeric extract plus Turmeric oil for soothing support.",
+    desc:"Dual-chamber capsules pairing concentrated curcuminoids with Turmeric essential oil for a healthy inflammatory response.",
+    uses:["Soothes occasional aches","Supports a healthy inflammatory response"],
+    a:0,t:0,i:0,appNote:"Take daily with food.",
+    safety:"Dietary supplement.",pairs:[]},
+  bonenutrient:{name:"Bone Nutrient Complex",latin:"Dietary Supplement",cap:"#8a6240",cat:"Supplement",tag:"Calcium, magnesium and vitamins for lifelong bone health.",
+    desc:"A blend of bone-supporting minerals and vitamins (calcium, magnesium, vitamin C, D and K) for skeletal health.",
+    uses:["Supports strong bones","Provides key minerals & vitamins"],
+    a:0,t:0,i:0,appNote:"Take daily with food.",
+    safety:"Dietary supplement.",pairs:[]},
+  phytoestrogen:{name:"Phytoestrogen Complex",latin:"Dietary Supplement",cap:"#b07a9c",cat:"Supplement",tag:"Plant compounds to support women through life's changes.",
+    desc:"A blend of soy and flax phytoestrogens with pomegranate to support hormone balance for women, especially through menopause.",
+    uses:["Supports hormone balance","Eases life-stage changes for women"],
+    a:0,t:0,i:0,appNote:"Take daily with food.",
+    safety:"Dietary supplement.",pairs:[]},
+  serenitysoftgels:{name:"Serenity Softgels",latin:"Dietary Supplement",cap:"#5f6fa0",cat:"Supplement",tag:"Restful softgels to help you unwind and sleep.",
+    desc:"Softgels combining Lavender essential oil with L-Theanine and calming botanicals to ease you into restful sleep.",
+    uses:["Promotes restful sleep","Calms a busy mind at night"],
+    a:0,t:0,i:0,appNote:"Take 30 minutes before bed.",
+    safety:"Dietary supplement. Do not drive after taking.",pairs:[]},
+  gxassist:{name:"GX Assist",latin:"Dietary Supplement",cap:"#7a8f3a",cat:"Supplement",tag:"A GI cleansing formula of essential oils and caprylic acid.",
+    desc:"Softgels with CPTG oils and caprylic acid to help cleanse the digestive tract, ideal before starting PB Assist+.",
+    uses:["Supports a healthy gut environment","A first step in a gut reset"],
+    a:0,t:0,i:0,appNote:"Take with meals for up to 10 days.",
+    safety:"Dietary supplement.",pairs:[]},
+  frankboswellic:{name:"Frankincense Boswellic Acid",latin:"Dietary Supplement",cap:"#caa15a",cat:"Supplement",tag:"Concentrated boswellic acids from frankincense.",
+    desc:"A concentrated complex of boswellic acids paired with Frankincense oil to support cellular and immune health.",
+    uses:["Supports cellular & immune health","Concentrated frankincense compounds"],
+    a:0,t:0,i:0,appNote:"Take daily with food.",
+    safety:"Dietary supplement.",pairs:[]},
+  vmg:{name:"VMG+ Nutrient Complex",latin:"Dietary Supplement",cap:"#6aa07a",cat:"Supplement",tag:"An updated whole-food vitamin, mineral and gut-support complex.",
+    desc:"A next-generation whole-food nutrient complex with vitamins, minerals and gut-supporting botanicals.",
+    uses:["Daily vitamins & minerals","Supports gut and whole-body health"],
+    a:0,t:0,i:0,appNote:"Take with food as directed.",
+    safety:"Dietary supplement.",pairs:[]},
+  shampoo:{name:"Protecting Shampoo",latin:"Personal Care",cap:"#5f8fae",cat:"Personal Care",tag:"A gentle, naturally-derived shampoo for healthy-looking hair.",
+    desc:"A sulfate-free shampoo with essential oils and botanicals that cleanses while helping protect hair from daily damage.",
+    uses:["Gently cleanses hair & scalp","Leaves hair soft and shiny"],
+    a:0,t:0,i:0,appNote:"Massage into wet hair, lather and rinse.",
+    safety:"For external use. Avoid contact with eyes.",pairs:[]},
+  conditioner:{name:"Daily Conditioner",latin:"Personal Care",cap:"#5f8fae",cat:"Personal Care",tag:"A lightweight daily conditioner with essential oils.",
+    desc:"A nourishing conditioner with a custom blend of essential oils that softens, smooths and protects hair.",
+    uses:["Softens and detangles","Adds shine and manageability"],
+    a:0,t:0,i:0,appNote:"Apply to wet hair, leave briefly, then rinse.",
+    safety:"For external use only.",pairs:[]},
+  leaveincond:{name:"Leave-In Conditioner",latin:"Personal Care",cap:"#5f8fae",cat:"Personal Care",tag:"A leave-in treatment to protect and smooth hair all day.",
+    desc:"A lightweight leave-in conditioner that detangles, tames frizz and shields hair from heat and the elements.",
+    uses:["Tames frizz & flyaways","Protects against heat styling"],
+    a:0,t:0,i:0,appNote:"Spritz onto damp hair; do not rinse.",
+    safety:"For external use only.",pairs:[]},
+  deodorant:{name:"Natural Deodorant",latin:"Personal Care",cap:"#6e8f72",cat:"Personal Care",tag:"An aluminium-free deodorant with essential oils.",
+    desc:"A naturally-derived, aluminium-free deodorant that keeps you fresh with the power of essential oils.",
+    uses:["Aluminium-free freshness","Naturally-derived ingredients"],
+    a:0,t:0,i:0,appNote:"Apply to clean, dry underarms.",
+    safety:"For external use only.",pairs:[]},
+  supermintpaste:{name:"SuperMint Toothpaste",latin:"Personal Care",cap:"#5fae8a",cat:"Personal Care",tag:"A naturally whitening toothpaste with a cool mint blend.",
+    desc:"A fluoride-free whitening toothpaste with the SuperMint blend for fresh breath and a clean, bright smile.",
+    uses:["Whitens and cleans teeth","Freshens breath naturally"],
+    a:0,t:0,i:0,appNote:"Brush thoroughly twice daily.",
+    safety:"For oral use. Keep out of reach of children under 6.",pairs:[]},
+  onguardpaste:{name:"On Guard Toothpaste",latin:"Personal Care",cap:"#9c5f2a",cat:"Personal Care",tag:"Whitening toothpaste powered by the On Guard blend.",
+    desc:"A whitening toothpaste with the On Guard blend, hydroxyapatite and gentle polishers for a healthy mouth.",
+    uses:["Cleans and whitens teeth","Supports oral health"],
+    a:0,t:0,i:0,appNote:"Brush thoroughly twice daily.",
+    safety:"For oral use. Keep out of reach of children under 6.",pairs:[]},
+  onguardhandwash:{name:"On Guard Foaming Hand Wash",latin:"Personal Care",cap:"#9c5f2a",cat:"Personal Care",tag:"A foaming hand wash that cleans and protects.",
+    desc:"A gentle foaming hand wash with the On Guard blend that cleanses and softens without drying out skin.",
+    uses:["Cleanses hands gently","Leaves skin soft, not stripped"],
+    a:0,t:0,i:0,appNote:"Pump, lather and rinse.",
+    safety:"For external use only.",pairs:[]},
+  onguardsanitizer:{name:"On Guard Sanitizing Mist",latin:"Personal Care",cap:"#9c5f2a",cat:"Personal Care",tag:"An on-the-go sanitizing mist with On Guard.",
+    desc:"A convenient mist that helps sanitise hands and surfaces with the protective On Guard blend.",
+    uses:["Sanitises hands on the go","Fresh citrus-spice scent"],
+    a:0,t:0,i:0,appNote:"Mist onto hands and rub in.",
+    safety:"For external use only. Flammable.",pairs:[]},
+  correctx:{name:"Correct-X Ointment",latin:"Personal Care",cap:"#caa15a",cat:"Personal Care",tag:"A soothing ointment for skin that needs extra care.",
+    desc:"A natural, multi-purpose ointment with Frankincense, Helichrysum, Melaleuca and more to soothe and support skin recovery.",
+    uses:["Soothes distressed skin","Supports the skin's natural recovery"],
+    a:0,t:0,i:0,appNote:"Apply a thin layer to the area as needed.",
+    safety:"For external use only.",pairs:[]},
+  hdclear:{name:"HD Clear Topical Blend",latin:"Personal Care",cap:"#5aa17a",cat:"Personal Care",tag:"A roll-on blend for clearer, balanced skin.",
+    desc:"A topical roll-on blend of essential oils and nutrients formulated to support clear, healthy-looking skin for all ages.",
+    uses:["Targets the look of blemishes","Helps balance oily skin"],
+    a:0,t:0,i:0,appNote:"Roll onto clean skin morning and night.",
+    safety:"For external use. Avoid the eye area.",pairs:[]},
+  handbodylotion:{name:"Hand & Body Lotion",latin:"Personal Care",cap:"#b88a9c",cat:"Personal Care",tag:"A customisable lotion base for soft, hydrated skin.",
+    desc:"A light, fast-absorbing lotion you can use as-is or customise with your favourite essential oils for soft skin.",
+    uses:["Hydrates hands and body","Customisable with your oils"],
+    a:0,t:0,i:0,appNote:"Massage into skin as needed.",
+    safety:"For external use only.",pairs:[]},
+  babylotion:{name:"Baby Lotion",latin:"Personal Care",cap:"#c8d07a",cat:"Personal Care",tag:"A gentle, calming lotion for delicate baby skin.",
+    desc:"A tear-free, gentle lotion with soothing botanicals to moisturise and calm delicate skin.",
+    uses:["Moisturises delicate skin","Gentle, calming formula"],
+    a:0,t:0,i:0,appNote:"Smooth onto skin after bath time.",
+    safety:"For external use only.",pairs:[]},
+  deepbluerub:{name:"Deep Blue Rub",latin:"Personal Care",cap:"#2f5f8a",cat:"Personal Care",tag:"A topical cream with the Deep Blue blend for tired muscles.",
+    desc:"A rich, non-greasy cream delivering the cooling Deep Blue blend to soothe tired, hard-working muscles and joints.",
+    uses:["Comforts tired muscles & joints","Cooling, soothing sensation"],
+    a:0,t:0,i:0,appNote:"Massage into the area after activity.",
+    safety:"For external use. Wash hands after use; avoid eyes.",pairs:[]},
+  deepbluestick:{name:"Deep Blue Stick",latin:"Personal Care",cap:"#2f5f8a",cat:"Personal Care",tag:"A mess-free glide-on stick of the Deep Blue blend.",
+    desc:"A convenient roll-up stick that delivers the soothing Deep Blue blend right where you need it, no mess.",
+    uses:["Soothes muscles on the go","Mess-free, targeted application"],
+    a:0,t:0,i:0,appNote:"Glide onto the affected area as needed.",
+    safety:"For external use only.",pairs:[]},
+  lipbalm:{name:"Original Lip Balm",latin:"Personal Care",cap:"#c87f93",cat:"Personal Care",tag:"A moisturising lip balm with peppermint and wild orange.",
+    desc:"A nourishing lip balm with moringa and avocado oils plus Peppermint and Wild Orange to soften and protect lips.",
+    uses:["Moisturises and protects lips","Refreshing natural flavour"],
+    a:0,t:0,i:0,appNote:"Apply to lips as needed.",
+    safety:"For external use only.",pairs:[]},
+  bodywash:{name:"Refreshing Body Wash",latin:"Personal Care",cap:"#5fae8a",cat:"Personal Care",tag:"A gentle body wash with a refreshing citrus-mint scent.",
+    desc:"A naturally-derived body wash that cleanses and refreshes with an invigorating blend of essential oils.",
+    uses:["Cleanses and refreshes","Leaves skin soft, not dry"],
+    a:0,t:0,i:0,appNote:"Lather over wet skin and rinse.",
+    safety:"For external use only.",pairs:[]},
+  bodyscrub:{name:"Exfoliating Body Scrub",latin:"Personal Care",cap:"#cf8a45",cat:"Personal Care",tag:"A sugar scrub that buffs skin smooth and soft.",
+    desc:"A gentle exfoliating scrub with natural sugars and essential oils that polishes away dull skin, leaving it smooth.",
+    uses:["Exfoliates and smooths","Reveals softer-looking skin"],
+    a:0,t:0,i:0,appNote:"Massage onto damp skin, then rinse.",
+    safety:"For external use only.",pairs:[]},
+  veragecleanser:{name:"Verage Cleanser",latin:"Personal Care",cap:"#9bb04a",cat:"Personal Care",tag:"A natural facial cleanser for fresh, balanced skin.",
+    desc:"A gentle cleanser with CPTG oils and plant extracts that removes impurities while preserving the skin's moisture.",
+    uses:["Cleanses without stripping","Leaves skin fresh and balanced"],
+    a:0,t:0,i:0,appNote:"Massage onto damp skin, then rinse.",
+    safety:"For external use. Avoid the eyes.",pairs:[]},
+  veragemoist:{name:"Verage Moisturizer",latin:"Personal Care",cap:"#9bb04a",cat:"Personal Care",tag:"A lightweight moisturiser for smooth, youthful-looking skin.",
+    desc:"A nourishing moisturiser with essential oils and plant extracts to hydrate and support youthful-looking skin.",
+    uses:["Hydrates and smooths","Supports youthful-looking skin"],
+    a:0,t:0,i:0,appNote:"Apply to clean skin morning and night.",
+    safety:"For external use only.",pairs:[]},
+  roottotip:{name:"Root to Tip Serum",latin:"Personal Care",cap:"#6f9b6a",cat:"Personal Care",tag:"A scalp and hair serum for healthy, vibrant hair.",
+    desc:"A lightweight serum with CPTG oils that nourishes the scalp and conditions hair from root to tip.",
+    uses:["Nourishes scalp and hair","Promotes healthy-looking hair"],
+    a:0,t:0,i:0,appNote:"Massage a few drops into scalp and hair.",
+    safety:"For external use only.",pairs:[]},
+  onguardmouthwash:{name:"On Guard Mouthwash",latin:"Personal Care",cap:"#9c5f2a",cat:"Personal Care",tag:"A refreshing mouthwash with the On Guard blend.",
+    desc:"An alcohol-free mouthwash with the On Guard blend that cleans, freshens and supports a healthy mouth.",
+    uses:["Freshens breath","Supports oral health"],
+    a:0,t:0,i:0,appNote:"Swish for 30 seconds, then spit.",
+    safety:"For oral use. Do not swallow.",pairs:[]},
+  spabodybutter:{name:"Replenishing Body Butter",latin:"Personal Care",cap:"#caa45a",cat:"Personal Care",tag:"A rich body butter for deeply nourished skin.",
+    desc:"A luxurious whipped body butter with shea and cocoa butters and essential oils to deeply moisturise dry skin.",
+    uses:["Deeply moisturises dry skin","Rich, fast-absorbing formula"],
+    a:0,t:0,i:0,appNote:"Massage into skin as needed.",
+    safety:"For external use only.",pairs:[]}
 };
 
 /* ======================= CONDITIONS =======================
@@ -1475,97 +1714,189 @@ const COND = {
   varicoseveins:["Varicose Veins","cypress",["helichrysum","lemongrass"],"ic-drop","spider veins,leg veins"],
   warts:["Warts","teatree",["oregano","frankincense"],"ic-skin","verruca,skin wart"],
   wounds:["Wound Care","helichrysum",["lavender","frankincense"],"ic-skin","healing,scar,skin repair"],
-  wrinkles:["Wrinkles","frankincense",["sandalwood","helichrysum"],"ic-skin","fine lines,crow's feet,ageing"]
+  wrinkles:["Wrinkles","frankincense",["sandalwood","helichrysum"],"ic-skin","fine lines,crow's feet,ageing"],
+  abdominalcramps:["Abdominal Cramps","digestzen",["peppermint","ginger"],"ic-digest","stomach cramp,belly cramp,tummy ache"],
+  acidreflux:["Acid Reflux / GERD","digestzen",["ginger","lemon"],"ic-digest","reflux,gerd,acid,burning chest"],
+  swollenankles:["Swollen Ankles & Feet","cypress",["lemongrass","grapefruit"],"ic-drop","swelling,edema,puffy ankles,fluid"],
+  appetiteloss:["Low Appetite","ginger",["peppermint","wildorange"],"ic-digest","no appetite,not hungry,poor appetite"],
+  bladder:["Bladder & Urinary Support","juniperberry",["lemongrass","cypress"],"ic-drop","urinary,bladder,uti support,water"],
+  bodyodor:["Body Odour","cypress",["teatree","lemon"],"ic-skin","sweat smell,b.o.,odour"],
+  brittlenails:["Brittle Nails","myrrh",["frankincense","lemon"],"ic-skin","weak nails,splitting,peeling nails"],
+  carpaltunnel:["Carpal Tunnel / Wrist Pain","deepblue",["copaiba","cypress"],"ic-muscle","wrist pain,carpal,rsi"],
+  chappedlips:["Chapped Lips","lavender",["frankincense","peppermint"],"ic-skin","dry lips,cracked lips,chapped"],
+  circulation:["Poor Circulation","cypress",["blackpepper","ginger"],"ic-drop","cold hands,cold feet,circulation"],
+  confidence:["Low Confidence","wildorange",["motivateencouragingblend","bergamot"],"ic-mood","self esteem,confidence,courage"],
+  crackedheels:["Cracked Heels","myrrh",["frankincense","lavender"],"ic-skin","dry heels,foot cracks,callous"],
+  cravings:["Sugar Cravings","grapefruit",["cinnamonbark","peppermint"],"ic-digest","sweet cravings,snacking,sugar"],
+  detox:["Cleanse & Detox","lemon",["grapefruit","juniperberry"],"ic-shield","cleanse,detox,reset,liver"],
+  dizziness:["Dizziness","peppermint",["frankincense","ginger"],"ic-headache","lightheaded,vertigo,dizzy,balance"],
+  dryhair:["Dry & Damaged Hair","cedarwood",["rosemary","sandalwood"],"ic-skin","frizzy hair,damaged,split ends"],
+  emotionalbalance:["Emotional Balance","balance",["frankincense","wildorange"],"ic-mood","emotional,balance,centred,steady"],
+  eyestrain:["Eye Strain","frankincense",["lavender","peppermint"],"ic-headache","tired eyes,screen fatigue,sore eyes"],
+  gout:["Gout","lemongrass",["copaiba","juniperberry"],"ic-muscle","gout,big toe pain,uric acid"],
+  grounding:["Feeling Grounded","balance",["vetiver","cedarwood"],"ic-mood","grounding,centred,stability,present"],
+  hangover:["Hangover","peppermint",["grapefruit","lemon"],"ic-headache","hungover,morning after,headache"],
+  hiccups:["Hiccups","digestzen",["peppermint","cardamom"],"ic-digest","hiccups,hiccoughs"],
+  hormonebalance:["Hormone Balance (Women)","clarysage",["geranium","ylangylang"],"ic-mood","hormones,balance,women,cycle"],
+  ingrownhair:["Ingrown Hairs","teatree",["lavender","frankincense"],"ic-skin","razor bumps,ingrown,shaving"],
+  libido:["Low Libido","ylangylang",["jasmine","sandalwood"],"ic-heart","passion,desire,intimacy,romance"],
+  lymphatic:["Lymphatic Support","grapefruit",["cypress","lemongrass"],"ic-drop","lymph,drainage,puffiness"],
+  mentalfatigue:["Mental Fatigue / Brain Fog","peppermint",["rosemary","frankincense"],"ic-focus","brain fog,mental tired,foggy"],
+  mensupport:["Men's Daily Support","sandalwood",["cedarwood","blackpepper"],"ic-shield","men,grooming,vitality,grounding"],
+  nervepain:["Nerve Discomfort","copaiba",["frankincense","helichrysum"],"ic-muscle","neuropathy,nerve,tingling,numbness"],
+  nightsweats:["Night Sweats","clarysage",["peppermint","geranium"],"ic-drop","night sweats,sweating,menopause"],
+  nosebleed:["Nosebleeds","helichrysum",["cypress","frankincense"],"ic-drop","bloody nose,epistaxis,nose bleed"],
+  oilyhair:["Oily Hair & Scalp","rosemary",["lemon","cypress"],"ic-skin","greasy hair,oily scalp,limp hair"],
+  overwhelm:["Feeling Overwhelmed","adaptiv",["peacereassuringblend","lavender"],"ic-stress","overwhelmed,too much,frazzled"],
+  plantarfasciitis:["Plantar Fasciitis","deepblue",["copaiba","lemongrass"],"ic-muscle","heel pain,foot arch,plantar"],
+  postworkout:["Post-Workout Recovery","deepblue",["copaiba","peppermint"],"ic-muscle","recovery,doms,sore after gym"],
+  puffyeyes:["Puffy Eyes & Dark Circles","cypress",["lavender","frankincense"],"ic-skin","eye bags,puffiness,dark circles"],
+  razorburn:["Razor Burn","lavender",["teatree","frankincense"],"ic-skin","shaving irritation,razor bumps"],
+  scars:["Scars & Stretch Marks","helichrysum",["frankincense","lavender"],"ic-skin","scarring,stretch marks,marks"],
+  seasonalmood:["Seasonal Low Mood","wildorange",["elevationblend","frankincense"],"ic-mood","winter blues,seasonal,sad"],
+  shouldertension:["Shoulder & Neck Tension","deepblue",["pasttense","marjoram"],"ic-muscle","neck pain,shoulder knots,tight neck"],
+  snoring:["Snoring Support","breathe",["eucalyptus","lavender"],"ic-lungs","snore,snoring,blocked airway"],
+  stomachbug:["Stomach Bug","digestzen",["ginger","onguard"],"ic-digest","stomach flu,gastro,vomiting,bug"],
+  teethgrinding:["Teeth Grinding","serenity",["lavender","balance"],"ic-sleep","bruxism,jaw clench,grinding"],
+  travelwellness:["Travel Wellness","onguard",["digestzen","peppermint"],"ic-shield","travel,flying,germs,planes"],
+  weight:["Weight & Metabolism","grapefruit",["peppermint","lemon"],"ic-shield","metabolism,weight,cravings,slim"],
+  yoga:["Yoga & Meditation","balance",["frankincense","sandalwood"],"ic-mood","yoga,meditation,mindful,breathwork"]
 };
 
 /* ===================== CONDITION DESCRIPTIONS =====================
    A short, plain-language "what it is" line shown on each concern's page. */
 const CDESC = {
-  acne:"A common skin condition where pores become clogged with oil and dead skin, leading to pimples, blackheads and breakouts.",
-  allergies:"The immune system over-reacting to harmless triggers like pollen or dust, causing sneezing, a runny nose and itchy eyes.",
-  anxiety:"Persistent feelings of worry, nervousness or unease, often about everyday situations.",
-  arthritis:"Inflammation of one or more joints, causing stiffness, swelling and discomfort that can worsen with age.",
-  asthma:"A condition where the airways narrow and swell, making breathing difficult and sometimes causing wheezing.",
-  athletesfoot:"A fungal infection of the feet that causes itching, redness and peeling skin, usually between the toes.",
-  backpain:"Discomfort anywhere along the spine, from a dull ache to sharp pain, often from strain or poor posture.",
-  bloating:"A feeling of fullness or tightness in the belly, usually from trapped gas or fluid.",
-  blisters:"Small pockets of fluid that form on the skin, often from friction, heat or irritation.",
-  boils:"Painful, pus-filled bumps under the skin caused by infected, inflamed hair follicles.",
-  bronchitis:"Inflammation of the airways to the lungs, leading to a persistent cough and chest congestion.",
-  bruises:"Discoloured marks on the skin caused by small blood vessels breaking under the surface after a knock.",
-  burns:"Skin damage from heat, sun or chemicals, ranging from mild redness to blistering.",
-  cankersores:"Small, painful ulcers that form inside the mouth on the gums or soft tissue.",
-  coldsores:"Small fluid-filled blisters around the lips caused by the herpes simplex virus.",
-  colds:"A mild viral infection of the nose and throat causing a runny nose, sneezing and a sore throat.",
-  colic:"Frequent, prolonged crying in an otherwise healthy baby, often linked to digestive discomfort.",
-  congestion:"A blocked or stuffy nose caused by swollen nasal tissues and excess mucus.",
-  constipation:"Infrequent or difficult bowel movements, often with hard, dry stools.",
-  cough:"A reflex that clears the airways of irritants or mucus; can be dry or chesty.",
-  cuts:"Breaks in the skin from a sharp object or graze that may need cleaning and protecting.",
-  dandruff:"A flaky, sometimes itchy scalp caused by dry skin or excess oil.",
-  depression:"A lasting low mood with loss of interest or energy that affects daily life.",
-  dermatitis:"Inflamed, red and itchy skin, often triggered by an irritant or allergen.",
-  diarrhea:"Loose, watery stools occurring more often than usual, usually short-lived.",
-  dryskin:"Skin that lacks moisture, feeling rough, tight or flaky.",
-  earache:"Pain in one or both ears, often from pressure, fluid or infection.",
-  eczema:"A condition causing dry, itchy and inflamed patches of skin that can flare up periodically.",
-  energy:"A general lack of vitality or get-up-and-go through the day.",
-  fatigue:"Ongoing tiredness or exhaustion that isn't relieved by rest.",
-  fever:"A temporary rise in body temperature, often a sign the body is fighting an infection.",
-  flu:"A contagious viral infection causing fever, body aches, chills and fatigue.",
-  focus:"Difficulty concentrating or staying on task, sometimes described as 'brain fog'.",
-  gas:"Trapped air in the digestive tract causing bloating, discomfort and flatulence.",
-  grief:"The deep sorrow and emotional pain that follows a loss.",
-  gumdisease:"Inflammation or infection of the gums, ranging from redness and bleeding to more serious problems.",
-  hairloss:"Thinning or shedding of hair, which can affect the scalp or whole body.",
-  hayfever:"An allergic reaction to pollen causing sneezing, itchy eyes and a runny nose.",
-  headache:"Pain or pressure in the head, commonly from tension, dehydration or fatigue.",
-  heartburn:"A burning feeling in the chest when stomach acid rises into the food pipe.",
-  hemorrhoids:"Swollen veins around the lower rectum and anus that can cause discomfort or itching.",
-  hotflashes:"Sudden waves of heat, often with sweating and flushing, common during menopause.",
-  immune:"Support for the body's natural defences to help you stay well.",
-  indigestion:"Discomfort or a burning feeling in the upper belly, often after eating.",
-  inflammation:"The body's natural response to injury or irritation, causing redness, heat or swelling.",
-  insectbites:"Red, itchy or swollen marks left after an insect bites or stings the skin.",
-  insomnia:"Ongoing difficulty falling asleep or staying asleep.",
-  irritability:"A heightened tendency to feel annoyed, impatient or quick to anger.",
-  itching:"An uncomfortable sensation on the skin that makes you want to scratch.",
-  jetlag:"Tiredness and disrupted sleep after travelling quickly across time zones.",
-  jointpain:"Aches, soreness or stiffness in one or more joints.",
-  laryngitis:"Inflammation of the voice box causing hoarseness or temporary loss of voice.",
-  legcramps:"Sudden, involuntary tightening of the leg muscles, often at night.",
-  memory:"Trouble recalling information or staying mentally sharp.",
-  menstrual:"Cramping pain in the lower belly that occurs around the monthly period.",
-  migraine:"An intense, often throbbing headache that may come with nausea or sensitivity to light.",
-  moodswings:"Rapid or extreme shifts in emotional state.",
-  morningsickness:"Nausea and vomiting during pregnancy, often in the early months.",
-  motionsickness:"Nausea and dizziness triggered by motion, such as in a car, boat or plane.",
-  musclepain:"Soreness, aching or stiffness in the muscles, often from overuse or tension.",
-  nailfungus:"A fungal infection that makes nails thickened, discoloured or brittle.",
-  nausea:"An uneasy feeling in the stomach with the urge to vomit.",
-  nervoustension:"A state of being mentally and physically wound-up or on edge.",
-  oilyskin:"Skin that produces excess oil, often looking shiny with enlarged pores.",
-  pain:"General physical discomfort that can range from mild to severe.",
-  pms:"Physical and emotional symptoms in the days before a period, such as mood changes and cramps.",
-  poisonivy:"An itchy, blistering rash caused by contact with the oil of poison ivy or similar plants.",
-  rash:"An area of irritated, red or bumpy skin that can be itchy or sore.",
-  restlessness:"An inability to relax or stay still, feeling fidgety or unsettled.",
-  ringworm:"A contagious fungal infection that causes a ring-shaped, itchy rash on the skin.",
-  sciatica:"Pain that travels along the sciatic nerve, from the lower back down through the leg.",
-  sinusitis:"Inflammation of the sinuses causing facial pressure, congestion and headaches.",
-  agingskin:"Mature skin showing fine lines, loss of firmness and uneven tone over time.",
-  sleep:"Difficulty winding down or getting enough restful sleep.",
-  sorethroat:"Pain, scratchiness or irritation of the throat, often worse when swallowing.",
-  sprains:"A stretched or torn ligament, usually from twisting or overextending a joint.",
-  stress:"The body's response to pressure or demands, which can affect mood and the body.",
-  sunburn:"Red, sore skin caused by too much exposure to the sun's UV rays.",
-  tendonitis:"Inflammation of a tendon, causing pain and tenderness near a joint.",
-  teething:"The discomfort a baby feels as new teeth push through the gums.",
-  toothache:"Pain in or around a tooth, often from decay, sensitivity or irritation.",
-  varicoseveins:"Enlarged, twisted veins, usually in the legs, that can ache or feel heavy.",
-  warts:"Small, rough growths on the skin caused by a virus.",
-  wounds:"Breaks or damage to the skin that need care to heal cleanly.",
-  wrinkles:"Lines and creases that form in the skin as it loses elasticity with age."
+  acne:"A common skin condition where pores become clogged with oil and dead skin, leading to pimples, blackheads and breakouts. It most often shows up on the face, chest and back, and can be driven by hormones, stress, diet or clogged pores. Gentle, consistent care usually works better than harsh scrubbing.",
+  allergies:"The immune system over-reacting to harmless triggers like pollen or dust, causing sneezing, a runny nose and itchy eyes. Symptoms tend to flare with the seasons or around specific triggers in the home. Keeping the air clean and supporting the body before peak season can make a real difference.",
+  anxiety:"Persistent feelings of worry, nervousness or unease, often about everyday situations. It can show up physically too — a racing heart, tight chest or restless mind. Calming routines, steady breathing and grounding aromas help bring the nervous system back to baseline.",
+  arthritis:"Inflammation of one or more joints, causing stiffness, swelling and discomfort that can worsen with age. The most common forms are osteoarthritis (wear and tear) and rheumatoid arthritis (an immune response). Gentle movement and soothing topical support can help keep joints comfortable.",
+  asthma:"A condition where the airways narrow and swell, making breathing difficult and sometimes causing wheezing. Triggers range from allergens and cold air to exercise and stress. These oils are for everyday breathing comfort only and never replace a prescribed inhaler.",
+  athletesfoot:"A fungal infection of the feet that causes itching, redness and peeling skin, usually between the toes. It thrives in warm, damp conditions like sweaty shoes and shared showers. Keeping feet clean and dry is just as important as treating the area.",
+  backpain:"Discomfort anywhere along the spine, from a dull ache to sharp pain, often from strain or poor posture. It often comes from muscle strain, lifting, or long hours sitting with poor posture. Warmth, gentle stretching and targeted topical support can ease the tension.",
+  bloating:"A feeling of fullness or tightness in the belly, usually from trapped gas or fluid. It usually follows large meals, certain foods, or swallowing air, and tends to ease as digestion catches up. A warm tummy massage can help move trapped gas along.",
+  blisters:"Small pockets of fluid that form on the skin, often from friction, heat or irritation. They're the body's way of cushioning and protecting damaged skin underneath. It's best to leave them intact while they heal to avoid infection.",
+  boils:"Painful, pus-filled bumps under the skin caused by infected, inflamed hair follicles. They start as tender red lumps that gradually fill with pus before coming to a head. Warm compresses and cleansing oils can support the natural process.",
+  bronchitis:"Inflammation of the airways to the lungs, leading to a persistent cough and chest congestion. Acute bronchitis often follows a cold, while the chronic form is usually linked to long-term irritation. Steam and chest support help loosen congestion.",
+  bruises:"Discoloured marks on the skin caused by small blood vessels breaking under the surface after a knock. The colour change — from red to purple to yellow-green — shows the body reabsorbing the trapped blood. Helichrysum is especially prized for supporting this process.",
+  burns:"Skin damage from heat, sun or chemicals, ranging from mild redness to blistering. For minor surface burns, cool the area first with running water before applying anything. Seek medical care for anything larger than a coin, blistering or on the face.",
+  cankersores:"Small, painful ulcers that form inside the mouth on the gums or soft tissue. These small ulcers inside the mouth can be triggered by stress, acidic foods or minor injury. They're not contagious and usually clear within a week or two.",
+  coldsores:"Small fluid-filled blisters around the lips caused by the herpes simplex virus. Caused by the herpes simplex virus, they often reappear when you're run down, stressed or sun-exposed. Acting at the first tingle gives the best results.",
+  colds:"A mild viral infection of the nose and throat causing a runny nose, sneezing and a sore throat. Caused by viruses, a cold runs its course in about a week while the body fights it off. Rest, fluids and immune support help you feel better sooner.",
+  colic:"Frequent, prolonged crying in an otherwise healthy baby, often linked to digestive discomfort. It describes long bouts of crying in an otherwise healthy baby, often in the evenings. Gentle, well-diluted tummy massage and a calm environment can soothe both baby and parent.",
+  congestion:"A blocked or stuffy nose caused by swollen nasal tissues and excess mucus. Blocked sinuses build up when the nasal lining swells and produces extra mucus. Inhaling steam with clearing oils helps open things up.",
+  constipation:"Infrequent or difficult bowel movements, often with hard, dry stools. It's often linked to low fibre, dehydration, stress or a change in routine. Movement, water and a clockwise abdominal massage all encourage things along.",
+  cough:"A reflex that clears the airways of irritants or mucus; can be dry or chesty. A cough is the body's way of clearing the airways, whether it's dry and tickly or chesty and productive. Soothing the throat and chest brings comfort while it settles.",
+  cuts:"Breaks in the skin from a sharp object or graze that may need cleaning and protecting. Cleaning the area well is the first and most important step to prevent infection. A drop of a cleansing oil and a plaster help protect it as it heals.",
+  dandruff:"A flaky, sometimes itchy scalp caused by dry skin or excess oil. It's linked to a dry or oversensitive scalp and a common yeast that lives on the skin. A soothing scalp massage with the right oils can calm the flaking.",
+  depression:"A lasting low mood with loss of interest or energy that affects daily life. Low mood that lingers for weeks can affect sleep, energy, appetite and motivation. Uplifting aromas can offer gentle support, but ongoing symptoms deserve professional care.",
+  dermatitis:"Inflamed, red and itchy skin, often triggered by an irritant or allergen. This umbrella term covers several kinds of skin inflammation, often triggered by irritants or allergens. Calming, well-diluted oils help soothe the redness and itch.",
+  diarrhea:"Loose, watery stools occurring more often than usual, usually short-lived. It's usually a short-lived response to a bug, food or stress, and the priority is staying hydrated. Soothing digestive oils can help settle the gut.",
+  dryskin:"Skin that lacks moisture, feeling rough, tight or flaky. It happens when skin loses moisture faster than it can replace it, often worse in winter or with harsh soaps. Sealing in hydration with a nourishing oil makes a big difference.",
+  earache:"Pain in one or both ears, often from pressure, fluid or infection. Ear pain can come from infection, pressure changes or a build-up of wax. Apply oils around (never inside) the ear, and see a professional for severe or lasting pain.",
+  eczema:"A condition causing dry, itchy and inflamed patches of skin that can flare up periodically. This itchy, inflamed skin tends to flare and settle in cycles, often linked to allergies, stress or dryness. Gentle moisturising and calming oils help break the itch-scratch loop.",
+  energy:"A general lack of vitality or get-up-and-go through the day. Low energy can stem from poor sleep, stress, dehydration or simply an afternoon slump. A quick uplifting aroma offers a natural lift without the crash of caffeine.",
+  fatigue:"Ongoing tiredness or exhaustion that isn't relieved by rest. Unlike ordinary tiredness, fatigue lingers even after rest and can affect focus and mood. Supporting sleep, hydration and stress all help restore your reserves.",
+  fever:"A temporary rise in body temperature, often a sign the body is fighting an infection. A raised temperature is actually the body's defence, helping it fight off infection. Keep cool and hydrated, and seek care for very high or persistent fevers.",
+  flu:"A contagious viral infection causing fever, body aches, chills and fatigue. More severe than a cold, the flu brings fever, body aches and exhaustion that can linger for a week or more. Rest and immune support are key while it passes.",
+  focus:"Difficulty concentrating or staying on task, sometimes described as 'brain fog'. Difficulty concentrating often spikes with stress, fatigue, screen overload or a cluttered mind. A clarifying aroma can help anchor your attention back to the task.",
+  gas:"Trapped air in the digestive tract causing bloating, discomfort and flatulence. Trapped wind is a normal part of digestion but can feel uncomfortable when it builds up. Warmth and gentle movement help it pass more easily.",
+  grief:"The deep sorrow and emotional pain that follows a loss. Loss can bring waves of sadness, fatigue and a heavy heart that ebb and flow over time. Comforting, grounding aromas offer gentle companionship through the process.",
+  gumdisease:"Inflammation or infection of the gums, ranging from redness and bleeding to more serious problems. Healthy gums depend on good daily cleaning to keep bacteria in check. Oils with cleansing properties can support a fresh, healthy mouth alongside brushing.",
+  hairloss:"Thinning or shedding of hair, which can affect the scalp or whole body. Thinning hair can be influenced by genetics, hormones, stress or nutrition. A stimulating scalp massage helps nourish the follicles and encourage growth.",
+  hayfever:"An allergic reaction to pollen causing sneezing, itchy eyes and a runny nose. This seasonal allergy flares when pollen counts rise in spring and summer. Supporting the body before and during the season helps keep symptoms manageable.",
+  headache:"Pain or pressure in the head, commonly from tension, dehydration or fatigue. Most everyday headaches are tension-related, brought on by stress, dehydration, screens or poor posture. Cooling the temples and sipping water often brings quick relief.",
+  heartburn:"A burning feeling in the chest when stomach acid rises into the food pipe. That burning sensation happens when stomach acid rises back up the food pipe. Smaller meals and avoiding trigger foods help, alongside soothing digestive support.",
+  hemorrhoids:"Swollen veins around the lower rectum and anus that can cause discomfort or itching. These swollen veins around the back passage are very common and often linked to straining or sitting. Toning, soothing oils can ease the discomfort.",
+  hotflashes:"Sudden waves of heat, often with sweating and flushing, common during menopause. A sudden wave of heat, flushing and sweating is one of the most common signs of menopause. Cooling oils like peppermint offer welcome, on-the-spot relief.",
+  immune:"Support for the body's natural defences to help you stay well. Your immune defences work best with good sleep, nutrition and low stress. Protective oils offer extra daily support, especially during seasonal changes.",
+  indigestion:"Discomfort or a burning feeling in the upper belly, often after eating. That uncomfortable fullness after eating often comes from eating too fast or too much. Slowing down and supporting digestion usually settles it.",
+  inflammation:"The body's natural response to injury or irritation, causing redness, heat or swelling. Short-term inflammation is healthy healing, but lingering inflammation can drive aches and discomfort. Soothing oils support the body's natural balance.",
+  insectbites:"Red, itchy or swollen marks left after an insect bites or stings the skin. Bites and stings trigger itching and swelling as the body reacts to the saliva or venom. Soothing the area quickly helps stop the urge to scratch.",
+  insomnia:"Ongoing difficulty falling asleep or staying asleep. Trouble falling or staying asleep is often tied to stress, screens, caffeine or an irregular routine. A calming bedtime ritual signals the body it's time to rest.",
+  irritability:"A heightened tendency to feel annoyed, impatient or quick to anger. Feeling short-fused often goes hand in hand with stress, poor sleep, hunger or hormones. Balancing, grounding aromas help smooth the edges.",
+  itching:"An uncomfortable sensation on the skin that makes you want to scratch. Itchy skin can be caused by dryness, allergies, bites or irritation. Calming the skin and resisting the scratch helps it settle faster.",
+  jetlag:"Tiredness and disrupted sleep after travelling quickly across time zones. Crossing time zones throws off your body clock, leaving you groggy by day and wired at night. Energising oils by day and calming oils by night help you adjust.",
+  jointpain:"Aches, soreness or stiffness in one or more joints. Achy joints can come from overuse, age, weather or inflammation. Warmth and soothing topical blends help keep them moving comfortably.",
+  laryngitis:"Inflammation of the voice box causing hoarseness or temporary loss of voice. When the voice box becomes inflamed, the voice turns hoarse or disappears altogether. Resting your voice and soothing the throat speed recovery.",
+  legcramps:"Sudden, involuntary tightening of the leg muscles, often at night. These sudden, involuntary muscle tightenings often strike at night or after exercise. Hydration, magnesium and a warming massage all help.",
+  memory:"Trouble recalling information or staying mentally sharp. Forgetfulness and mental fog can be worsened by stress, poor sleep and information overload. Rosemary has a long history of being linked with recall and clarity.",
+  menstrual:"Cramping pain in the lower belly that occurs around the monthly period. Period cramps come from the uterus contracting and can range from mild to intense. Warmth and soothing oils on the lower abdomen offer natural comfort.",
+  migraine:"An intense, often throbbing headache that may come with nausea or sensitivity to light. More than a headache, a migraine can bring throbbing pain, nausea and sensitivity to light and sound. Resting in a cool, dark, quiet space helps it pass.",
+  moodswings:"Rapid or extreme shifts in emotional state. Rapid shifts in mood are often linked to hormones, stress, blood sugar or sleep. Balancing aromas help steady the emotional ups and downs.",
+  morningsickness:"Nausea and vomiting during pregnancy, often in the early months. Common in early pregnancy, this nausea can strike at any time of day. Gentle, pregnancy-safe options like ginger are often the most reassuring.",
+  motionsickness:"Nausea and dizziness triggered by motion, such as in a car, boat or plane. The queasiness of travel comes from a mismatch between what your eyes see and your inner ear senses. Ginger and fresh air are classic settlers.",
+  musclepain:"Soreness, aching or stiffness in the muscles, often from overuse or tension. Sore, tired muscles usually follow exertion, tension or staying in one position too long. A warming massage helps them recover and relax.",
+  nailfungus:"A fungal infection that makes nails thickened, discoloured or brittle. This stubborn infection makes nails thick, discoloured and brittle, and is slow to clear. Consistency over weeks is key with cleansing oils.",
+  nausea:"An uneasy feeling in the stomach with the urge to vomit. That unsettled, queasy feeling can come from digestion, travel, stress or hormones. Inhaling a settling aroma often brings quick relief.",
+  nervoustension:"A state of being mentally and physically wound-up or on edge. When stress builds, the body holds it as tightness in the shoulders, neck and jaw. Calming oils with slow breathing help release the grip.",
+  oilyskin:"Skin that produces excess oil, often looking shiny with enlarged pores. Overactive oil glands leave skin shiny and prone to clogged pores. Balancing (not stripping) the skin keeps oil in check without over-drying.",
+  pain:"General physical discomfort that can range from mild to severe. Everyday aches and discomfort can have many sources, from muscles to joints to tension. Soothing topical blends offer targeted, natural support.",
+  pms:"Physical and emotional symptoms in the days before a period, such as mood changes and cramps. The week or two before a period can bring mood changes, cramps, bloating and tender breasts. Balancing oils help smooth the monthly rhythm.",
+  poisonivy:"An itchy, blistering rash caused by contact with the oil of poison ivy or similar plants. Contact with the plant's oil triggers an intensely itchy, blistering rash. Washing the area quickly and soothing the itch are the priorities.",
+  rash:"An area of irritated, red or bumpy skin that can be itchy or sore. Skin rashes can be a reaction to irritants, allergens, heat or illness. Calming, well-diluted oils help soothe the redness and itch.",
+  restlessness:"An inability to relax or stay still, feeling fidgety or unsettled. That fidgety, can't-settle feeling often signals an overstimulated nervous system. Grounding, earthy oils help bring you back to centre.",
+  ringworm:"A contagious fungal infection that causes a ring-shaped, itchy rash on the skin. Despite the name, this is a fungal infection that forms a tell-tale ring-shaped rash. It's contagious, so cleansing oils and good hygiene both matter.",
+  sciatica:"Pain that travels along the sciatic nerve, from the lower back down through the leg. This shooting pain travels from the lower back down the leg along the sciatic nerve. Soothing the lower back and gentle movement help relieve the pressure.",
+  sinusitis:"Inflammation of the sinuses causing facial pressure, congestion and headaches. Inflamed, blocked sinuses cause facial pressure, congestion and headaches. Steam inhalation with clearing oils helps drain and open them.",
+  agingskin:"Mature skin showing fine lines, loss of firmness and uneven tone over time. As we age, skin makes less collagen and moisture, so lines and dryness appear. Frankincense and sandalwood are treasured for supporting a youthful glow.",
+  sleep:"Difficulty winding down or getting enough restful sleep. Quality rest depends on winding down, a cool dark room and a consistent routine. Calming oils signal the body that it's safe to switch off.",
+  sorethroat:"Pain, scratchiness or irritation of the throat, often worse when swallowing. A scratchy, painful throat often signals the start of a cold or strain. Soothing the area and resting the voice bring comfort while it heals.",
+  sprains:"A stretched or torn ligament, usually from twisting or overextending a joint. A sprain stretches or tears a ligament, while a strain affects muscle or tendon. Rest, ice and soothing topical support help the recovery.",
+  stress:"The body's response to pressure or demands, which can affect mood and the body. Ongoing pressure keeps the body in 'fight or flight', affecting sleep, mood and digestion. Calming rituals and grounding aromas help switch on the relaxation response.",
+  sunburn:"Red, sore skin caused by too much exposure to the sun's UV rays. Too much UV leaves skin red, hot and tender as it reacts to the damage. Cooling and deeply moisturising the area brings relief and supports repair.",
+  tendonitis:"Inflammation of a tendon, causing pain and tenderness near a joint. Inflamed tendons — often from repetitive movement — cause pain and tenderness near a joint. Rest and soothing topical care help calm the irritation.",
+  teething:"The discomfort a baby feels as new teeth push through the gums. As baby teeth push through, little ones can be fussy, drooly and uncomfortable. Only the gentlest, well-diluted oils are suitable, applied to the jaw (never the gums).",
+  toothache:"Pain in or around a tooth, often from decay, sensitivity or irritation. Tooth pain often signals decay, a cracked tooth or gum trouble that needs a dentist. Clove has a long history of soothing dental discomfort in the meantime.",
+  varicoseveins:"Enlarged, twisted veins, usually in the legs, that can ache or feel heavy. These enlarged, twisted veins appear when valves weaken and blood pools, usually in the legs. Toning oils and movement support healthy circulation.",
+  warts:"Small, rough growths on the skin caused by a virus. Caused by a virus, warts are harmless but can be stubborn and slow to clear. Consistent application of cleansing oils over time is the usual approach.",
+  wounds:"Breaks or damage to the skin that need care to heal cleanly. Clean, well-cared-for wounds heal faster and scar less. Cleansing and skin-supporting oils help protect the area as new skin forms.",
+  wrinkles:"Lines and creases that form in the skin as it loses elasticity with age. Fine lines deepen as skin loses collagen, moisture and elasticity over time. Nourishing oils help soften their appearance and support firmer-looking skin.",
+  abdominalcramps:"Cramping or gripping pain in the belly, often from gas, digestion or the muscles of the gut tensing up. A warm, clockwise tummy massage with soothing oils helps it ease.",
+  acidreflux:"When stomach acid rises back up the food pipe, it causes a burning feeling in the chest or throat. Smaller meals, avoiding triggers and soothing digestive support all help keep it at bay.",
+  swollenankles:"Fluid can pool in the lower legs after long periods of sitting, standing, heat or travel. Toning oils with elevation and movement help encourage it to drain.",
+  appetiteloss:"A reduced desire to eat can follow illness, stress, medication or simply feeling off. Bright, warming aromas can gently reawaken the appetite.",
+  bladder:"The urinary system flushes waste and fluid from the body, and can feel irritated or sluggish at times. Cleansing, toning oils offer everyday support — see a professional for any infection.",
+  bodyodor:"Odour develops when skin bacteria break down sweat, especially in warm areas like the underarms. Cleansing, fresh-scented oils help keep you feeling fresh naturally.",
+  brittlenails:"Weak nails that peel, split or break easily can reflect dryness or a lack of nourishment. Conditioning oils massaged into the nail and cuticle help restore strength.",
+  carpaltunnel:"Pressure on the nerve in the wrist causes tingling, numbness or aching in the hand, often from repetitive work. Soothing the wrist and forearm brings welcome relief.",
+  chappedlips:"Lips have no oil glands of their own, so they dry, crack and peel easily in wind, cold or sun. A nourishing balm seals in moisture and protects them.",
+  circulation:"Sluggish blood flow can leave hands and feet cold and tingly. Warming, stimulating oils and movement help get the circulation going.",
+  confidence:"Self-doubt can hold you back from speaking up or stepping forward. Uplifting, encouraging aromas help you feel more capable and self-assured.",
+  crackedheels:"Thick, dry skin on the heels can split and crack, sometimes painfully. Rich, conditioning oils soften the skin and support repair.",
+  cravings:"Strong urges for sugar or snacks often spike with stress, tiredness or blood-sugar dips. A bright citrus or warming spice aroma can curb the craving.",
+  detox:"Supporting the body's natural cleansing pathways helps you feel lighter and more refreshed. Cleansing citrus oils are a gentle everyday way to support a reset.",
+  dizziness:"That lightheaded, spinning or unsteady feeling can come from inner-ear changes, dehydration or standing too quickly. A grounding, fresh aroma helps you feel steadier.",
+  dryhair:"Hair turns dry and brittle when it loses moisture from heat styling, sun or harsh products. Nourishing oils restore softness and shine from root to tip.",
+  emotionalbalance:"Life's ups and downs can leave the emotions feeling scattered or off-kilter. Grounding, harmonising aromas help you feel more centred and steady.",
+  eyestrain:"Long hours on screens leave the eyes tired, dry and achy, often with a tension headache. Resting the eyes and soothing the surrounding area brings relief.",
+  gout:"This intensely painful form of arthritis strikes when uric acid crystals build up in a joint, classically the big toe. Soothing, cleansing oils support comfort during a flare.",
+  grounding:"When life feels chaotic or scattered, grounding helps you feel present and stable again. Earthy, woody aromas anchor the mind and calm the body.",
+  hangover:"The morning after drinking can bring a pounding head, queasiness and fatigue from dehydration. Cooling, refreshing oils and plenty of water help you recover.",
+  hiccups:"These sudden, involuntary spasms of the diaphragm usually pass on their own within minutes. Calming the digestion can help settle a stubborn bout.",
+  hormonebalance:"A woman's hormones shift through the monthly cycle and life stages, affecting mood, skin and energy. Balancing oils like clary sage offer gentle, natural support.",
+  ingrownhair:"When a hair curls back into the skin instead of growing out, it causes a red, tender bump. Cleansing and soothing the area helps calm and prevent them.",
+  libido:"Desire naturally ebbs and flows with stress, tiredness, hormones and mood. Warm, sensual floral aromas help set a relaxed, romantic atmosphere.",
+  lymphatic:"The lymph system clears waste and fluid but has no pump of its own, so it can grow sluggish. Toning oils, movement and dry brushing help keep it flowing.",
+  mentalfatigue:"When the mind feels foggy, slow and hard to focus, it's often from overload, poor sleep or stress. A crisp, invigorating aroma helps clear the haze.",
+  mensupport:"A simple daily routine of grounding, woodsy oils supports focus, confidence and grooming. They double beautifully as a natural cologne or beard oil.",
+  nervepain:"Nerve discomfort can feel like tingling, burning or shooting sensations along a nerve's path. Soothing oils like copaiba offer calming, targeted support.",
+  nightsweats:"Waking up hot and drenched is common around menopause, illness or stress. Cooling oils and a fresh, breathable sleep setup bring comfort.",
+  nosebleed:"A nosebleed happens when tiny blood vessels in the nose break, often from dryness or a knock. Helichrysum is prized for supporting the skin and vessels as it settles.",
+  oilyhair:"An overactive scalp leaves hair greasy and limp soon after washing. Balancing, clarifying oils help regulate oil without stripping the scalp.",
+  overwhelm:"When everything feels like too much at once, the nervous system goes into overdrive. Pausing with a calming, reassuring aroma helps you reset and prioritise.",
+  plantarfasciitis:"This stabbing heel pain comes from inflammation of the tissue along the bottom of the foot, often worst with the first steps of the day. Rest and soothing massage ease the strain.",
+  postworkout:"After exercise, muscles can feel sore and tight as they recover and rebuild. A cooling, warming massage blend helps them bounce back faster.",
+  puffyeyes:"The delicate skin under the eyes can puff and darken from fluid, fatigue or poor sleep. Gently dabbing (never rubbing) toning oils helps refresh the area.",
+  razorburn:"Shaving can leave skin red, stinging and bumpy, especially on sensitive areas. Calming, soothing oils settle the irritation after the razor.",
+  scars:"As wounds and stretched skin heal, they can leave marks that fade slowly over time. Skin-loving oils like helichrysum support a smoother, more even appearance.",
+  seasonalmood:"Shorter, darker days can dampen mood and energy for some people each winter. Bright, sunny citrus aromas offer a welcome lift.",
+  shouldertension:"Stress and screen time tend to settle as knots and tightness across the shoulders and neck. A warming massage blend helps the muscles let go.",
+  snoring:"Snoring happens when airflow vibrates relaxed tissues in the throat during sleep. Clearing, opening oils may support quieter, easier breathing at night.",
+  stomachbug:"A stomach bug brings nausea, cramps and unsettled digestion, usually clearing within a day or two. Soothing the gut and staying hydrated are the priorities.",
+  teethgrinding:"Clenching or grinding the teeth, often during sleep, is closely linked to stress and tension. A calming bedtime routine helps the jaw relax.",
+  travelwellness:"Travel exposes you to new germs, dry cabin air and disrupted routines. Protective and settling oils help keep you well on the move.",
+  weight:"Healthy metabolism and weight rest on good habits, balanced meals and managing cravings. Bright citrus oils like grapefruit are a popular, refreshing support.",
+  yoga:"Yoga and meditation calm the mind and connect breath to body. Grounding, centring aromas deepen the practice and help you settle in."
 };
 const condDesc = k => CDESC[k] || "A common everyday concern — here are the oils best suited to support it.";
 
@@ -1577,22 +1908,26 @@ const PHOTO_IDS=["lavender","peppermint","frankincense","lemon","wildorange","or
 const PHOTOS={};
 PHOTO_IDS.forEach(id=>PHOTOS[id]="images/"+id+(id==="thyme"?".png":".jpg"));
 Object.assign(PHOTOS,{
+  llv:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrallvlifelongvitality.png",microplexvmz:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterramicroplexvmz.png",eomega:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterraeomega.jpg",pbassist:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrapbassistjrnew_3.jpg",pbrestore:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrapbrestoreassistprobiotic_3.jpg",terrazyme:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_33_466e4ed1-6ac4-42dc-b542-cb0bb62d2c70.jpg",digestzensoftgels:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_27_cb665421-05c3-4a9a-bf67-9d8fd2a35620.jpg",onguardsoftgels:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterraonguardsoftgelscapsules.jpg",copaibasoftgels:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/CopaibaSoftgels_ca85848e-1e04-4a34-962a-708896bc6604.jpg",deepbluepoly:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterradeepbluepolyphenolcomplex_1.jpg",adaptivcaps:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_9_4e7d9fcd-cab1-4f86-87d3-13a9050bca5c.jpg",triease:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterratriease_1.jpg",mito2max:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterramito2maxmetapwr.jpg",alphacrs:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterraalphacrs.png",ddrprimesoftgels:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterraddrprimesoftgels_3.jpg",turmericcaps:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/Turmeric_Softgels.jpg",bonenutrient:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-10T235108.439.jpg",phytoestrogen:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T200021.509.jpg",serenitysoftgels:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T213502.486.jpg",gxassist:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-15T185344.128.jpg",frankboswellic:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/FrankincenseBoswellicAcidComplex.jpg",vmg:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterravmg.png",shampoo:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/protecting-shampoo-us-en-web.jpg",conditioner:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/daily-conditioner-us-en-web.jpg",leaveincond:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/leave-in-conditioner-us-en-web.jpg",deodorant:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/natural-deodorant-pack-us-en-web.jpg",supermintpaste:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T222505.858.jpg",onguardpaste:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T182016.814.jpg",onguardhandwash:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T173855.537.jpg",onguardsanitizer:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/OnGuardMist_3f69a440-abed-4e01-95d3-1ddfc509d028.jpg",correctx:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T094334.961.jpg",hdclear:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-15T193706.917.jpg",handbodylotion:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-15T193147.913.jpg",babylotion:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-10T225718.255.jpg",deepbluerub:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra_Deep_Blue_Rub_2.png",deepbluestick:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/deep-blue-stick-us-en-web.jpg",lipbalm:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T184250.022.jpg",bodywash:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doTERRA-refreshing-body-wash.jpg",bodyscrub:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-15T172442.968.jpg",veragecleanser:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-06-15T040729.565.jpg",veragemoist:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-06-15T041107.366.jpg",roottotip:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/RootTip.jpg",onguardmouthwash:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/Mouthwash.jpg",spabodybutter:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/BodyButter.jpg",
   greenmandarin:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-15T184046.917.jpg",kanuka:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrakanuka_3.png",cistus:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterracistusessentialoil5mL_2.jpg",commonmyrtle:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterracommonmyrtleoil5mL.jpg",cananga:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterracanangaessentialoil.jpg",valerian:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterravalerian5ml.jpg",naiowood:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterranaiowoodessentialoil_4.jpg",breubranco:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrabreubranco.jpg",hyssop:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrahyssopessentialoil5mL.jpg",clementine:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterraclementineessentilaoil5mL.jpg",caraway:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-caraway-essential-oil.jpg",himalayanfir:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-himalayan-fir-essential-oil.jpg",rosalina:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-rosalina-essential-oil_1.jpg",niaouli:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-niaouli-essential-oil.jpg",guaiacwood:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-15T184530.047.jpg",birch:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-10T231956.314.jpg",palmarosa:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/Untitleddesign_20.png",litsea:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-litsea-oil.jpg",balsamfir:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/NewProdctitledDesign.png",manuka:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/manuka-au-english-web.jpg",whitegrapefruit:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/Untitleddesign_21.png",ravintsara:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/Untitleddesign_18.png",lemonmyrtle:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-lemon-myrtle.png",redmandarin:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/REd.png",bergamotmint:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrabergamontmint.jpg",nootka:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/CopyofCopyofCopyofCopyofNewProdctitledDesign.png",laurelleaf:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/5ml_1.png",galbanum:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterragalbanumoil5mL.jpg",jasmine:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra_17.jpg",madagascarvanilla:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra_53.jpg",tulsiholybasil:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/tulsi-holy-basil-us-english-web.jpg",kumquat:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/CopyofCopyofNewProdctitledDesign.png",rose:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T205810.156.jpg",lemoneucalyptus:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra_39.jpg",citronella:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T004817.072.jpg",celeryseed:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T003301.143.jpg",blackspruce:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-10T232339.548.jpg",spikenard:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T220732.145.jpg",sandalwoodhawaiian:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T212354.774.jpg",pinkpepper:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T201105.655.jpg",juniperberry:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra_20.jpg",bluetansy:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrabluetansy_4.jpg",siberianfir:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T214302.491.jpg",spearmint:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T220517.533.jpg",turmeric:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra_22.png",coriander:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T093840.693.jpg",cilantro:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T004418.871.jpg",lime:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra_47.jpg",arborvitae:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_74.jpg",patchouli:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T192933.524.jpg",blackpepper:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-10T232109.488_eb6a1efb-9f7d-4ce0-a192-171c6366ea42.jpg",wintergreen:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-06-15T105407.692.jpg",cinnamonbark:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T004624.393.jpg",tangerine:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T223121.453.jpg",grapefruit:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-15T183417.726.jpg",cassia:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T002810.043.jpg",ylangylang:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-06-15T115356.483.jpg",douglasfir:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-15T165357.727.jpg",cardamom:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T002711.126.jpg",petitgrain:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T195407.779.jpg",aromatouch:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterraaromatouchblend_1.jpg",holidayloveblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-holiday-love_5f686115-9d38-423c-9ee4-4d23d68b5aa6.jpg",elevationblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/Elevation.png",hyggecozyblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterraosmanthusoil_3.png",beautifulblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrabeautifulblend5ml.jpg",islandmintblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra_13.jpg",citrustwistblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-citrus-twist_f22f396e-70c3-42a9-a8b9-032819164f27.png",northernescapeblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterranorthernescapte5mL.jpg",shinrinyokublend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T213643.905.jpg",bakingspiceblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-baking-spice-oil-blend.png",supermintoilblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T222135.058.jpg",kidsbraveblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-brave-5ml.png",kidsrescuerblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-rescuer-5ml.png",kidscalmerblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-calmer-5ml.png",kidssteadyblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-steady-5ml.png",kidstamerblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterratamer.png",kidsthinkerblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrathinker.png",kidsstrongerblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrastronger.png",coastblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-coast-blend.png",desertsandblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterradesertsand.jpg",nativebushblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/doterra-native-bush-oil-blend.jpg",sunnycitrusblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/CopyofCopyofUntitledDesign_1.png",whisperblendforwomen:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/Whisper.jpg",midnightforestnatureblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/products/MidnightForest.png",citrusbloomblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T005751.918.jpg",terrashieldrepellentblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T223946.655.jpg",passionblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterrapassionblend5ml.jpg",forgiverenewingblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_4_acc84d46-4a10-451a-a83b-58ef605d67ed.jpg",consolecomfortingblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_3_4eec39e3-d931-4cd0-903b-87d02c8798e6.jpg",yogaariseblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_81.jpg",yogaanchorblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_64.jpg",yogaalignblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_61.jpg",citrusblissblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra-2024-05-11T004903.704.jpg",purifycleansingblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T203731.226.jpg",motivateencouragingblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/doterra_6.jpg",peacereassuringblend:"https://cdn.shopify.com/s/files/1/0227/7189/2298/files/Copyofdoterra-2024-05-28T193334.780.jpg"
 });
 const SLUGS={
   lavender:"doterra-lavender-essential-oil",peppermint:"doterra-peppermint-essential-oil",frankincense:"doterra-frankincense-essential-oil",lemon:"doterra-lemon-essential-oil",wildorange:"doterra-wild-orange-essential-oil",oregano:"doterra-oregano-essential-oil",eucalyptus:"doterra-eucalyptus-essential-oil",teatree:"doterra-melaleuca-tea-tree-essential-oil",bergamot:"doterra-bergamot-essential-oil",ginger:"doterra-ginger-essential-oil",cedarwood:"doterra-cedarwood-essential-oil",rosemary:"doterra-rosemary-essential-oil",clarysage:"doterra-clary-sage-essential-oil",romanchamomile:"doterra-roman-chamomile-essential-oil",cypress:"doterra-cypress-essential-oil",marjoram:"doterra-marjoram-essential-oil",basil:"doterra-basil-essential-oil",thyme:"doterra-thyme-essential-oil",clove:"doterra-clove-essential-oil",geranium:"doterra-geranium-essential-oil",helichrysum:"doterra-helichrysum-essential-oil",vetiver:"doterra-vetiver-essential-oil",lemongrass:"doterra-lemongrass-essential-oil",melissa:"doterra-melissa-essential-oil",myrrh:"doterra-myrrh-essential-oil",sandalwood:"doterra-sandalwood-essential-oil",fennel:"doterra-fennel-sweet-essential-oil",deepblue:"doterra-deep-blue-soothing-blend",onguard:"doterra-on-guard-protective-blend",breathe:"doterra-breathe-respiratory-blend",digestzen:"doterra-digestzen-digestive-blend",serenity:"doterra-serenity-restful-blend",cheer:"doterra-cheer-uplifting-blend",intune:"doterra-intune-focus-blend-roll-on",pasttense:"doterra-pasttense-tension-blend",balance:"doterra-balance-grounding-blend",copaiba:"copaiba-essential-oil",adaptiv:"doterra-adaptiv-calming-blend-5-ml",
-  greenmandarin:"doterra-green-mandarin-essential-oil",kanuka:"doterra-kanuka-essential-oil",cistus:"doterra-cistus-oil",commonmyrtle:"doterra-common-myrtle-essential-oil",cananga:"doterra-cananga-essential-oil",valerian:"doterra-valerian-essential-oil-5-ml",naiowood:"doterra-naio-wood-essential-oil",breubranco:"doterra-breu-branco-essential-oil",hyssop:"doterra-hyssop-essential-oil",clementine:"doterra-clementine-essential-oil-5",caraway:"doterra-caraway-essential-oil",himalayanfir:"doterra-himalayan-fir",rosalina:"doterra-rosalina-essential-oil",niaouli:"doterra-niaouli-essential-oil",guaiacwood:"doterra-guaiacwood-essential-oil",birch:"doterra-birch-essential-oil",palmarosa:"doterra-palmarosa-essential-oil",litsea:"doterra-litsea-essential-oil",balsamfir:"doterra-balsam-fir-essential-oil",manuka:"doterra-manuka-essential-oil",whitegrapefruit:"doterra-white-grapefruit",ravintsara:"doterra-ravintsara-essential-oil",lemonmyrtle:"doterra-lemon-myrtle-essential-oil",redmandarin:"red-mandarin-essential-oil-collection",bergamotmint:"doterra-bergamot-mint",nootka:"doterra-nootka-essential-oil",laurelleaf:"doterra-laurel-leaf-essential-oil",galbanum:"doterra-galbanum-essential-oil",jasmine:"jasmine-essential-oil-steam-distilled",madagascarvanilla:"doterra-madagascar-vanilla-essential-oil",tulsiholybasil:"doterra-tulsi-holy-basil-essential-oil",kumquat:"doterra-kumquatl-essential-oil",rose:"doterra-rose",lemoneucalyptus:"doterra-lemon-eucalyptus",citronella:"doterra-citronella",celeryseed:"doterra-celery-seed",blackspruce:"doterra-black-spruce",spikenard:"doterra-spikenard-essential-oil",sandalwoodhawaiian:"doterra-sandalwood-hawaiian-essential-oil",pinkpepper:"doterra-pink-pepper-essential-oil",juniperberry:"doterra-juniper-berry-essential-oil",bluetansy:"doterra-blue-tansy-essential-oil",siberianfir:"doterra-siberian-fir-essential-oil",spearmint:"doterra-spearmint-essential-oil",turmeric:"doterra-turmeric-essential-oil",coriander:"doterra-coriander-essential-oil",cilantro:"doterra-cilantro-essential-oil",lime:"doterra-lime-essential-oil",arborvitae:"doterra-arborvitae-essential-oil",patchouli:"doterra-patchouli-essential-oil",blackpepper:"doterra-black-pepper-essential-oil",wintergreen:"doterra-wintergreen-essential-oil",cinnamonbark:"doterra-cinnamon-bark-essential-oil",tangerine:"doterra-tangerine-essential-oil",grapefruit:"doterra-grapefruit-essential-oil",cassia:"doterra-cassia-essential-oil",ylangylang:"doterra-ylang-ylang-essential-oil",douglasfir:"doterra-douglas-fir-essential-oil",cardamom:"doterra-cardamom-essential-oil",petitgrain:"doterra-petitgrain-essential-oil",aromatouch:"doterra-aromatouch-massage-blend",holidayloveblend:"doterra-holiday-love",elevationblend:"doterra-elevation-joyful-blend",hyggecozyblend:"doterra-hygge-cozy-blend",beautifulblend:"doterra-beautiful-blend-5-ml",islandmintblend:"doterra-island-mint-summertime-blend",citrustwistblend:"doterra-citrus-twist",northernescapeblend:"doterra-northern-escape-blend-5-ml",shinrinyokublend:"doterra-shinrin-yoku",bakingspiceblend:"doterra-baking-spice",supermintoilblend:"doterra-supermint-oil-blend",kidsbraveblend:"doterra-kids-brave-blend",kidsrescuerblend:"doterra-kids-rescuer-blend",kidscalmerblend:"doterra-kids-calmer-blend",kidssteadyblend:"doterra-kids-steady-blend",kidstamerblend:"doterra-kids-tamer-blend",kidsthinkerblend:"doterra-kids-thinker-blend",kidsstrongerblend:"stronger-oil-protective-blend-5ml",coastblend:"doterra-coast-blend",desertsandblend:"doterra-desert-sand-blend",nativebushblend:"doterra-native-bush-blend",sunnycitrusblend:"doterra-sunny-citrus",whisperblendforwomen:"doterra-whisper-for-women-blend",midnightforestnatureblend:"doterra-midnight-forest-nature-blend",citrusbloomblend:"doterra-citrus-bloom-springtime-blend",terrashieldrepellentblend:"doterra-terrashield-repellent-blend",passionblend:"doterra-passion-inspiring-blend",forgiverenewingblend:"doterra-forgive-renewing-blend",consolecomfortingblend:"doterra-console-comforting-blend",yogaariseblend:"doterra-arise-enlightening-blend-for-yoga",yogaanchorblend:"doterra-anchor-steadying-blend-for-yoga",yogaalignblend:"doterra-align-centering-blend-for-yoga",citrusblissblend:"doterra-citrus-bliss-invigorating-blend",purifycleansingblend:"doterra-purify-cleansing-blend",motivateencouragingblend:"doterra-motivate-encouraging-blend",peacereassuringblend:"doterra-peace-reassuring-blend"
+  greenmandarin:"doterra-green-mandarin-essential-oil",kanuka:"doterra-kanuka-essential-oil",cistus:"doterra-cistus-oil",commonmyrtle:"doterra-common-myrtle-essential-oil",cananga:"doterra-cananga-essential-oil",valerian:"doterra-valerian-essential-oil-5-ml",naiowood:"doterra-naio-wood-essential-oil",breubranco:"doterra-breu-branco-essential-oil",hyssop:"doterra-hyssop-essential-oil",clementine:"doterra-clementine-essential-oil-5",caraway:"doterra-caraway-essential-oil",himalayanfir:"doterra-himalayan-fir",rosalina:"doterra-rosalina-essential-oil",niaouli:"doterra-niaouli-essential-oil",guaiacwood:"doterra-guaiacwood-essential-oil",birch:"doterra-birch-essential-oil",palmarosa:"doterra-palmarosa-essential-oil",litsea:"doterra-litsea-essential-oil",balsamfir:"doterra-balsam-fir-essential-oil",manuka:"doterra-manuka-essential-oil",whitegrapefruit:"doterra-white-grapefruit",ravintsara:"doterra-ravintsara-essential-oil",lemonmyrtle:"doterra-lemon-myrtle-essential-oil",redmandarin:"red-mandarin-essential-oil-collection",bergamotmint:"doterra-bergamot-mint",nootka:"doterra-nootka-essential-oil",laurelleaf:"doterra-laurel-leaf-essential-oil",galbanum:"doterra-galbanum-essential-oil",jasmine:"jasmine-essential-oil-steam-distilled",madagascarvanilla:"doterra-madagascar-vanilla-essential-oil",tulsiholybasil:"doterra-tulsi-holy-basil-essential-oil",kumquat:"doterra-kumquatl-essential-oil",rose:"doterra-rose",lemoneucalyptus:"doterra-lemon-eucalyptus",citronella:"doterra-citronella",celeryseed:"doterra-celery-seed",blackspruce:"doterra-black-spruce",spikenard:"doterra-spikenard-essential-oil",sandalwoodhawaiian:"doterra-sandalwood-hawaiian-essential-oil",pinkpepper:"doterra-pink-pepper-essential-oil",juniperberry:"doterra-juniper-berry-essential-oil",bluetansy:"doterra-blue-tansy-essential-oil",siberianfir:"doterra-siberian-fir-essential-oil",spearmint:"doterra-spearmint-essential-oil",turmeric:"doterra-turmeric-essential-oil",coriander:"doterra-coriander-essential-oil",cilantro:"doterra-cilantro-essential-oil",lime:"doterra-lime-essential-oil",arborvitae:"doterra-arborvitae-essential-oil",patchouli:"doterra-patchouli-essential-oil",blackpepper:"doterra-black-pepper-essential-oil",wintergreen:"doterra-wintergreen-essential-oil",cinnamonbark:"doterra-cinnamon-bark-essential-oil",tangerine:"doterra-tangerine-essential-oil",grapefruit:"doterra-grapefruit-essential-oil",cassia:"doterra-cassia-essential-oil",ylangylang:"doterra-ylang-ylang-essential-oil",douglasfir:"doterra-douglas-fir-essential-oil",cardamom:"doterra-cardamom-essential-oil",petitgrain:"doterra-petitgrain-essential-oil",aromatouch:"doterra-aromatouch-massage-blend",holidayloveblend:"doterra-holiday-love",elevationblend:"doterra-elevation-joyful-blend",hyggecozyblend:"doterra-hygge-cozy-blend",beautifulblend:"doterra-beautiful-blend-5-ml",islandmintblend:"doterra-island-mint-summertime-blend",citrustwistblend:"doterra-citrus-twist",northernescapeblend:"doterra-northern-escape-blend-5-ml",shinrinyokublend:"doterra-shinrin-yoku",bakingspiceblend:"doterra-baking-spice",supermintoilblend:"doterra-supermint-oil-blend",kidsbraveblend:"doterra-kids-brave-blend",kidsrescuerblend:"doterra-kids-rescuer-blend",kidscalmerblend:"doterra-kids-calmer-blend",kidssteadyblend:"doterra-kids-steady-blend",kidstamerblend:"doterra-kids-tamer-blend",kidsthinkerblend:"doterra-kids-thinker-blend",kidsstrongerblend:"stronger-oil-protective-blend-5ml",coastblend:"doterra-coast-blend",desertsandblend:"doterra-desert-sand-blend",nativebushblend:"doterra-native-bush-blend",sunnycitrusblend:"doterra-sunny-citrus",whisperblendforwomen:"doterra-whisper-for-women-blend",midnightforestnatureblend:"doterra-midnight-forest-nature-blend",citrusbloomblend:"doterra-citrus-bloom-springtime-blend",terrashieldrepellentblend:"doterra-terrashield-repellent-blend",passionblend:"doterra-passion-inspiring-blend",forgiverenewingblend:"doterra-forgive-renewing-blend",consolecomfortingblend:"doterra-console-comforting-blend",yogaariseblend:"doterra-arise-enlightening-blend-for-yoga",yogaanchorblend:"doterra-anchor-steadying-blend-for-yoga",yogaalignblend:"doterra-align-centering-blend-for-yoga",citrusblissblend:"doterra-citrus-bliss-invigorating-blend",purifycleansingblend:"doterra-purify-cleansing-blend",motivateencouragingblend:"doterra-motivate-encouraging-blend",peacereassuringblend:"doterra-peace-reassuring-blend",
+  llv:"doterra-lifelong-vitality-pack",microplexvmz:"doterra-microplex-vmz-food-nutrient-complex",eomega:"doterra-eo-mega-essential-oil-omega-complex",pbassist:"doterra-pb-assist",pbrestore:"doterra-pb-restore",terrazyme:"doterra-digestzen-terrazyme-digestive-enzyme-complex",digestzensoftgels:"doterra-digestzen-digestive-blend-softgels",onguardsoftgels:"doterra-on-guard-protective-blend-softgels",copaibasoftgels:"doterra-copaiba-essential-oil-softgels",deepbluepoly:"doterra-deep-blue-polyphenol-complex",adaptivcaps:"doterra-adaptive-calming-blend-capsules",triease:"doterra-triease-seasonal-blend-softgels",mito2max:"doterra-mito2max-energy-stamina-complex",alphacrs:"doterra-alpha-crs-cellular-vitality-complex",ddrprimesoftgels:"doterra-ddr-prime-cellular-complex-blend-softgels",turmericcaps:"doterra-turmeric-dual-chamber-capsules",bonenutrient:"doterra-bone-nutrient-lifetime-complex",phytoestrogen:"doterra-phytoestrogen-lifetime-complex",serenitysoftgels:"doterra-serenity-restful-complex-softgels",gxassist:"doterra-gx-assist-gi-cleansing-formula",frankboswellic:"doterra-frankincense-boswellic-acid-complex",vmg:"doterra-vmg-whole-food-nutrient-complex",shampoo:"doterra-protecting-shampoo",conditioner:"doterra-daily-conditioner",leaveincond:"doterra-leave-in-conditioner",deodorant:"natural-deodorant-2-pack",supermintpaste:"doterra-supermint-natural-whitening-toothpaste",onguardpaste:"doterra-on-guard-natural-whitening-toothpaste",onguardhandwash:"doterra-on-guard-foaming-hand-wash",onguardsanitizer:"doterra-on-guard-hand-sanitizing-mist",correctx:"doterra-correct-x",hdclear:"doterra-hd-clear-topical-blend",handbodylotion:"doterra-spa-hand-body-lotion",babylotion:"doterra-baby-lotion",deepbluerub:"doterra-deep-blue-rub",deepbluestick:"doterra-deep-blue-stick",lipbalm:"doterra-spa-lip-balm-original",bodywash:"doterra-spa-refreshing-body-wash",bodyscrub:"doterra-spa-exfoliating-body-scrub",veragecleanser:"doterra-verage-cleanser",veragemoist:"doterra-verage-moisturizer",roottotip:"doterra-salon-essentials-root-to-tip-serum",onguardmouthwash:"doterra-on-guard-mouth-wash",spabodybutter:"doterra-spa-replenishing-body-butter"
 };
 /* Shopify variant IDs — let the in-app cart hand off a pre-filled cart to the shop checkout.
    Pulled from shop.home-essential-oils.com product data. */
 const VARIANTS={
   lavender:"28543522144330",peppermint:"28543556419658",frankincense:"28543574769738",lemon:"28543481446474",wildorange:"28635933933642",oregano:"28543585583178",eucalyptus:"28643228155978",teatree:"28543565922378",bergamot:"28635936292938",ginger:"28649083371594",cedarwood:"28635973976138",rosemary:"28659331858506",clarysage:"28671036424266",romanchamomile:"28635986853962",cypress:"28699045822538",marjoram:"28705325482058",basil:"28698945126474",thyme:"28699077804106",clove:"28699025309770",geranium:"28671000445002",helichrysum:"28740993974346",vetiver:"28635951530058",lemongrass:"28664750374986",melissa:"28741053481034",myrrh:"28705335574602",sandalwood:"28741064687690",fennel:"28705316274250",deepblue:"28543593054282",onguard:"28543669469258",breathe:"30193659314250",digestzen:"28543624183882",serenity:"28642264186954",cheer:"28659184238666",intune:"28619716493386",pasttense:"28619692671050",balance:"28659173490762",copaiba:"40485447991476",adaptiv:"50858723705045",
-  greenmandarin:"28705311916106",kanuka:"51625264021717",cistus:"41964673138901",commonmyrtle:"41964683165909",cananga:"50980347805909",valerian:"50154232414421",naiowood:"49680777117909",breubranco:"47368341192917",hyssop:"41964721176789",clementine:"40295388184756",caraway:"32389539233866",himalayanfir:"43891555270869",rosalina:"43859769524437",niaouli:"43824101949653",guaiacwood:"43642634174677",birch:"43584520716501",palmarosa:"31799175774282",litsea:"31904152322122",balsamfir:"37696358219956",manuka:"39679355748532",whitegrapefruit:"32460747800650",ravintsara:"31712748929098",lemonmyrtle:"31908305076298",redmandarin:"40296307097780",bergamotmint:"42240700088533",nootka:"40363394564276",laurelleaf:"31908358291530",galbanum:"41964718915797",jasmine:"40012225642676",madagascarvanilla:"40559600304308",tulsiholybasil:"40356503191732",kumquat:"31920013967434",rose:"30215530840138",lemoneucalyptus:"30215501348938",citronella:"30215491682378",celeryseed:"30215484473418",blackspruce:"30215212761162",spikenard:"28741085593674",sandalwoodhawaiian:"28741077205066",pinkpepper:"28741060689994",juniperberry:"28741017698378",bluetansy:"28740989124682",siberianfir:"28705302151242",spearmint:"28699091730506",turmeric:"28699059191882",coriander:"28699034648650",cilantro:"28699004207178",lime:"28698723024970",arborvitae:"28676470734922",patchouli:"28671617138762",blackpepper:"28671051989066",wintergreen:"28664743067722",cinnamonbark:"28660309065802",tangerine:"28660300546122",grapefruit:"28660297990218",cassia:"28660291305546",ylangylang:"28659156123722",douglasfir:"28643207610442",cardamom:"28643206365258",petitgrain:"28642242101322",aromatouch:"28664734548042",holidayloveblend:"42580911587541",elevationblend:"28682160799818",hyggecozyblend:"40723857014964",beautifulblend:"50154554458325",islandmintblend:"32364232933450",citrustwistblend:"32015809282122",northernescapeblend:"45383542276309",shinrinyokublend:"44361865298133",bakingspiceblend:"43859865698517",supermintoilblend:"43642662518997",kidsbraveblend:"43407526068437",kidsrescuerblend:"43407437332693",kidscalmerblend:"43407490449621",kidssteadyblend:"43407431532757",kidstamerblend:"43407513714901",kidsthinkerblend:"43407411413205",kidsstrongerblend:"40296282685620",coastblend:"43402298556629",desertsandblend:"43402261692629",nativebushblend:"43402251829461",sunnycitrusblend:"40099259580596",whisperblendforwomen:"28671961792586",midnightforestnatureblend:"39730712838324",citrusbloomblend:"31953404264522",terrashieldrepellentblend:"28760487821386",passionblend:"28760447483978",forgiverenewingblend:"28760437588042",consolecomfortingblend:"28760146640970",yogaariseblend:"28760072126538",yogaanchorblend:"28760047452234",yogaalignblend:"28759985684554",citrusblissblend:"28682159030346",purifycleansingblend:"28676402544714",motivateencouragingblend:"28664884330570",peacereassuringblend:"28642280833098"
+  greenmandarin:"28705311916106",kanuka:"51625264021717",cistus:"41964673138901",commonmyrtle:"41964683165909",cananga:"50980347805909",valerian:"50154232414421",naiowood:"49680777117909",breubranco:"47368341192917",hyssop:"41964721176789",clementine:"40295388184756",caraway:"32389539233866",himalayanfir:"43891555270869",rosalina:"43859769524437",niaouli:"43824101949653",guaiacwood:"43642634174677",birch:"43584520716501",palmarosa:"31799175774282",litsea:"31904152322122",balsamfir:"37696358219956",manuka:"39679355748532",whitegrapefruit:"32460747800650",ravintsara:"31712748929098",lemonmyrtle:"31908305076298",redmandarin:"40296307097780",bergamotmint:"42240700088533",nootka:"40363394564276",laurelleaf:"31908358291530",galbanum:"41964718915797",jasmine:"40012225642676",madagascarvanilla:"40559600304308",tulsiholybasil:"40356503191732",kumquat:"31920013967434",rose:"30215530840138",lemoneucalyptus:"30215501348938",citronella:"30215491682378",celeryseed:"30215484473418",blackspruce:"30215212761162",spikenard:"28741085593674",sandalwoodhawaiian:"28741077205066",pinkpepper:"28741060689994",juniperberry:"28741017698378",bluetansy:"28740989124682",siberianfir:"28705302151242",spearmint:"28699091730506",turmeric:"28699059191882",coriander:"28699034648650",cilantro:"28699004207178",lime:"28698723024970",arborvitae:"28676470734922",patchouli:"28671617138762",blackpepper:"28671051989066",wintergreen:"28664743067722",cinnamonbark:"28660309065802",tangerine:"28660300546122",grapefruit:"28660297990218",cassia:"28660291305546",ylangylang:"28659156123722",douglasfir:"28643207610442",cardamom:"28643206365258",petitgrain:"28642242101322",aromatouch:"28664734548042",holidayloveblend:"42580911587541",elevationblend:"28682160799818",hyggecozyblend:"40723857014964",beautifulblend:"50154554458325",islandmintblend:"32364232933450",citrustwistblend:"32015809282122",northernescapeblend:"45383542276309",shinrinyokublend:"44361865298133",bakingspiceblend:"43859865698517",supermintoilblend:"43642662518997",kidsbraveblend:"43407526068437",kidsrescuerblend:"43407437332693",kidscalmerblend:"43407490449621",kidssteadyblend:"43407431532757",kidstamerblend:"43407513714901",kidsthinkerblend:"43407411413205",kidsstrongerblend:"40296282685620",coastblend:"43402298556629",desertsandblend:"43402261692629",nativebushblend:"43402251829461",sunnycitrusblend:"40099259580596",whisperblendforwomen:"28671961792586",midnightforestnatureblend:"39730712838324",citrusbloomblend:"31953404264522",terrashieldrepellentblend:"28760487821386",passionblend:"28760447483978",forgiverenewingblend:"28760437588042",consolecomfortingblend:"28760146640970",yogaariseblend:"28760072126538",yogaanchorblend:"28760047452234",yogaalignblend:"28759985684554",citrusblissblend:"28682159030346",purifycleansingblend:"28676402544714",motivateencouragingblend:"28664884330570",peacereassuringblend:"28642280833098",
+  llv:"28648948039754",microplexvmz:"28681630056522",eomega:"49648083992789",pbassist:"44738973335765",pbrestore:"44738911109333",terrazyme:"28649168535626",digestzensoftgels:"28649112764490",onguardsoftgels:"28643627597898",copaibasoftgels:"28682122199114",deepbluepoly:"28664776130634",adaptivcaps:"30193486659658",triease:"28643265904714",mito2max:"28664889376842",alphacrs:"28664767807562",ddrprimesoftgels:"28676129030218",turmericcaps:"30215607353418",bonenutrient:"28671940001866",phytoestrogen:"28671955304522",serenitysoftgels:"28642331525194",gxassist:"28676092657738",frankboswellic:"49648280273109",vmg:"49648030613717",shampoo:"40100462100660",conditioner:"40100425826484",leaveincond:"40100454138036",deodorant:"40100682170548",supermintpaste:"44721066672341",onguardpaste:"28594240913482",onguardhandwash:"28676308992074",onguardsanitizer:"32518835535946",correctx:"28681524707402",hdclear:"28681531785290",handbodylotion:"28698464387146",babylotion:"32216977965130",deepbluerub:"28664780816458",deepbluestick:"40723587203252",lipbalm:"28765870325834",bodywash:"28696972656714",bodyscrub:"28698444496970",veragecleanser:"28698581172298",veragemoist:"28698565607498",roottotip:"28672051019850",onguardmouthwash:"28672041386058",spabodybutter:"28697007030346"
 };
 /* Retail prices (USD) pulled from shop.home-essential-oils.com product data. Indicative — final price shown at checkout. */
 const PRICES={
   lavender:"36.67",peppermint:"32.67",frankincense:"99.67",lemon:"19.67",wildorange:"16.67",oregano:"35.67",eucalyptus:"29.67",teatree:"32.67",bergamot:"55.67",ginger:"66.67",cedarwood:"20.67",rosemary:"27.67",clarysage:"50.67",romanchamomile:"65.67",cypress:"24.67",marjoram:"30.67",basil:"42.67",thyme:"43.67",clove:"28.67",geranium:"64.67",helichrysum:"104.67",vetiver:"84.67",lemongrass:"19.67",melissa:"123.67",myrrh:"94.67",sandalwood:"114.67",fennel:"23.67",deepblue:"48.67",onguard:"49.67",breathe:"36.67",digestzen:"48.67",serenity:"53.67",cheer:"32.67",intune:"53.67",pasttense:"44.67",balance:"32.67",copaiba:"49.67",adaptiv:"29.67",
-  greenmandarin:"38.67",kanuka:"42.67",cistus:"49.67",commonmyrtle:"33.67",cananga:"39.67",valerian:"59.67",naiowood:"69.67",breubranco:"79.67",hyssop:"34.67",clementine:"15.67",caraway:"25.67",himalayanfir:"48.67",rosalina:"49.67",niaouli:"29.67",guaiacwood:"25.67",birch:"75.67",palmarosa:"26.67",litsea:"38.67",balsamfir:"23.67",manuka:"69.67",whitegrapefruit:"18.67",ravintsara:"26.67",lemonmyrtle:"42.67",redmandarin:"23.87",bergamotmint:"29.67",nootka:"27.67",laurelleaf:"34.67",galbanum:"49.67",jasmine:"195.67",madagascarvanilla:"51.67",tulsiholybasil:"39.67",kumquat:"18.67",rose:"349.67",lemoneucalyptus:"20.67",citronella:"27.67",celeryseed:"48.67",blackspruce:"26.67",spikenard:"69.67",sandalwoodhawaiian:"95.67",pinkpepper:"29.67",juniperberry:"29.67",bluetansy:"111.67",siberianfir:"26.67",spearmint:"39.67",turmeric:"44.67",coriander:"33.67",cilantro:"34.67",lime:"21.67",arborvitae:"30.67",patchouli:"42.67",blackpepper:"29.67",wintergreen:"35.67",cinnamonbark:"44.67",tangerine:"20.67",grapefruit:"25.67",cassia:"29.67",ylangylang:"55.67",douglasfir:"30.67",cardamom:"39.67",petitgrain:"34.67",aromatouch:"44.67",holidayloveblend:"24.67",elevationblend:"88.67",hyggecozyblend:"48.67",beautifulblend:"33.67",islandmintblend:"34.67",citrustwistblend:"33.67",northernescapeblend:"18.97",shinrinyokublend:"43.67",bakingspiceblend:"20.67",supermintoilblend:"34.67",kidsbraveblend:"34.67",kidsrescuerblend:"29.67",kidscalmerblend:"34.67",kidssteadyblend:"29.67",kidstamerblend:"29.67",kidsthinkerblend:"30.67",kidsstrongerblend:"29.67",coastblend:"49.67",desertsandblend:"47.67",nativebushblend:"44.67",sunnycitrusblend:"32.67",whisperblendforwomen:"58.67",midnightforestnatureblend:"53.67",citrusbloomblend:"36.67",terrashieldrepellentblend:"19.87",passionblend:"54.67",forgiverenewingblend:"31.67",consolecomfortingblend:"54.67",yogaariseblend:"27.67",yogaanchorblend:"27.67",yogaalignblend:"27.67",citrusblissblend:"31.67",purifycleansingblend:"34.67",motivateencouragingblend:"30.67",peacereassuringblend:"44.67"
+  greenmandarin:"38.67",kanuka:"42.67",cistus:"49.67",commonmyrtle:"33.67",cananga:"39.67",valerian:"59.67",naiowood:"69.67",breubranco:"79.67",hyssop:"34.67",clementine:"15.67",caraway:"25.67",himalayanfir:"48.67",rosalina:"49.67",niaouli:"29.67",guaiacwood:"25.67",birch:"75.67",palmarosa:"26.67",litsea:"38.67",balsamfir:"23.67",manuka:"69.67",whitegrapefruit:"18.67",ravintsara:"26.67",lemonmyrtle:"42.67",redmandarin:"23.87",bergamotmint:"29.67",nootka:"27.67",laurelleaf:"34.67",galbanum:"49.67",jasmine:"195.67",madagascarvanilla:"51.67",tulsiholybasil:"39.67",kumquat:"18.67",rose:"349.67",lemoneucalyptus:"20.67",citronella:"27.67",celeryseed:"48.67",blackspruce:"26.67",spikenard:"69.67",sandalwoodhawaiian:"95.67",pinkpepper:"29.67",juniperberry:"29.67",bluetansy:"111.67",siberianfir:"26.67",spearmint:"39.67",turmeric:"44.67",coriander:"33.67",cilantro:"34.67",lime:"21.67",arborvitae:"30.67",patchouli:"42.67",blackpepper:"29.67",wintergreen:"35.67",cinnamonbark:"44.67",tangerine:"20.67",grapefruit:"25.67",cassia:"29.67",ylangylang:"55.67",douglasfir:"30.67",cardamom:"39.67",petitgrain:"34.67",aromatouch:"44.67",holidayloveblend:"24.67",elevationblend:"88.67",hyggecozyblend:"48.67",beautifulblend:"33.67",islandmintblend:"34.67",citrustwistblend:"33.67",northernescapeblend:"18.97",shinrinyokublend:"43.67",bakingspiceblend:"20.67",supermintoilblend:"34.67",kidsbraveblend:"34.67",kidsrescuerblend:"29.67",kidscalmerblend:"34.67",kidssteadyblend:"29.67",kidstamerblend:"29.67",kidsthinkerblend:"30.67",kidsstrongerblend:"29.67",coastblend:"49.67",desertsandblend:"47.67",nativebushblend:"44.67",sunnycitrusblend:"32.67",whisperblendforwomen:"58.67",midnightforestnatureblend:"53.67",citrusbloomblend:"36.67",terrashieldrepellentblend:"19.87",passionblend:"54.67",forgiverenewingblend:"31.67",consolecomfortingblend:"54.67",yogaariseblend:"27.67",yogaanchorblend:"27.67",yogaalignblend:"27.67",citrusblissblend:"31.67",purifycleansingblend:"34.67",motivateencouragingblend:"30.67",peacereassuringblend:"44.67",
+  llv:"109.67",microplexvmz:"63.67",eomega:"59.67",pbassist:"42.67",pbrestore:"60.67",terrazyme:"45.67",digestzensoftgels:"33.67",onguardsoftgels:"35.67",copaibasoftgels:"47.67",deepbluepoly:"59.67",adaptivcaps:"53.67",triease:"35.67",mito2max:"55.67",alphacrs:"99.67",ddrprimesoftgels:"63.67",turmericcaps:"53.67",bonenutrient:"25.67",phytoestrogen:"53.67",serenitysoftgels:"35.67",gxassist:"34.67",frankboswellic:"61.67",vmg:"115.67",shampoo:"34.67",conditioner:"34.67",leaveincond:"25.33",deodorant:"29.87",supermintpaste:"15.33",onguardpaste:"15.33",onguardhandwash:"25.67",onguardsanitizer:"11.33",correctx:"17.98",hdclear:"30.67",handbodylotion:"21.33",babylotion:"22.67",deepbluerub:"48.67",deepbluestick:"36.87",lipbalm:"10.33",bodywash:"17.67",bodyscrub:"26.33",veragecleanser:"31.33",veragemoist:"38.67",roottotip:"43.67",onguardmouthwash:"21.67",spabodybutter:"24.67"
 };
 const priceOf=id=>PRICES[id]?parseFloat(PRICES[id]):0;
 const fmt=n=>"$"+n.toFixed(2);
@@ -1944,22 +2279,135 @@ const RECIPES=[
    steps:["Fill the diffuser with water.","Add the drops.","Diffuse to support a feeling of clear, easy breathing."]},
   {id:"diff_cozy",name:"\"Cozy Night In\" Diffuser",cat:"Diffuser",oils:["hyggecozyblend","wildorange","cinnamonbark"],desc:"A warm, comforting blend for relaxing evenings.",
    ing:["3 drops Hygge","2 drops Wild Orange","1 drop Cinnamon Bark","Diffuser with water"],
-   steps:["Add water and the drops to your diffuser.","Diffuse while you relax for a cosy, grounded feeling."]}
+   steps:["Add water and the drops to your diffuser.","Diffuse while you relax for a cosy, grounded feeling."]},
+  {id:"carpet_freshener",name:"Carpet Freshener",cat:"Cleaning",oils:["purifycleansingblend","lavender"],desc:"Deodorise carpets and rugs with a fresh, clean scent.",
+   ing:["1 cup baking soda","10 drops Purify","5 drops Lavender","Shaker jar"],
+   steps:["Mix the oils into the baking soda and break up clumps.","Sprinkle over carpet, leave 15 minutes, then vacuum."]},
+  {id:"toilet_bombs",name:"Toilet Cleaning Bombs",cat:"Cleaning",oils:["teatree","lemon"],desc:"Drop-in fizzing tablets that freshen and clean the bowl.",
+   ing:["1 cup baking soda","¼ cup citric acid","15 drops Tea Tree","10 drops Lemon","A little water","Silicone mould"],
+   steps:["Mix dry ingredients and oils.","Spritz with water until it holds together, press into the mould and dry overnight.","Drop one in the toilet, let fizz, then brush."]},
+  {id:"wood_polish",name:"Wood Furniture Polish",cat:"Cleaning",oils:["wildorange","lemon"],desc:"Nourishes and shines wood naturally.",
+   ing:["½ cup olive oil","¼ cup white vinegar","8 drops Wild Orange","4 drops Lemon","Jar"],
+   steps:["Shake all ingredients together.","Apply a little to a soft cloth and buff into wood."]},
+  {id:"garbage_disposal",name:"Garbage Disposal Refresher",cat:"Cleaning",oils:["lemon","lime"],desc:"Banish sink odours with citrus fizz pods.",
+   ing:["1 cup baking soda","½ cup salt","10 drops Lemon","5 drops Lime","A little water","Mould"],
+   steps:["Mix into a paste and press into a mould; dry fully.","Drop one in, run warm water and the disposal."]},
+  {id:"mattress_refresh",name:"Mattress Refresh Powder",cat:"Cleaning",oils:["lavender","onguard"],desc:"Freshen your mattress and linens.",
+   ing:["1 cup baking soda","8 drops Lavender","4 drops On Guard","Shaker"],
+   steps:["Combine and shake.","Dust over the mattress, leave 30 minutes, then vacuum."]},
+  {id:"stainless_polish",name:"Stainless Steel Polish",cat:"Cleaning",oils:["wildorange"],desc:"Streak-free shine for appliances.",
+   ing:["1 tbsp olive oil","5 drops Wild Orange","Microfibre cloth"],
+   steps:["Add the oil and drops to the cloth.","Buff appliances in the direction of the grain."]},
+  {id:"reusable_wipes",name:"Reusable Cleaning Wipes",cat:"Cleaning",oils:["onguard","lemon"],desc:"Grab-and-go natural cleaning wipes.",
+   ing:["1 cup water","2 tbsp castile soap","10 drops On Guard","5 drops Lemon","Cloth wipes in a jar"],
+   steps:["Mix the liquid and pour over the wipes in a jar.","Use to wipe down surfaces; wash and reuse."]},
+  {id:"protein_balls",name:"No-Bake Protein Balls",cat:"Cooking",oils:["wildorange"],desc:"Energising bites with a citrus lift.",
+   ing:["1 cup oats","½ cup nut butter","⅓ cup honey","2 tbsp cocoa","1 toothpick of Wild Orange"],
+   steps:["Mix everything in a bowl.","Roll into balls and chill 30 minutes."]},
+  {id:"lemon_vinaigrette",name:"Lemon Herb Vinaigrette",cat:"Cooking",oils:["lemon","basil"],desc:"A bright dressing for salads and grain bowls.",
+   ing:["⅓ cup olive oil","2 tbsp vinegar","1 drop Lemon","1 toothpick of Basil","Salt & pepper"],
+   steps:["Whisk everything together.","Taste, adjust and dress your salad."]},
+  {id:"peppermint_bark",name:"Chocolate Peppermint Bark",cat:"Cooking",oils:["peppermint"],desc:"A festive minty chocolate treat.",
+   ing:["200g dark chocolate","100g white chocolate","1–2 toothpicks of Peppermint"],
+   steps:["Melt the chocolates separately, adding Peppermint to taste.","Spread dark on a tray, swirl white on top, chill and break into pieces."]},
+  {id:"berry_smoothie",name:"Berry Citrus Smoothie",cat:"Cooking",oils:["wildorange"],desc:"A refreshing, vitamin-rich blend.",
+   ing:["1 cup mixed berries","1 banana","1 cup yoghurt or milk","1 drop Wild Orange"],
+   steps:["Blend everything until smooth.","Pour and enjoy cold."]},
+  {id:"italian_marinade",name:"Italian Herb Marinade",cat:"Cooking",oils:["oregano","basil"],desc:"A savoury marinade for chicken or veg.",
+   ing:["⅓ cup olive oil","2 tbsp lemon juice","1 toothpick of Oregano","1 toothpick of Basil","1 clove garlic"],
+   steps:["Whisk together.","Marinate 30+ minutes before cooking."]},
+  {id:"gingerbread",name:"Gingerbread Cookies",cat:"Cooking",oils:["ginger","cinnamonbark"],desc:"Warmly spiced holiday cookies.",
+   ing:["Your favourite gingerbread dough","1 toothpick of Ginger","1 toothpick of Cinnamon Bark in the wet mix"],
+   steps:["Swirl the oils into the wet ingredients.","Mix, cut and bake as usual."]},
+  {id:"citrus_water",name:"Citrus Infused Water",cat:"Cooking",oils:["lemon","lime","wildorange"],desc:"A hydrating, flavourful pitcher.",
+   ing:["1 pitcher of water","1 drop each Lemon, Lime & Wild Orange (use glass/steel)"],
+   steps:["Add the drops to the water and stir well.","Serve over ice."]},
+  {id:"cardamom_chai",name:"Spiced Cardamom Chai",cat:"Cooking",oils:["cardamom","cinnamonbark"],desc:"A cosy spiced tea latte.",
+   ing:["1 cup brewed black tea","½ cup warm milk","1 toothpick of Cardamom","1 toothpick of Cinnamon Bark","Honey"],
+   steps:["Stir the oils into the warm milk.","Combine with tea and sweeten to taste."]},
+  {id:"beard_oil",name:"Nourishing Beard Oil",cat:"Beauty",oils:["cedarwood","sandalwood"],desc:"Softens and conditions facial hair.",
+   ing:["2 tbsp jojoba oil","4 drops Cedarwood","3 drops Sandalwood","Dropper bottle"],
+   steps:["Combine in the bottle and roll to mix.","Work a few drops through the beard."]},
+  {id:"undereye_oil",name:"Brightening Under-Eye Oil",cat:"Beauty",oils:["frankincense","lavender"],desc:"A delicate oil for the eye area.",
+   ing:["1 tbsp fractionated coconut oil","2 drops Frankincense","1 drop Lavender","Roller bottle"],
+   steps:["Combine in a roller bottle.","Gently dab around (not in) the eye area at night."]},
+  {id:"blemish_spot",name:"Blemish Spot Treatment",cat:"Beauty",oils:["teatree","lavender"],desc:"A targeted treatment for breakouts.",
+   ing:["1 tsp jojoba or aloe","1 drop Tea Tree","1 drop Lavender"],
+   steps:["Mix and dab onto blemishes with a cotton bud.","Use morning and night."]},
+  {id:"foot_scrub",name:"Cooling Peppermint Foot Scrub",cat:"Beauty",oils:["peppermint","teatree"],desc:"Refreshes and smooths tired feet.",
+   ing:["1 cup sugar","½ cup coconut oil","6 drops Peppermint","3 drops Tea Tree"],
+   steps:["Mix into a scrub.","Massage onto feet, then rinse."]},
+  {id:"detox_bath",name:"Detox Bath Soak",cat:"Beauty",oils:["grapefruit","juniperberry"],desc:"A cleansing, refreshing soak.",
+   ing:["1 cup Epsom salts","1 tbsp carrier oil","4 drops Grapefruit","2 drops Juniper Berry"],
+   steps:["Stir oils into the carrier, mix through the salts.","Dissolve in a warm bath and soak 20 minutes."]},
+  {id:"perfume_roller",name:"Signature Perfume Roller",cat:"Beauty",oils:["ylangylang","bergamot","madagascarvanilla"],desc:"A warm, floral personal fragrance.",
+   ing:["10ml roller bottle","3 drops Ylang Ylang","3 drops Bergamot","2 drops Madagascar Vanilla","Top with carrier oil"],
+   steps:["Add the oils and top with carrier oil.","Roll onto pulse points (avoid sun on bergamot-applied skin)."]},
+  {id:"seasonal_roller",name:"Seasonal Threat Roller",cat:"Wellness",oils:["lemon","lavender","peppermint"],desc:"The classic trio for seasonal comfort.",
+   ing:["10ml roller bottle","4 drops each Lemon, Lavender & Peppermint","Top with carrier oil"],
+   steps:["Combine and top with carrier oil.","Roll onto the back of the neck and chest as needed."]},
+  {id:"chest_rub",name:"Easy Breathing Chest Rub",cat:"Wellness",oils:["breathe","eucalyptus"],desc:"A soothing rub for stuffy days.",
+   ing:["2 tbsp carrier oil or unscented lotion","5 drops Breathe","3 drops Eucalyptus"],
+   steps:["Mix together.","Massage onto the chest and upper back."]},
+  {id:"study_roller",name:"Study Buddy Roller",cat:"Wellness",oils:["rosemary","wildorange"],desc:"A bright roller for focus and recall.",
+   ing:["10ml roller bottle","4 drops Rosemary","4 drops Wild Orange","Top with carrier oil"],
+   steps:["Combine and top with carrier oil.","Roll onto wrists and the back of the neck while you study."]},
+  {id:"diy_sanitizer",name:"DIY Hand Sanitizer Spray",cat:"Wellness",oils:["onguard"],desc:"A natural spritz to clean hands on the go.",
+   ing:["2 tbsp witch hazel or alcohol","1 tbsp aloe vera","8 drops On Guard","Small spray bottle"],
+   steps:["Combine in the spray bottle and shake.","Mist onto hands and rub in."]},
+  {id:"magnesium_rub",name:"Bedtime Magnesium Rub",cat:"Wellness",oils:["lavender","cedarwood"],desc:"A calming rub to wind down at night.",
+   ing:["2 tbsp magnesium lotion or oil","4 drops Lavender","3 drops Cedarwood"],
+   steps:["Mix the oils into the lotion.","Massage into the feet and legs before bed."]},
+  {id:"immune_roller_daily",name:"Everyday Immune Roller",cat:"Wellness",oils:["onguard","frankincense","lemon"],desc:"A daily roller for seasonal wellness.",
+   ing:["10ml roller bottle","4 drops On Guard","3 drops Frankincense","3 drops Lemon","Top with carrier oil"],
+   steps:["Combine and top with carrier oil.","Roll onto the soles of the feet and spine each morning."]},
+  {id:"tummy_rub_kids",name:"Gentle Tummy Rub",cat:"Wellness",oils:["digestzen","ginger"],desc:"A soothing rub for little (and big) tummies.",
+   ing:["2 tbsp carrier oil","3 drops DigestZen","2 drops Ginger"],
+   steps:["Mix well to dilute.","Massage over the tummy in a slow, clockwise circle."]},
+  {id:"diff_holiday",name:"\"Holiday Spirit\" Diffuser",cat:"Diffuser",oils:["holidayloveblend","wildorange","clove"],desc:"A warm, festive seasonal blend.",
+   ing:["3 drops Holiday Love","2 drops Wild Orange","1 drop Clove","Diffuser with water"],
+   steps:["Add water and the drops.","Diffuse to fill the home with festive warmth."]},
+  {id:"diff_spa",name:"\"Spa Day\" Diffuser",cat:"Diffuser",oils:["lavender","bergamot","frankincense"],desc:"A serene, spa-like atmosphere.",
+   ing:["3 drops Lavender","2 drops Bergamot","2 drops Frankincense","Diffuser with water"],
+   steps:["Add water and the drops.","Diffuse while you relax and unwind."]},
+  {id:"diff_morning",name:"\"Rise & Shine\" Diffuser",cat:"Diffuser",oils:["peppermint","lemon"],desc:"A crisp, energising morning blend.",
+   ing:["2 drops Peppermint","3 drops Lemon","Diffuser with water"],
+   steps:["Add water and the drops.","Diffuse to wake up your space and mind."]},
+  {id:"diff_immunity",name:"\"Immune Boost\" Diffuser",cat:"Diffuser",oils:["onguard","lemon","eucalyptus"],desc:"A protective, clearing blend for the season.",
+   ing:["3 drops On Guard","2 drops Lemon","1 drop Eucalyptus","Diffuser with water"],
+   steps:["Add water and the drops.","Diffuse during seasonal changes."]},
+  {id:"diff_meditation",name:"\"Meditation\" Diffuser",cat:"Diffuser",oils:["frankincense","sandalwood","myrrh"],desc:"A grounding blend for stillness and reflection.",
+   ing:["2 drops Frankincense","2 drops Sandalwood","1 drop Myrrh","Diffuser with water"],
+   steps:["Add water and the drops.","Diffuse during meditation, yoga or prayer."]},
+  {id:"diff_calm_kids",name:"\"Calm Kids\" Diffuser",cat:"Diffuser",oils:["lavender","serenity"],desc:"A gentle, soothing bedtime blend for children.",
+   ing:["2 drops Lavender","2 drops Serenity","Diffuser with water"],
+   steps:["Add water and the drops.","Diffuse in the bedroom as part of the wind-down routine."]}
 ];
 const RECIPE_BY_ID={};RECIPES.forEach(r=>RECIPE_BY_ID[r.id]=r);
 
 /* ===== Videos & Classes (doTERRA educational videos, embedded) ===== */
+const VIDEO_CATS=["Start Here","Single Oils","Blends & Wellness","Sleep & Emotions","Kids & Family","Cooking & DIY"];
 const VIDEOS=[
-  {id:"PHyc4j6-Krg",title:"Essential Oils 101: A Complete Introduction",by:"doTERRA"},
-  {id:"KPhP1ZxaOAI",title:"Top 10 Essential Oils for Beginners",by:"doTERRA Basics"},
-  {id:"vxtS43hLwnE",title:"30 Uses for the Top 10 doTERRA Oils",by:"doTERRA"},
-  {id:"wjbHnTrTeKc",title:"Lavender — Uses & Benefits",by:"doTERRA"},
-  {id:"DILz_VNQWlU",title:"Peppermint — Uses & Benefits",by:"doTERRA"},
-  {id:"U0aTgaDE5Vk",title:"Essential Oils for Better Sleep",by:"doTERRA"},
-  {id:"-GECs2iXZ00",title:"Essential Oils for Digestion",by:"doTERRA"},
-  {id:"TVgx0wyBurc",title:"Essential Oils for Natural Skincare",by:"doTERRA"},
-  {id:"ZxpvS6A9kYY",title:"Adaptiv — Calming Essential Oils",by:"doTERRA"},
-  {id:"YYUXmhFnsnY",title:"Copaiba — Stress, Sleep & More",by:"doTERRA"}
+  {id:"PHyc4j6-Krg",title:"Essential Oils 101: A Complete Introduction",by:"doTERRA",cat:"Start Here"},
+  {id:"KPhP1ZxaOAI",title:"Top 10 Essential Oils for Beginners",by:"doTERRA Basics",cat:"Start Here"},
+  {id:"jy2zLvofZjE",title:"Essential Oils Made Easy: An Intro Class",by:"Rigel Smith",cat:"Start Here"},
+  {id:"vxtS43hLwnE",title:"30 Uses for the Top 10 doTERRA Oils",by:"doTERRA",cat:"Start Here"},
+  {id:"E4i6bLhzAyw",title:"How to Dilute Essential Oils for All Ages",by:"Our Oily House",cat:"Start Here"},
+  {id:"wjbHnTrTeKc",title:"Lavender — Uses & Benefits",by:"doTERRA",cat:"Single Oils"},
+  {id:"DILz_VNQWlU",title:"Peppermint — Uses & Benefits",by:"doTERRA",cat:"Single Oils"},
+  {id:"IARCXYRQTHs",title:"Frankincense — Uses & Benefits",by:"doTERRA",cat:"Single Oils"},
+  {id:"YYUXmhFnsnY",title:"Copaiba — Stress, Sleep & More",by:"doTERRA",cat:"Single Oils"},
+  {id:"OtL-P2hh7CY",title:"Lemon, Lavender & Peppermint",by:"doTERRA",cat:"Single Oils"},
+  {id:"-GECs2iXZ00",title:"Essential Oils for Digestion",by:"doTERRA",cat:"Blends & Wellness"},
+  {id:"W7CHdW6n-Cc",title:"DigestZen — Uses & Benefits",by:"doTERRA",cat:"Blends & Wellness"},
+  {id:"PWCMgK9tuXI",title:"On Guard Protective Blend",by:"doTERRA",cat:"Blends & Wellness"},
+  {id:"TVgx0wyBurc",title:"Essential Oils for Natural Skincare",by:"doTERRA",cat:"Blends & Wellness"},
+  {id:"U0aTgaDE5Vk",title:"Essential Oils for Better Sleep",by:"doTERRA",cat:"Sleep & Emotions"},
+  {id:"ZxpvS6A9kYY",title:"Adaptiv — Calming Essential Oils",by:"doTERRA",cat:"Sleep & Emotions"},
+  {id:"TtI-nz1QBvU",title:"Top 10 Essential Oils for Better Sleep",by:"Rigel Smith",cat:"Sleep & Emotions"},
+  {id:"a9dQchnHli8",title:"How to Use doTERRA's Kids' Line",by:"Rigel Smith",cat:"Kids & Family"},
+  {id:"MDVclpAcJ0Y",title:"Introducing the doTERRA Kids Collection",by:"doTERRA",cat:"Kids & Family"},
+  {id:"8JVHdq9DVFk",title:"Cooking with doTERRA Essential Oils",by:"Rigel Smith",cat:"Cooking & DIY"}
 ];
 
 /* ---- Saved concerns + dark mode (stored on the device) ---- */
@@ -2063,7 +2511,6 @@ function renderCond(k){
     <div class="cond-page">
       <div class="ail-hero">
         <button class="sharebtn" id="shareBtn" aria-label="Share"><svg><use href="#ic-share"/></svg></button>
-        ${diagramFor(c[3])}
         <h2>${c[0]}</h2>
         <div class="desc">${condDesc(k)}</div>
         <button class="flagbtn ${fav?'on':''}" id="flagBtn"><svg><use href="#${fav?'ic-bookmark-fill':'ic-bookmark'}"/></svg> <span>${fav?'Saved':'Save this concern'}</span></button>
@@ -2072,7 +2519,6 @@ function renderCond(k){
       <div class="proto-section">
         <div class="section-label">Protocols — how to use it</div>
         ${protoHtml}
-        <div class="proto-tag">Suggested routines only. Start with the smallest amount, patch-test new oils, and dilute for sensitive skin. Tap any oil for full details.</div>
         <button class="checkout-btn proto-cart" id="addProtoOils"><svg><use href="#ic-cart"/></svg> Add ${protoOilIds.length===1?'this oil':'these oils'} to cart</button>
       </div>
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Essential oils are not a substitute for professional medical care. Consult a healthcare provider for any health condition. Not affiliated with or endorsed by doTERRA.</div>
@@ -2088,7 +2534,21 @@ function renderCond(k){
     `${OILS[pid].name} is a great essential oil for ${c[0].toLowerCase()}.`, buyUrl(pid));
 }
 
+function membershipBlock(){
+  return `<div class="membership">
+    <a class="mb-main" href="https://www.doterra.com/US/en/selectRegion/WC?OwnerID=13237" target="_blank" rel="noopener">
+      <span class="mb-head">Set up a doTERRA Membership</span>
+      <span class="mb-go"><svg><use href="#ic-fwd"/></svg></span>
+    </a>
+    <ul class="mb-list">
+      <li><svg><use href="#ic-check"/></svg> Shop 25% off year-round</li>
+      <li><svg><use href="#ic-check"/></svg> Free membership — save $35</li>
+      <li><svg><use href="#ic-check"/></svg> No obligations</li>
+    </ul>
+  </div>`;
+}
 function ailmentsBlock(id){
+  if(OILS[id].cat && OILS[id].cat!=="Oil") return ""; // products aren't mapped to ailments
   const list=AIL_BY_OIL[id]||[];
   const chip=k=>`<button class="ail-chip" data-k="${k}"><span class="ac-ic"><svg><use href="#${COND[k][3]}"/></svg></span>${COND[k][0]}</button>`;
   if(!list.length)return `<div class="oblock"><h3>Best for these ailments</h3>
@@ -2115,16 +2575,16 @@ function renderOil(state){
       ${PRICES[id]?`<div class="oil-price">${fmt(priceOf(id))}</div>`:""}
       <div class="hero-actions">
         <button class="addcart ${inCart(id)?'in':''}" id="addCartBtn"><svg><use href="#${inCart(id)?'ic-check':'ic-cart'}"/></svg> <span>${inCart(id)?`In cart (${cart[id]}) · Add another`:'Add to cart'}</span></button>
-        <a class="buybtn" href="${buyUrl(id)}" target="_blank" rel="noopener"><svg><use href="#ic-cart"/></svg> Buy now on shop</a>
         <button class="own-toggle ${isOwned(id)?'in':''}" id="ownBtn"><svg><use href="#${isOwned(id)?'ic-check':'ic-leaf'}"/></svg> <span>${isOwned(id)?'In your collection':'I own this oil'}</span></button>
       </div>
     </div>
     <div class="oil-body">
+      ${membershipBlock()}
       ${dirHtml}
       <div class="oblock"><h3>About</h3><p>${o.desc}</p></div>
       <div class="oblock"><h3>Primary Uses</h3><ul class="uses-list">${o.uses.map(u=>`<li>${u}</li>`).join("")}</ul></div>
+      <div class="oblock"><h3>How to Use</h3>${methodsOf(o).length?`<div class="methods">${methodHtml}</div>`:`<p class="appnote-plain">${o.appNote||"Use as directed on the product label."}</p>`}</div>
       ${ailmentsBlock(id)}
-      <div class="oblock"><h3>How to Use</h3><div class="methods">${methodHtml}</div></div>
       <div class="oblock"><h3>Safety</h3><div class="safety"><b>Caution:</b> ${o.safety}</div></div>
       <button class="learn-cta" id="oilLearn"><svg><use href="#ic-book"/></svg> New to oils? Learn the basics</button>
       <div class="disclaimer"><b>For educational purposes only — not medical advice.</b> Always read product labels and consult a healthcare provider. Not affiliated with or endorsed by doTERRA.</div>
@@ -2243,9 +2703,9 @@ function renderCart(){
   }
   const rows=ids.map(id=>{const o=OILS[id];const line=priceOf(id)*cart[id];return `
     <div class="cart-item">
-      <div class="ci-thumb">${oilImage(id)}</div>
+      <div class="ci-thumb ci-open" data-open="${id}">${oilImage(id)}</div>
       <div class="ci-body">
-        <div class="ci-name">${o.name}</div>
+        <div class="ci-name ci-open" data-open="${id}">${o.name}</div>
         ${PRICES[id]?`<div class="ci-price">${fmt(priceOf(id))} each</div>`:`<div class="ci-tag">${o.latin}</div>`}
         <div class="qty"><button data-dec="${id}" aria-label="Less">−</button><span>${cart[id]}</span><button data-inc="${id}" aria-label="More">+</button></div>
       </div>
@@ -2256,51 +2716,68 @@ function renderCart(){
     </div>`;}).join("");
   cartView.innerHTML=`
     <div class="cart-wrap">
-      <div class="cart-intro"><b>Almost there.</b> Review your oils, then check out — we'll open Home Essential Oils with these items already in your cart.</div>
+      <div class="cart-intro"><b>Almost there.</b> Review your products, then check out — we'll open Home Essential Oils with these items already in your cart. Tap any item to view it again.</div>
       ${rows}
       <div class="cart-total"><span class="ct-label">Subtotal (${cartCount()} item${cartCount()===1?'':'s'})</span><span class="ct-val">${fmt(cartSubtotal())}</span></div>
       <div class="cart-foot">
         <button class="checkout-btn" id="checkoutBtn"><svg><use href="#ic-cart"/></svg> Checkout at Home Essential Oils</button>
         <div class="cart-note">Opens the shop's secure checkout in a new tab. Taxes &amp; final pricing confirmed there.</div>
       </div>
+      ${membershipBlock()}
     </div>`;
+  cartView.querySelectorAll(".ci-open").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.open}));
   cartView.querySelectorAll("[data-inc]").forEach(b=>b.onclick=()=>{setQty(b.dataset.inc,(cart[b.dataset.inc]||0)+1);renderCart();});
   cartView.querySelectorAll("[data-dec]").forEach(b=>b.onclick=()=>{setQty(b.dataset.dec,(cart[b.dataset.dec]||0)-1);renderCart();});
   cartView.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{setQty(b.dataset.del,0);renderCart();});
   $("checkoutBtn").onclick=()=>{const u=checkoutUrl();if(u)window.open(u,"_blank","noopener");};
 }
 
+const prodCatOf=id=>OILS[id].cat||"Oil";
 const allOilIds=()=>Object.keys(OILS).sort((a,b)=>OILS[a].name.localeCompare(OILS[b].name));
-function oilRowsHtml(ids){
+function oilRowsHtml(ids,showCat){
   return ids.map(id=>{const o=OILS[id];return `
     <button class="orow" data-oil="${id}">
       <span class="othumb">${oilImage(id)}</span>
-      <span class="otext"><span class="oname">${o.name}</span><span class="otag">${o.tag}</span></span>
+      <span class="otext"><span class="oname">${o.name}</span><span class="otag">${o.tag}</span>${showCat?`<span class="ocat">${prodCatOf(id)==='Oil'?'Essential Oil':prodCatOf(id)}</span>`:""}</span>
       ${PRICES[id]?`<span class="oprice">${fmt(priceOf(id))}</span>`:""}
       <span class="chev"><svg><use href="#ic-fwd"/></svg></span>
     </button>`;}).join("");
 }
 function bindOilRows(){ oilsView.querySelectorAll(".orow").forEach(b=>b.onclick=()=>go({type:'oil',key:b.dataset.oil})); }
+let productCat="All";
 function renderOils(){
-  const ids=allOilIds();
+  const cats=["All","Oils","Supplements","Personal Care"];
+  const catMap={Oils:"Oil",Supplements:"Supplement","Personal Care":"Personal Care"};
+  const all=allOilIds();
+  const filterIds=()=>{
+    let ids=productCat==="All"?all:all.filter(id=>prodCatOf(id)===catMap[productCat]);
+    const q=($("oilSearch")?.value||"").toLowerCase().trim();
+    if(q)ids=ids.filter(id=>OILS[id].name.toLowerCase().includes(q)||(OILS[id].latin||"").toLowerCase().includes(q));
+    return {ids,q};
+  };
+  const total=all.length;
   oilsView.innerHTML=`<div class="oils-wrap">
     <div class="oils-search">
       <svg class="si"><use href="#ic-search"/></svg>
-      <input type="text" id="oilSearch" autocomplete="off" placeholder="Search ${ids.length} oils by name…" aria-label="Search oils">
+      <input type="text" id="oilSearch" autocomplete="off" placeholder="Search products by name…" aria-label="Search products">
     </div>
-    <div class="oils-intro" id="oilsIntro">All ${ids.length} oils, A–Z. Tap any oil for full details, uses and safety.</div>
-    <div id="oilRows">${oilRowsHtml(ids)}</div>
-    <p class="no-match" id="oilNoMatch" style="display:none">No oil by that name — try another spelling.</p>
+    <div class="prod-cats">${cats.map(c=>`<button class="prod-cat ${c===productCat?'on':''}" data-c="${c}">${c}</button>`).join("")}</div>
+    <div class="oils-intro" id="oilsIntro"></div>
+    <div id="oilRows"></div>
+    <p class="no-match" id="oilNoMatch" style="display:none">Nothing by that name — try another spelling.</p>
     <div class="disclaimer" style="margin:20px 0 0"><b>For educational purposes only — not medical advice.</b> Not affiliated with or endorsed by doTERRA.</div>
   </div>`;
-  bindOilRows();
-  const si=$("oilSearch"), rowsBox=$("oilRows"), intro=$("oilsIntro"), nm=$("oilNoMatch");
-  si.oninput=()=>{ const q=si.value.toLowerCase().trim();
-    const f=q?ids.filter(id=>OILS[id].name.toLowerCase().includes(q)||(OILS[id].latin||"").toLowerCase().includes(q)):ids;
-    rowsBox.innerHTML=oilRowsHtml(f); bindOilRows();
-    intro.textContent=q?`${f.length} match${f.length===1?'':'es'}`:`All ${ids.length} oils, A–Z. Tap any oil for full details, uses and safety.`;
-    nm.style.display=f.length?"none":"block";
-  };
+  const rowsBox=$("oilRows"), intro=$("oilsIntro"), nm=$("oilNoMatch");
+  function paint(){
+    const {ids,q}=filterIds();
+    rowsBox.innerHTML=oilRowsHtml(ids,productCat==="All"); bindOilRows();
+    intro.textContent=q?`${ids.length} match${ids.length===1?'':'es'}`:(productCat==="All"?`All ${total} products, A–Z`:`${ids.length} ${productCat.toLowerCase()}`);
+    nm.style.display=ids.length?"none":"block";
+  }
+  oilsView.querySelectorAll(".prod-cat").forEach(b=>b.onclick=()=>{ productCat=b.dataset.c;
+    oilsView.querySelectorAll(".prod-cat").forEach(x=>x.classList.toggle("on",x.dataset.c===productCat)); paint(); });
+  $("oilSearch").oninput=paint;
+  paint();
 }
 
 function renderRecent(){
@@ -2363,15 +2840,23 @@ function renderRecipe(id){
 }
 
 /* ===== Videos & Classes ===== */
-function renderVideos(){
-  const cards=VIDEOS.map(v=>`
-    <div class="vid-card">
+let videoCat="All";
+function videoCard(v){
+  return `<div class="vid-card">
       <button class="vid-thumb" data-vid="${v.id}" aria-label="Play ${v.title.replace(/"/g,'&quot;')}">
         <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" loading="lazy" alt="">
         <span class="vt-play"><svg><use href="#ic-play-fill"/></svg></span>
       </button>
       <div class="vid-meta"><div class="vm-title">${v.title}</div><div class="vm-by"><svg style="width:13px;height:13px"><use href="#ic-video"/></svg> ${v.by}</div></div>
-    </div>`).join("");
+    </div>`;
+}
+function bindVideoThumbs(){
+  videosView.querySelectorAll(".vid-thumb").forEach(b=>{ if(b.dataset.bound)return; b.dataset.bound="1";
+    b.onclick=()=>{ const vid=b.dataset.vid;
+      b.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&rel=0" title="doTERRA video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`; }; });
+}
+function renderVideos(){
+  const cats=["All",...VIDEO_CATS];
   videosView.innerHTML=`<div class="vid-wrap">
     <div class="vid-hero">
       <div class="vh-ic"><svg><use href="#ic-play"/></svg></div>
@@ -2383,14 +2868,23 @@ function renderVideos(){
       <span class="cc-text"><span class="cc-t">Prefer to read?</span><span class="cc-d">Open the written “Learn the basics” guide</span></span>
       <span class="chev"><svg><use href="#ic-fwd"/></svg></span>
     </button>
-    ${cards}
+    <div class="prod-cats" style="padding-top:12px">${cats.map(c=>`<button class="prod-cat ${c===videoCat?'on':''}" data-c="${c}">${c}</button>`).join("")}</div>
+    <div id="vidGroups"></div>
     <div class="disclaimer" style="margin:18px 0 0"><b>Educational videos by doTERRA, embedded from YouTube.</b> Home Essential · Oil Finder is not affiliated with or endorsed by doTERRA or YouTube.</div>
   </div>`;
-  videosView.querySelectorAll(".vid-thumb").forEach(b=>b.onclick=()=>{
-    const vid=b.dataset.vid;
-    b.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&rel=0" title="doTERRA video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-  });
+  function paint(){
+    const box=$("vidGroups");
+    const shown=videoCat==="All"?VIDEO_CATS:[videoCat];
+    box.innerHTML=shown.map(cat=>{
+      const vids=VIDEOS.filter(v=>v.cat===cat); if(!vids.length)return "";
+      return `<div class="vid-group"><div class="section-label" style="margin:18px 4px 10px">${cat}</div>${vids.map(videoCard).join("")}</div>`;
+    }).join("");
+    bindVideoThumbs();
+  }
+  videosView.querySelectorAll(".prod-cat").forEach(b=>b.onclick=()=>{ videoCat=b.dataset.c;
+    videosView.querySelectorAll(".prod-cat").forEach(x=>x.classList.toggle("on",x.dataset.c===videoCat)); paint(); scroll.scrollTop=0; });
   $("basicsCta").onclick=()=>go({type:'learn'});
+  paint();
 }
 
 const LEARN=[
@@ -2450,7 +2944,7 @@ function showView(type){
   Object.values(VIEWS).forEach(v=>v.classList.remove("active"));
   (VIEWS[type]||homeView).classList.add("active");
 }
-const subTitles={ailments:"Ailments",settings:"Settings",cart:"Your Cart",oils:"All Oils",recipes:"Recipes",videos:"Videos & Classes",learn:"Learn"};
+const subTitles={ailments:"Ailments",settings:"Settings",cart:"Your Cart",oils:"Products",recipes:"Recipes",videos:"Videos & Classes",learn:"Learn"};
 function setHeader(state){
   if(state.type==='home'){header.classList.remove("sub");}
   else{header.classList.add("sub");
@@ -2525,7 +3019,7 @@ function globalSearchRun(){
   const recm=RECIPES.filter(r=>r.name.toLowerCase().includes(q)||r.cat.toLowerCase().includes(q)||r.oils.some(o=>OILS[o].name.toLowerCase().includes(q))).slice(0,8);
   let html="";
   if(ail.length)html+=`<div class="hr-group"><div class="hr-head"><svg style="width:13px;height:13px"><use href="#ic-pulse"/></svg> Ailments</div>${ail.map(k=>`<button class="hr-row" data-go="cond" data-k="${k}"><span class="hr-ic"><svg><use href="#${COND[k][3]}"/></svg></span><span class="hr-body"><span class="hr-name">${COND[k][0]}</span><span class="hr-sub">Best: ${OILS[COND[k][1]].name}</span></span><span class="hr-chev"><svg><use href="#ic-fwd"/></svg></span></button>`).join("")}</div>`;
-  if(oilm.length)html+=`<div class="hr-group"><div class="hr-head"><svg style="width:13px;height:13px"><use href="#ic-leaf"/></svg> Oils</div>${oilm.map(id=>`<button class="hr-row" data-go="oil" data-k="${id}"><span class="hr-ic">${oilImage(id)}</span><span class="hr-body"><span class="hr-name">${OILS[id].name}</span><span class="hr-sub">${OILS[id].latin||""}</span></span><span class="hr-chev"><svg><use href="#ic-fwd"/></svg></span></button>`).join("")}</div>`;
+  if(oilm.length)html+=`<div class="hr-group"><div class="hr-head"><svg style="width:13px;height:13px"><use href="#ic-leaf"/></svg> Products</div>${oilm.map(id=>`<button class="hr-row" data-go="oil" data-k="${id}"><span class="hr-ic">${oilImage(id)}</span><span class="hr-body"><span class="hr-name">${OILS[id].name}</span><span class="hr-sub">${OILS[id].latin||""}</span></span><span class="hr-chev"><svg><use href="#ic-fwd"/></svg></span></button>`).join("")}</div>`;
   if(recm.length)html+=`<div class="hr-group"><div class="hr-head"><svg style="width:13px;height:13px"><use href="#ic-flask"/></svg> Recipes</div>${recm.map(r=>`<button class="hr-row" data-go="recipe" data-k="${r.id}"><span class="hr-ic"><svg><use href="#${RECIPE_CAT_IC[r.cat]||'ic-flask'}"/></svg></span><span class="hr-body"><span class="hr-name">${r.name}</span><span class="hr-sub">${r.cat}</span></span><span class="hr-chev"><svg><use href="#ic-fwd"/></svg></span></button>`).join("")}</div>`;
   if(!html)html=`<div class="hr-empty">No matches for "<b>${gsEl.value.replace(/</g,'&lt;')}</b>". Try another word.</div>`;
   hubResults.innerHTML=html;
